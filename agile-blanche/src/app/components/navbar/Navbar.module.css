@@ -1,5 +1,10 @@
-/* @media (min-width: 768px) {
-    .color {
-        background-color: blue; 
-    }
-} */
+.navbarLink {
+    color: var(--color-text);
+    text-decoration: none;
+    text-shadow: 1px 1px 1px black;
+}
+
+.navbarLink:hover {
+    color: var(--color-persian-orange);
+    text-shadow: 1px 1px 1px var(--color-persian-orange);
+  }

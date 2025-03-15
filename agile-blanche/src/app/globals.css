@@ -4,6 +4,11 @@
 :root {
   --background: #FFFBEE;
   --foreground: #171717;
+  --color-persian-orange: #e9905a;
+
+  --black: #171717;
+  --color-text: var(--black);
+  --color-primary-action: #e9905a;
 }
 
 @theme inline {
@@ -38,9 +43,12 @@ body {
 }
 
 .bold-action-text {
+  color: var(--black);
   text-shadow: 1px 1px 1px var(--color-persian-orange) ! important;
+  text-decoration: none;
 }
 
 .bold-action-text:hover {
+  color: var(--color-primary-action);
   text-shadow: 1px 1px 1px var(--color-persian-orange) ! important;
 }
