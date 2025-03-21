@@ -1,9 +1,7 @@
 "use client"
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
-import { useEffect } from "react";
 import Navbar from "./components/navbar/Navbar";
-import Bootnav from "./components/Bootnav"
+import Collapsebar2 from "./components/Collapsebar2"
 
 export default function RootLayout({
   children,
@@ -11,15 +9,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  useEffect(() => {
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
-  }, []);
 
   return (
     <html lang="en">
       <body>
-        <Navbar/>
-        <Bootnav/>
+       <Navbar/>
+        {/* <br /> */}
+        {/* <Collapsebar2/> */}
         {children}
       </body>
     </html>

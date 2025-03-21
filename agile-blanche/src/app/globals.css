@@ -9,15 +9,16 @@
   --black: #171717;
   --color-text: var(--black);
   --color-primary-action: #e9905a;
+  --color-secondary-action: #e9905a;
 }
 
-@theme inline {
-  /* --color-background: var(--background);
+/* @theme inline {
+  --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono); */
+  --font-mono: var(--font-geist-mono);
   --color-persian-orange: #e9905a;
-}
+} */
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -38,17 +39,17 @@
 
 body {
   background: var(--background);
-  color: var(--color-persian-orange);
-  font-family: myFirstFont ! important;
+  /* color: var(--color-persian-orange); */
+  /* font-family: myFirstFont; */
 }
 
 .bold-action-text {
   color: var(--black);
-  text-shadow: 1px 1px 1px var(--color-persian-orange) ! important;
+  text-shadow: 1px 1px 1px var(--color-persian-orange);
   text-decoration: none;
 }
 
-.bold-action-text:hover {
+/* .bold-action-text:hover {
   color: var(--color-primary-action);
-  text-shadow: 1px 1px 1px var(--color-persian-orange) ! important;
-}
+  text-shadow: 1px 1px 1px var(--color-persian-orange);
+} */
