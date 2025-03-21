@@ -32,7 +32,7 @@ export default function Example() {
             </DisclosureButton>
         </div>
         {/* This div holds our logo */}
-        <div className="flex inset-y-0 left-0 items-center">
+        <div className="flex-none inset-y-0 left-0 items-center">
               <Image src="/agile-logo.png" alt="company logo" width={170} height={170}/>
         </div>
           {/* These divs holds the mapping logic of our "expanded view" nav links */}
