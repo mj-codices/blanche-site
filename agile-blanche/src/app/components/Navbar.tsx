@@ -8,7 +8,7 @@ type navigation = {
   current: boolean;
 };
 
-const navigation = [
+const navigation: navigation[] = [
   { name: 'Home', href: '#', current: false },
   { name: 'Services', href: '#', current: false },
   { name: 'About', href: '#', current: false },
@@ -20,7 +20,7 @@ function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navbar() {
   return (
     // The Disclosure holds nav-style elements that incorporate dropdown or popup logic
     // @ts-ignore
