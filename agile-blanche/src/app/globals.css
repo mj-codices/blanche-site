@@ -3,6 +3,20 @@
 :root {
   --background: #FFFBEE;
   --foreground: #171717;
+  --color-persian-orange: #e9905a;
+
+  --black: #171717;
+  --color-text: var(--black);
+  --color-primary-action: #e9905a;
+  --color-secondary-action: #e9905a;
+}
+
+@layer utilities {
+  @media (min-width: 1024px) and (max-width: 1366px) {
+    .custom-md-lg {
+      margin-right: 3rem ;
+    }
+  }
 }
 
 /* @theme inline {
@@ -10,6 +24,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-persian-orange: #e9905a;
 } */
 
 /* @media (prefers-color-scheme: dark) {
@@ -19,8 +34,25 @@
   }
 } */
 
+@font-face {
+  font-family: myFirstFont;
+  src: url(../../public/fonts/URWGothic-Book.otf)
+}
+
+@font-face {
+  font-family: myFirstFontBold;
+  src: url(../../public/fonts/URWGothic-Demi.otf);
+  text-shadow: 1px 1px 1px black;
+}
+
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* color: var(--color-persian-orange); */
+  /* font-family: myFirstFont; */
+}
+
+.bold-action-text {
+  color: var(--black);
+  text-shadow: 1px 1px 1px var(--color-persian-orange);
+  text-decoration: none;
 }
