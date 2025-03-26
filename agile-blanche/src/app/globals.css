@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-
 :root {
   --background: #FFFBEE;
   --foreground: #171717;
@@ -20,7 +19,6 @@
   }
 }
 
-
 /* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -35,6 +33,7 @@
     --foreground: #171717;
   }
 } */
+
 @font-face {
   font-family: myFirstFont;
   src: url(../../public/fonts/URWGothic-Book.otf)
@@ -57,8 +56,3 @@ body {
   text-shadow: 1px 1px 1px var(--color-persian-orange);
   text-decoration: none;
 }
-
-/* .bold-action-text:hover {
-  color: var(--color-primary-action);
-  text-shadow: 1px 1px 1px var(--color-persian-orange);
-} */
