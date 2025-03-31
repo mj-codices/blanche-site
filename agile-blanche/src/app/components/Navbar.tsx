@@ -1,4 +1,4 @@
-import { Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/react'
+import { Disclosure, DisclosureButton, DisclosurePanel, Transition} from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 
@@ -25,6 +25,8 @@ export default function Navbar() {
     // The Disclosure holds nav-style elements that incorporate dropdown or popup logic
     // @ts-ignore
     <Disclosure as="nav">
+       {({ open }) => (
+      <>
       {/* This div holds the container that houses the navbar */}
       <div className="mx-0 px-2 sm:px-6 lg:px-8">
         {/* This div is the container for the navbar */}
@@ -68,6 +70,15 @@ export default function Navbar() {
         </div>
       </div>
       {/* The DisclosurePanel holds the dropdown logic we need for our Navbar and renders the "mobile view" nav links */}
+      <Transition
+              show={open}
+              enter="transition-opacity duration-300 ease-in-out"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-300 ease-in-out"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
           {navigation.map((item) => (
@@ -87,6 +98,9 @@ export default function Navbar() {
           ))}
         </div>
       </DisclosurePanel>
+      </Transition>
+      </>
+         )}
     </Disclosure>
   )
 }
