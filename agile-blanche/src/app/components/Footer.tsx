@@ -5,9 +5,22 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 export default function Footer() {
     return (
         <div className="fixed bottom-0 left-0 w-full">
-        <div className="absolute -top-16 left-0 w-full">
+        <div className="absolute top-0 left-0 w-full">
             <svg
-                className="relative block w-full h-16 wave-animation"
+                className="relative block w-full h-16 wave"
+                viewBox="0 0 1200 100"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                d="M0,50 C150,150 350,-50 600,50 C850,150 1050,-50 1200,50 V100 H0 Z"
+                fill="#171717"
+                ></path>
+            </svg>
+        </div>
+        <div className="absolute top-0 left-0 w-full">
+            <svg
+                className="relative block w-full h-16 wave left-[100%]"
                 viewBox="0 0 1200 100"
                 preserveAspectRatio="none"
                 xmlns="http://www.w3.org/2000/svg"
