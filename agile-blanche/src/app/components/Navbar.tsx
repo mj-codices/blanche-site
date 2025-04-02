@@ -12,7 +12,7 @@ const navigation: navigation[] = [
   { name: 'Home', href: '#', current: false },
   { name: 'Services', href: '#', current: false },
   { name: 'About', href: '#', current: false },
-  { name: 'Portfolio', href: '#', current: true },
+  { name: 'Portfolio', href: '#', current: false },
   { name: 'Contact', href: '#', current: false },
 ]
 
@@ -68,7 +68,7 @@ export default function Navbar() {
         </div>
       </div>
       {/* The DisclosurePanel holds the dropdown logic we need for our Navbar and renders the "mobile view" nav links */}
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="absolute w-full sm:hidden bg-[#171717]">
         <div className="space-y-1 px-2 pt-2 pb-3">
           {navigation.map((item) => (
             <DisclosureButton
@@ -78,7 +78,7 @@ export default function Navbar() {
               aria-current={item.current ? 'page' : undefined}
               className={classNames(
                 item.name === 'Contact' ? 'font-[myFirstFontBold]' : 'font-[myFirstFont]',
-                item.current ? 'text-[#e9905a] bold-action-text' : 'text-[#171717] hover:font-[myFirstFontBold] hover:text-[#e9905a]',
+                item.current ? 'text-[#e9905a] bold-action-text' : 'text-white hover:font-[myFirstFontBold] hover:text-[#e9905a]',
                 'block rounded-md px-3 py-2 text-base font-medium',
               )}
             >
