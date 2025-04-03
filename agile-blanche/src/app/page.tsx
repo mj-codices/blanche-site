@@ -6,7 +6,6 @@ export default function Home() {
         <span className="fredoka text-7xl lg:text-8xl tracking-wide">AGILE-</span>
         <span className="fredoka text-[#88807B] text-7xl lg:text-8xl tracking-wide">BLANCHE</span>
       </div>
-      {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
     </section>
     <section className="flex items-center justify-center">
       <div className="pt-15 pl-2">
