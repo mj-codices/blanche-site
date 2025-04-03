@@ -56,3 +56,17 @@ body {
   text-shadow: 1px 1px 1px var(--color-persian-orange);
   text-decoration: none;
 }
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.wave {
+  @apply absolute bottom-0 w-[200%] h-16;
+  animation: waveMove 5s linear infinite;
+}
