@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #FFFBEE;
+  /* --background: #FFFBEE; */
   --foreground: #171717;
   --color-persian-orange: #e9905a;
 
@@ -65,4 +65,45 @@ body {
   font-style: normal;
   font-variation-settings:
     "wdth" 98.1;
+}
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.wave {
+  @apply absolute bottom-0 w-[200%] h-16;
+  animation: waveMove 12s linear infinite;
+}
+
+@media (max-width: 640px) and (orientation: landscape) {
+  .wave {
+    @apply w-[300%] h-12;
+    animation: waveMove 12s linear infinite;
+  }
+  
+  .wave path {
+    d: path("M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z");
+  }
+}
+
+@media (max-width: 640px) and (orientation: portrait) {
+  .wave {
+    @apply w-[300%] h-20;
+    animation: waveMove 10s linear infinite;
+  }
+  
+  .wave path {
+    d: path("M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z");
+  }
+}
+
+@media (min-width: 641px) {
+  .wave path {
+    d: path("M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V100 H0 Z");
+  }
 }
