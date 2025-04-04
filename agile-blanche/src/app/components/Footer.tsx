@@ -1,7 +1,3 @@
-"use client";
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
-
-
 export default function Footer() {
     return (
         <div className="fixed bottom-0 left-0 w-full">
