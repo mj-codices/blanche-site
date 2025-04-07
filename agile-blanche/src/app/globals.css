@@ -52,8 +52,7 @@ body {
 }
 
 .bold-action-text {
-  color: var(--black);
-  text-shadow: 1px 1px 1px var(--color-persian-orange);
+  font-family: myFirstFontBold;
   text-decoration: none;
 }
 
