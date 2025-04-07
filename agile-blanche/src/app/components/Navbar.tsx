@@ -9,7 +9,7 @@ type navigation = {
 };
 
 const navigation: navigation[] = [
-  { name: 'Home', href: '#', current: false },
+  { name: 'Home', href: '#', current: true },
   { name: 'Services', href: '#', current: false },
   { name: 'About', href: '#', current: false },
   { name: 'Portfolio', href: '#', current: false },
@@ -56,7 +56,7 @@ export default function Navbar() {
                         className={classNames(
                           item.name === 'Contact' ? 'font-[myFirstFontBold]' : 'font-[myFirstFont]',
                           item.current ? 'text-[#e9905a] bold-action-text' : 'text-[#171717] transition delay-50 duration-150 ease-in-out hover:text-[#e9905a] hover:font-[myFirstFontBold] hover:drop-shadow-lg',
-                          'px-3 py-2 text-2xl custom-md-lg',
+                          'px-3 py-2 text-xl custom-md-lg',
                         )}
                       >
                         {item.name}
