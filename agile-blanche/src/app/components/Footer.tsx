@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <div className="fixed bottom-0 left-0 w-full">
+        <div className="fixed bottom-0 left-0 w-full landscape:invisible">
             <div className="absolute top-0 left-0 w-full">
                 <svg
                     className="relative block w-full h-16 wave sm:h-16 h-12"
