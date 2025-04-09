@@ -107,7 +107,7 @@ body {
   }
 }
 
-@media (max-width: 896px) and (orientation: landscape),
+@media (max-width: 896px) and (orientation: landscape) and (pointer: coarse),
   (max-width: 932px) and (orientation: landscape) and (pointer: coarse) {
   /* Styles for mobile landscape only */
   .mobile-landscape-hidden {
