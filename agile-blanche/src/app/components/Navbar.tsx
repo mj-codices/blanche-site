@@ -61,7 +61,7 @@ export default function Navbar() {
               {/* These divs holds the mapping logic of our "expanded view" nav links */}
               <div className="flex pt-6 inset-x-0 top-0 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex lg:space-x-25">
+                  <div className="flex lg:space-x-20">
                     {navigation.filter((item) => item.name !== "Contact").map((item) => (
                       renderNavItem(item)
                     ))}
