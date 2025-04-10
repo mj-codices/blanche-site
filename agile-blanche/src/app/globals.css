@@ -52,11 +52,19 @@ body {
 }
 
 .bold-action-text {
-  color: var(--black);
-  text-shadow: 1px 1px 1px var(--color-persian-orange);
+  font-family: myFirstFontBold;
   text-decoration: none;
 }
 
+
+.fredoka {
+  font-family: "Fredoka", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 98.1;
+}
 @keyframes waveMove {
   0% {
     transform: translateX(0);
@@ -98,3 +106,12 @@ body {
     d: path("M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V100 H0 Z");
   }
 }
+
+@media (max-width: 896px) and (orientation: landscape) and (pointer: coarse),
+  (max-width: 932px) and (orientation: landscape) and (pointer: coarse) {
+  /* Styles for mobile landscape only */
+  .mobile-landscape-hidden {
+    visibility: hidden;
+  }
+}
+ 
