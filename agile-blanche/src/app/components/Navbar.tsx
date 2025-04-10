@@ -27,9 +27,9 @@ export default function Navbar() {
       href={item.href}
       aria-current={item.current ? 'page' : undefined}
       className={classNames(
-        item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white text-lg' : 'font-[myFirstFont]',
+        item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white' : 'font-[myFirstFont]',
         item.current ? 'text-[#e9905a] bold-action-text drop-shadow-lg' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
-        'px-3 py-2.5 text-lg lg:text-xl custom-md-lg'
+        'px-3 py-2.5 text-sm md:text-base lg:text-lg'
       )}
     >
       {item.name}
@@ -61,7 +61,7 @@ export default function Navbar() {
               {/* These divs holds the mapping logic of our "expanded view" nav links */}
               <div className="flex pt-6 inset-x-0 top-0 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex lg:space-x-20">
+                  <div className="flex sm:space-x-4 md:space-x-12 lg:space-x-20">
                     {navigation.filter((item) => item.name !== "Contact").map((item) => (
                       renderNavItem(item)
                     ))}
