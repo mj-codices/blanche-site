@@ -28,7 +28,7 @@ export default function Navbar() {
       aria-current={item.current ? 'page' : undefined}
       className={classNames(
         item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white text-lg hover:font-[myFirstFont]' : 'font-[myFirstFont]',
-        item.current ? 'text-[#e9905a] bold-action-text drop-shadow-lg' : 'text-[#171717] transition delay-50 duration-150 ease-in-out hover:text-[#e9905a] hover:font-[myFirstFontBold] hover:drop-shadow-lg',
+        item.current ? 'text-[#e9905a] bold-action-text drop-shadow-lg' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
         'px-3 py-3 text-lg lg:text-xl custom-md-lg'
       )}
     >
