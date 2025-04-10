@@ -11,14 +11,6 @@
   --color-secondary-action: #e9905a;
 }
 
-@layer utilities {
-  @media (min-width: 1024px) and (max-width: 1366px) {
-    .custom-md-lg {
-      margin-right: 3rem ;
-    }
-  }
-}
-
 /* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
