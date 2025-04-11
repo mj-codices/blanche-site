@@ -21,6 +21,20 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  function renderNavItem(item: navigation) {
+    return <a
+      key={item.name}
+      href={item.href}
+      aria-current={item.current ? 'page' : undefined}
+      className={classNames(
+        item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white' : 'font-[myFirstFont]',
+        item.current ? 'text-[#e9905a] bold-action-text drop-shadow-lg' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
+        'px-3 py-2.5 text-sm md:text-base lg:text-lg'
+      )}
+    >
+      {item.name}
+    </a>;
+  }
   return (
     // The Disclosure holds nav-style elements that incorporate dropdown or popup logic
     // @ts-ignore
@@ -30,7 +44,7 @@ export default function Navbar() {
           {/* This div holds the container that houses the navbar */}
           <div className="mx-0 px-2 sm:px-6 lg:px-8">
             {/* This div is the container for the navbar */}
-            <div className="relative flex items-center justify-between">
+            <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
               <div className="absolute top-7 right-0 flex sm:hidden">
                 <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-[#171717] hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
@@ -45,27 +59,19 @@ export default function Navbar() {
                 <Image src="/agile-logo.png" alt="company logo" width={170} height={170} />
               </div>
               {/* These divs holds the mapping logic of our "expanded view" nav links */}
-              <div className="flex h-[10rem] inset-x-0 top-0 items-center justify-center sm:items-stretch sm:justify-start pt-6">
+              <div className="flex pt-6 inset-x-0 top-0 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex lg:space-x-25">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        aria-current={item.current ? 'page' : undefined}
-                        className={classNames(
-                          item.name === 'Contact' ? 'font-[myFirstFontBold]' : 'font-[myFirstFont]',
-                          item.current ? 'text-[#e9905a] bold-action-text' : 'text-[#171717] transition delay-50 duration-150 ease-in-out hover:text-[#e9905a] hover:font-[myFirstFontBold] hover:drop-shadow-lg',
-                          'px-3 py-2 text-xl custom-md-lg',
-                        )}
-                      >
-                        {item.name}
-                      </a>
+                  <div className="flex sm:space-x-4 md:space-x-12 lg:space-x-20">
+                    {navigation.filter((item) => item.name !== "Contact").map((item) => (
+                      renderNavItem(item)
                     ))}
                   </div>
                 </div>
               </div>
-              <div>
+              <div className="hidden sm:flex ml-5 pt-6 w-[170px] items-start">
+                {navigation.filter((item) => item.name === "Contact").map((item) => (
+                  renderNavItem(item)
+                ))}
               </div>
             </div>
           </div>
