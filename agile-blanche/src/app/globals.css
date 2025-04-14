@@ -37,6 +37,12 @@
   text-shadow: 1px 1px 1px black;
 }
 
+
+@font-face {
+  font-family: myFirstFontOblique;
+  src: url(../../public/fonts/URWGothic-DemiOblique.otf)
+}
+
 body {
   background: var(--background);
   /* color: var(--color-persian-orange); */

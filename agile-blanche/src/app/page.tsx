@@ -11,8 +11,8 @@ export default function Home() {
     </section>
     <section className="flex items-center justify-center">
       <div className="pt-6">
-        <span className="pl-2 pr-2 text-3xl sm:text-4xl md:text-4xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a] mobile-landscape-hidden">Software</span>
-        <span className="text-3xl sm:text-4xl md:text-4xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a] mobile-landscape-hidden">Development</span>
+        <span className="pl-2 pr-3 text-3xl sm:text-4xl md:text-4xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a] mobile-landscape-hidden">Software</span>
+        <span className="pr-3 text-3xl sm:text-4xl md:text-4xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a] mobile-landscape-hidden">Development</span>
         <span className="block sm:inline pl-2 sm:pl-2 text-3xl sm:text-4xl md:text-4xl lg:text-6xl tracking-widest mobile-landscape-hidden">Services</span>
         <div className="flex sm:pt-10 items-center justify-center">
           <p className="invisible sm:visible font-[myFirstFontBold] lg:text-[#171717] text-xs sm:text-sm md:text-base lg:text-lg mobile-landscape-hidden">Redefining app development with modern, nimble and results-driven solutions.</p>
