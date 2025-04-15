@@ -9,8 +9,8 @@ type navigation = {
 };
 
 const navigation: navigation[] = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Services', href: '#', current: false },
+  { name: 'Home', href: '#', current: false },
+  { name: 'Services', href: '#', current: true },
   { name: 'About', href: '#', current: false },
   { name: 'Portfolio', href: '#', current: false },
   { name: 'Contact', href: '#', current: false },
