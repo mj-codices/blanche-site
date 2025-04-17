@@ -56,7 +56,7 @@ export default function ServiceCard() {
               className={
                 isWebDev
                   ? `perspective transform-3d transition-transform duration-500 ${flipped ? "rotate-y-180" : ""} relative block flex h-95 w-75 flex-col items-center rounded-lg border border-gray-200 bg-gray-100 text-[#88807B] shadow-lg`
-                  : `relative block h-80 w-60 rounded-lg border border-gray-200 bg-white px-2 text-[#88807B] shadow-lg`
+                  : `relative block h-80 w-60 rounded-lg border border-gray-200 bg-[#FDFDFB] px-2 text-[#88807B] shadow-lg`
               }
             >
               <div
