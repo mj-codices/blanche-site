@@ -111,7 +111,7 @@ export default function ServiceCard() {
                 >
                   BACK
                 </button>
-                <button className="mx-5 text-xs mt-5 mb-1 px-3 pb-2 pt-3 rounded-full font-[myFirstFontBold] text-white bg-[#171717]">
+                <button className="mx-5 text-xs mt-5 mb-1 px-3 pb-2 pt-3 rounded-full font-[myFirstFontBold] text-white bg-[#171717] hover:drop-shadow-md">
                   MORE ABOUT
                 </button>
                 </div>
