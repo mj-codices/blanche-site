@@ -103,12 +103,18 @@ export default function ServiceCard() {
                   }
                 >
                   <p className="text-center text-[#88807B] px-6 pt-10 text-sm leading-6">{serviceInfo[1].descriptionCont}</p>
+                  
+                  <div className="flex items-center gap-4">
                   <button
                   onClick={() => setFlipped(false)}
-                  className="mx-25 mt-10 mb-5 flex justify-center rounded-full bg-[#e9905a] px-3 pt-3 pb-2 font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm"
+                  className="mx-5 mt-10 mb-5 rounded-full bg-[#e9905a] px-3 pt-3 pb-2 font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm"
                 >
                   BACK
                 </button>
+                <button className="mx-5 text-xs mt-5 mb-1 px-3 pb-2 pt-3 rounded-full font-[myFirstFontBold] text-white bg-[#171717]">
+                  MORE ABOUT
+                </button>
+                </div>
                 </div>
               )}
 
