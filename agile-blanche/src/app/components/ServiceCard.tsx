@@ -56,14 +56,14 @@ export default function ServiceCard() {
               className={
                 isWebDev
                   ? `perspective transform-3d transition-transform duration-800 ${flipped ? "rotate-y-180" : ""} relative block flex lg:h-95 lg:w-75 md:h-85 md:w-65 flex-col md:items-center rounded-lg border border-gray-200 bg-gray-100 text-[#88807B] shadow-lg  md:p-0`
-                  : `relative block lg:h-80 lg:w-60 md:h-70 md:w-50 rounded-lg border border-gray-200 bg-[#FDFDFB] sm:p-5 md:px-2 text-[#88807B] shadow-lg`
+                  : `relative block lg:h-80 lg:w-60 md:h-70 md:w-50 rounded-lg border border-gray-200 bg-[#FDFDFB] p-3 sm:p-5 md:px-2 text-[#88807B] shadow-lg`
               }
             >
               <div
                 className={
                   isWebDev
-                    ? `absolute md:-top-12 lg:mx-22 md:mx-20 flex sm:size-14 md:size-21 lg:size-24 rounded-lg bg-[#171717] lg:px-1 lg:pt-2 md:px-1 md:pt-0 shadow-lg sm:ml-5 sm:mt-5 `
-                    : `absolute md:-top-5 lg:mx-20 md:mx-16 flex md:size-14 lg:size-16 rounded-lg bg-[#171717] lg:px-1 lg:py-1 md:px-1 md:pt-0 md:pb-1 shadow-lg`
+                    ? `absolute md:-top-12 lg:mx-22 md:mx-20 flex size-12 sm:size-14 md:size-21 lg:size-24 rounded-lg bg-[#171717] lg:px-1 lg:pt-2 md:px-1 md:pt-0 shadow-lg sm:ml-5 sm:mt-5 `
+                    : `absolute md:-top-5 lg:mx-20 md:mx-16 flex size-12 sm:size-14 lg:size-16 rounded-lg bg-[#171717] lg:px-1 lg:py-1 md:px-1 md:pt-0 md:pb-1 shadow-lg`
                 }
               >
                 <Icon className={iconClassName}></Icon>
@@ -79,14 +79,14 @@ export default function ServiceCard() {
               </h2>
               <p className={
                   isWebDev
-                    ?  `sm:pb-5 sm:pl-25 sm:pr-7 md:px-4 lg:pt-3 md:pt-2 md:text-center sm:text-xs lg:text-sm sm:leading-5 md:leading-5 lg:leading-6 sm:text-left`
-                    :   `sm:pl-20 sm:pr-7 md:px-4 lg:pt-3 md:pt-2 md:text-center sm:text-xs lg:text-sm sm:leading-5 md:leading-5 lg:leading-6 sm:text-left` }>
+                    ?  `sm:pb-5 sm:pl-25 sm:pr-7 md:px-5 lg:pt-3 md:pt-2 lg:px-5 md:text-center text-xs sm:leading-5 md:leading-6 lg:leading-6 sm:text-left`
+                    :   `sm:pl-20 sm:pr-7 md:px-2 lg:px-5 lg:pt-3 md:pt-2 md:text-center text-xs sm:leading-5 md:leading-5 lg:leading-6 sm:text-left` }>
                 {item.description}
               </p>
               {index === 1 && (
                 <button
                   onClick={() => setFlipped(true)}
-                  className={`${flipped ? "opacity-0" : "opacity-100"} sm:absolute md:relative top-0 right-0 sm:h-full md:h-auto lg:mx-25 lg:mt-3 lg:mb-5 md:mx-25 md:mt-4 md:mb-5 lg:px-3 lg:pt-3 lg:pb-2 md:px-3 md:pt-2 md:pb-1 sm:pr-1 justify-center sm:rounded-tr sm:rounded-br md:rounded-full bg-[#e9905a] font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm writing-vertical-rl`}
+                  className={`${flipped ? "opacity-0" : "opacity-100"} sm:absolute md:relative top-0 right-0 sm:h-full md:h-auto lg:mx-25 lg:mt-3 lg:mb-5 md:mx-25 md:mt-1 md:mb-5 lg:px-3 lg:pt-3 lg:pb-2 md:px-3 md:pt-2 md:pb-1 sm:pr-1 justify-center sm:rounded-tr sm:rounded-br md:rounded-full bg-[#e9905a] font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm writing-vertical-rl`}
                 >
                   MORE
                 </button>
