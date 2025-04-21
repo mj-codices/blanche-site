@@ -55,14 +55,14 @@ export default function ServiceCard() {
               key={index}
               className={
                 isWebDev
-                  ? `perspective transform-3d transition-transform duration-500 ${flipped ? "rotate-y-180" : ""} relative block flex lg:h-95 lg:w-75 md:h-85 md:w-65 flex-col md:items-center rounded-lg border border-gray-200 bg-gray-100 text-[#88807B] shadow-lg  md:p-0`
+                  ? `perspective transform-3d transition-transform duration-800 ${flipped ? "rotate-y-180" : ""} relative block flex lg:h-95 lg:w-75 md:h-85 md:w-65 flex-col md:items-center rounded-lg border border-gray-200 bg-gray-100 text-[#88807B] shadow-lg  md:p-0`
                   : `relative block lg:h-80 lg:w-60 md:h-70 md:w-50 rounded-lg border border-gray-200 bg-[#FDFDFB] sm:p-5 md:px-2 text-[#88807B] shadow-lg`
               }
             >
               <div
                 className={
                   isWebDev
-                    ? `absolute md:-top-7 lg:mx-22 md:mx-20 flex sm:size-14 md:size-21 lg:size-24 rounded-lg bg-[#171717] lg:px-1 lg:pt-2 md:px-1 md:pt-0 shadow-lg sm:ml-5 sm:mt-5`
+                    ? `absolute md:-top-12 lg:mx-22 md:mx-20 flex sm:size-14 md:size-21 lg:size-24 rounded-lg bg-[#171717] lg:px-1 lg:pt-2 md:px-1 md:pt-0 shadow-lg sm:ml-5 sm:mt-5 `
                     : `absolute md:-top-5 lg:mx-20 md:mx-16 flex md:size-14 lg:size-16 rounded-lg bg-[#171717] lg:px-1 lg:py-1 md:px-1 md:pt-0 md:pb-1 shadow-lg`
                 }
               >
@@ -72,7 +72,7 @@ export default function ServiceCard() {
                 className={
                   isWebDev
                     ? `lg:pt-22 md:pt-18 md:text-center sm:pl-25 sm:pt-5 md:pl-0 font-[myFirstFontBold] lg:text-lg md:text-base text-[#171717]`
-                    : `lg:pt-16 md:pt-12 md:text-center sm:pl-20 md:pl-0 font-[myFirstFontBold] lg:text-base md:text-sm text-[#171717]`
+                    : `lg:pt-14 md:pt-10 md:text-center sm:pl-20 md:pl-0 font-[myFirstFontBold] lg:text-base md:text-sm text-[#171717]`
                 }
               >
                 {item.name}
