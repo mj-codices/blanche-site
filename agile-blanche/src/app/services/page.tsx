@@ -36,7 +36,7 @@ export default function ServicesPage() {
     //       : `size-10 pb-2 sm:p-1 m-2 text-white`;
     //   };
   return (
-    <div className={`mx-5 flex flex-col items-start justify-center space-y-4 pl-4 sm:space-y-6 sm:pr-10 sm:pl-8 md:mx-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pl-0 lg:space-x-12`}>
+    <div className={`mx-5 flex flex-col min-h-screen items-start justify-center space-y-4 pl-4 sm:space-y-6 sm:pr-10 sm:pl-8 md:mx-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pl-0 lg:space-x-12`}>
       {serviceInfo.map((item, index) => {
         return (
             <ServiceCard name={item.name} icon={item.icon} description={item.description} descriptionCont={item.descriptionCont} index={index} key={index} />
