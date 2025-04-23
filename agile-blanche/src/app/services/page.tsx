@@ -27,19 +27,19 @@ const serviceInfo = [
 ];
 
 export default function ServicesPage() {
-    // const getClassName = (isWebDev: boolean): string => {
-    //     if (flipped && isWebDev) {
-    //       return "invisible";
-    //     }
-    //     return isWebDev
-    //       ? `size-18 md:pt-1 pb-5 sm:pb-3 md:pb-0 mx-2 text-white`
-    //       : `size-10 pb-2 sm:p-1 m-2 text-white`;
-    //   };
+  // const getClassName = (isWebDev: boolean): string => {
+  //     if (flipped && isWebDev) {
+  //       return "invisible";
+  //     }
+  //     return isWebDev
+  //       ? `size-18 md:pt-1 pb-5 sm:pb-3 md:pb-0 mx-2 text-white`
+  //       : `size-10 pb-2 sm:p-1 m-2 text-white`;
+  //   };
   return (
-    <div className={`mx-5 flex flex-col min-h-screen items-start justify-center space-y-4 pl-4 sm:space-y-6 sm:pr-10 sm:pl-8 md:mx-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pl-0 lg:space-x-12`}>
+    <div className={`mx-5 flex flex-col items-start justify-center space-y-4 pl-4 sm:space-y-6 sm:pr-10 sm:pl-8 md:mx-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pl-0 lg:space-x-12`}>
       {serviceInfo.map((item, index) => {
         return (
-            <ServiceCard name={item.name} icon={item.icon} description={item.description} descriptionCont={item.descriptionCont} index={index} key={index} />
+          <ServiceCard name={item.name} icon={item.icon} description={item.description} descriptionCont={item.descriptionCont} index={index} key={index} />
         )
       })}
     </div>
