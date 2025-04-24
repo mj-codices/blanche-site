@@ -42,7 +42,7 @@ export default function Navbar() {
       {({ open }) => (
         <>
           {/* This div holds the container that houses the navbar */}
-          <div className="mx-0 px-2 sm:px-6 lg:px-8 ">
+          <div className="relative mx-0 px-2 sm:px-6 lg:px-8 z-50">
             {/* This div is the container for the navbar */}
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
@@ -85,7 +85,7 @@ export default function Navbar() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <DisclosurePanel className="absolute w-full sm:hidden bg-[#171717]">
+            <DisclosurePanel className="absolute w-screen sm:hidden bg-[#171717] z-50">
               <div className="space-y-1 px-2 pt-2 pb-3">
                 {navigation.map((item) => (
                   <DisclosureButton
