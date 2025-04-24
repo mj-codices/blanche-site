@@ -22,15 +22,15 @@ export default function ServiceCard({ name, icon, description, index, descriptio
   return (
     <div className={
         !isWebDev 
-            ? `pr-5 md:pr-0`
-            : ``
+            ? `pr-5 md:pr-0 z-10`
+            : `z-10`
     }>
       <div
         key={index}
         className={
           isWebDev
-            ? `perspective transition-transform duration-800 transform-3d ${flipped ? "rotate-y-180" : ""} relative block flex flex-col rounded-lg border border-gray-200 bg-gray-100 p-0 text-[#88807B] shadow-lg h-40 w-full max-w-145 min-w-110 sm:h-35 sm:w-full sm:max-w-170 sm:min-w-147 md:h-85 md:w-65 md:max-w-65 md:min-w-65 md:items-center lg:h-95 lg:w-75 lg:max-w-75 lg:min-w-75`
-            : `relative block h-auto w-full max-w-140 min-w-105 rounded-lg border border-gray-200 bg-[#FDFDFB] p-3 text-[#88807B] shadow-lg sm:w-full sm:max-w-160 sm:min-w-140 sm:p-5 md:h-70 md:w-50 md:max-w-50 md:min-w-50 md:px-2 lg:h-80 lg:w-60 lg:max-w-60 lg:min-w-60`
+            ? `perspective transition-transform duration-800 transform-3d ${flipped ? "rotate-y-180" : ""} relative block flex flex-col rounded-lg border border-gray-200 bg-gray-100 p-0 text-[#88807B] shadow-lg h-40 w-full max-w-145 min-w-70 sm:h-35 sm:w-full sm:max-w-170 sm:min-w-147 md:h-85 md:w-65 md:max-w-65 md:min-w-65 md:items-center lg:h-95 lg:w-75 lg:max-w-75 lg:min-w-75`
+            : `relative block h-auto w-full max-w-140 min-w-65 rounded-lg border border-gray-200 bg-[#FDFDFB] p-3 text-[#88807B] shadow-lg sm:w-full sm:max-w-160 sm:min-w-140 sm:p-5 md:h-70 md:w-50 md:max-w-50 md:min-w-50 md:px-2 lg:h-80 lg:w-60 lg:max-w-60 lg:min-w-60`
         }
       >
         <div
@@ -54,7 +54,7 @@ export default function ServiceCard({ name, icon, description, index, descriptio
         <p
           className={
             isWebDev
-              ? `pr-8 pb-5 pl-18 text-xs leading-5 sm:pr-7 sm:pb-5 sm:pl-25 sm:text-left md:px-5 md:pt-2 md:text-center md:leading-6 lg:px-5 lg:pt-3`
+              ? `pr-8 pb-5 pl-18 text-xs leading-5 sm:pr-7 sm:pb-5 sm:pl-25 sm:text-left md:px-5 md:pt-2 md:text-center md:leading-6 lg:px-5 lg:pt-3 overflow-x-hidden overflow-y-hidden md:overflow-x-visible md:overflow-y-visible`
               : `pb-2 pl-15 text-xs leading-5 sm:pr-7 sm:pl-20 sm:text-left md:px-2 md:pt-2 md:text-center lg:px-5 lg:pt-3 lg:leading-6`
           }
         >
@@ -77,14 +77,14 @@ export default function ServiceCard({ name, icon, description, index, descriptio
           <div
             className={
               isWebDev
-                ? `absolute block flex h-40 w-full max-w-145 min-w-110 rotate-y-180 flex-row rounded-lg border border-gray-200 bg-gray-100 shadow-lg backface-hidden sm:h-35 sm:w-full sm:max-w-170 sm:min-w-147 md:h-85 md:w-65 md:max-w-65 md:min-w-65 md:flex-col md:items-center lg:h-95 lg:w-75 lg:max-w-75 lg:min-w-75`
+                ? `absolute block flex h-40 w-full max-w-145 min-w-70 rotate-y-180 flex-row rounded-lg border border-gray-200 bg-gray-100 shadow-lg backface-hidden sm:h-35 sm:w-full sm:max-w-170 sm:min-w-147 md:h-85 md:w-65 md:max-w-65 md:min-w-65 md:flex-col md:items-center lg:h-95 lg:w-75 lg:max-w-75 lg:min-w-75`
                 : ``
             }
           >
             {/* <h4 className="md:invisible sm:pl-20">Web Development Cont.</h4> */}
             {
               !descriptionCont ? <></> : 
-              <p className="pt-6 pr-6 pb-4 pl-6 text-left text-xs leading-5 text-[#88807B] sm:pt-6 sm:pr-6 sm:pb-5 sm:pl-6 md:p-5 md:px-6 md:pt-10 md:text-center md:leading-6">
+              <p className="pt-6 pr-6 pb-4 pl-6 text-left text-xs leading-5 text-[#88807B] sm:pt-6 sm:pr-6 sm:pb-5 sm:pl-6 md:p-5 md:px-6 md:pt-10 md:text-center md:leading-6 overflow-x-hidden overflow-y-hidden md:overflow-x-visible md:overflow-y-visible">
               {descriptionCont}
             </p>}
 
