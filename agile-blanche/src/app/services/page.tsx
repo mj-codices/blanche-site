@@ -28,10 +28,12 @@ const serviceInfo = [
 
 export default function ServicesPage() {
   return (
-    <div className={`mx-5 flex flex-col items-start justify-center space-y-4 pl-1 sm:space-y-6 sm:pr-10 sm:pl-8 md:mx-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pl-0 lg:space-x-12 z-10`}>
+    <div className={`mx-auto flex flex-col items-start justify-center space-y-4 pl-1 sm:space-y-6 pr-3 md:pr-0 lg:pr-0 sm:pl-8 md:mx-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pl-0 lg:space-x-12 z-10`}>
       {serviceInfo.map((item, index) => {
         return (
-          <ServiceCard name={item.name} icon={item.icon} description={item.description} descriptionCont={item.descriptionCont} index={index} key={index} />
+            <ServiceCard name={item.name} icon={item.icon} description={item.description} descriptionCont={item.descriptionCont} index={index} key={index} />
+
+         
         )
       })}
     </div>
