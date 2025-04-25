@@ -46,7 +46,7 @@ export default function Navbar() {
             {/* This div is the container for the navbar */}
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
-              <div className="fixed top-7 right-0 flex sm:hidden pr-4">
+              <div className="absolute top-7 right-0 flex sm:hidden pr-4">
                 <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-[#171717] hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
