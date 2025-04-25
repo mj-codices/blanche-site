@@ -1,19 +1,20 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type navigation = {
   name: string;
   href: string;
-  current: boolean;
 };
 
 const navigation: navigation[] = [
-  { name: 'Home', href: '#', current: false },
-  { name: 'Services', href: '#', current: true },
-  { name: 'About', href: '#', current: false },
-  { name: 'Portfolio', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services'},
+  { name: 'About', href: '#' },
+  { name: 'Portfolio', href: '#'},
+  { name: 'Contact', href: '#'}
 ]
 
 function classNames(...classes: any[]) {
@@ -21,19 +22,21 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
   function renderNavItem(item: navigation) {
-    return <a
+    const isActive = pathname === item.href;
+    return <Link
       key={item.name}
       href={item.href}
-      aria-current={item.current ? 'page' : undefined}
+      aria-current={isActive ? 'page' : undefined}
       className={classNames(
         item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white hover:text-white' : 'font-[myFirstFont]',
-        item.current ? 'text-[#e9905a] bold-action-text' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
+        isActive ? 'text-[#e9905a] bold-action-text' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
         'px-3 py-2.5 text-sm md:text-base lg:text-lg'
       )}
     >
       {item.name}
-    </a>;
+    </Link>;
   }
   return (
     // The Disclosure holds nav-style elements that incorporate dropdown or popup logic
