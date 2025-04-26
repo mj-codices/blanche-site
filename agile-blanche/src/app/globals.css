@@ -119,7 +119,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 766px) {
   .writing-vertical-rl {
     writing-mode: vertical-rl; /* or horizontal-tb if you want to be specific */
   }
