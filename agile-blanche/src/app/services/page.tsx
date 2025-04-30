@@ -2,7 +2,6 @@
 import ServiceCard from "../components/ServiceCard";
 import { FaMobileAlt, FaLaptopCode, FaHeadset } from "react-icons/fa";
 
-// Page Resposibility: have the card data to map over, is the container div
 const serviceInfo = [
   {
     name: "Mobile Development",

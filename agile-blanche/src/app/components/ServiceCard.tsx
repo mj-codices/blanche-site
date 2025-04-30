@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 
-// Component Responsibility: isolated responsibility of showing a single card. this one's fancy where is can handle if it's a flip-able card or not.
-
 export default function ServiceCard({ name, icon, description, index, descriptionCont = null }:any) {
   const [flipped, setFlipped] = useState(false);
 
