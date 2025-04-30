@@ -31,7 +31,7 @@ export default function Navbar() {
       aria-current={isActive ? 'page' : undefined}
       className={classNames(
         item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white hover:text-white' : 'font-[myFirstFont]',
-        isActive ? 'text-[#e9905a] bold-action-text' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
+        isActive ? 'text-[#e9905a]' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
         'px-3 py-2.5 text-sm md:text-base lg:text-lg'
       )}
     >
@@ -45,7 +45,7 @@ export default function Navbar() {
       {({ open }) => (
         <>
           {/* This div holds the container that houses the navbar */}
-          <div className="relative mx-0 px-2 sm:px-6 lg:px-8 z-50">
+          <div className={`relative mx-0 px-2 sm:px-6 lg:px-8 z-50`}>
             {/* This div is the container for the navbar */}
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
