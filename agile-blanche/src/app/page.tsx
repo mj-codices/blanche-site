@@ -18,7 +18,7 @@ export default function Home() {
           <p className="invisible sm:visible font-[myFirstFontBold] lg:text-[#171717] text-xs sm:text-sm md:text-base lg:text-lg mobile-landscape-hidden">Redefining app development with modern, nimble and results-driven solutions.</p>
         </div>
         <div className="flex items-center justify-center">
-            <Button className="rounded-full bg-[#171717] font-[myFirstFont] text-white transition delay-50 duration-150 ease-in-out hover:drop-shadow-lg hover:text-[#e9905a] text-lg pl-3.5 pr-3.5 pb-3 pt-3.5 mt-10">Contact Us</Button>
+            <Button className="rounded-full bg-[#171717] font-[myFirstFont] text-white transition delay-50 duration-150 ease-in-out hover:drop-shadow-lg text-lg pl-3.5 pr-3.5 pb-3 pt-3.5 mt-10">Contact Us</Button>
         </div>
       </div>
     </section>

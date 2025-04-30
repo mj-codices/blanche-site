@@ -54,7 +54,6 @@ body {
   text-decoration: none;
 }
 
-
 .fredoka {
   font-family: "Fredoka", sans-serif;
   font-optical-sizing: auto;
@@ -118,3 +117,15 @@ body {
     padding-top: 0px;
   }
 }
+
+
+@media (max-width: 766px) {
+  .writing-vertical-rl {
+    writing-mode: vertical-rl; /* or horizontal-tb if you want to be specific */
+  }
+
+  .button-text-upright {
+    text-orientation: initial;
+  }
+}
+

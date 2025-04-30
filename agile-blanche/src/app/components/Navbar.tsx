@@ -1,19 +1,20 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 type navigation = {
   name: string;
   href: string;
-  current: boolean;
 };
 
 const navigation: navigation[] = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Services', href: '#', current: false },
-  { name: 'About', href: '#', current: false },
-  { name: 'Portfolio', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services'},
+  { name: 'About', href: '#' },
+  { name: 'Portfolio', href: '#'},
+  { name: 'Contact', href: '#'}
 ]
 
 function classNames(...classes: any[]) {
@@ -21,32 +22,36 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   function renderNavItem(item: navigation) {
-    return <a
+    const isActive = pathname === item.href;
+    return <Link
       key={item.name}
       href={item.href}
-      aria-current={item.current ? 'page' : undefined}
+      aria-current={isActive ? 'page' : undefined}
       className={classNames(
-        item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white' : 'font-[myFirstFont]',
-        item.current ? 'text-[#e9905a] bold-action-text drop-shadow-lg' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
+        item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white hover:text-white' : 'font-[myFirstFont]',
+        isActive ? 'text-[#e9905a]' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
         'px-3 py-2.5 text-sm md:text-base lg:text-lg'
       )}
     >
       {item.name}
-    </a>;
+    </Link>;
   }
+
   return (
     // The Disclosure holds nav-style elements that incorporate dropdown or popup logic
     // @ts-ignore
     <Disclosure as="nav">
-      {({ open }) => (
+      {({ open }:any) => (
         <>
           {/* This div holds the container that houses the navbar */}
-          <div className="mx-0 px-2 sm:px-6 lg:px-8">
+          <div className={`relative mx-0 px-2 sm:px-6 lg:px-8 z-50`}>
             {/* This div is the container for the navbar */}
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
-              <div className="absolute top-7 right-0 flex sm:hidden">
+              <div className="absolute top-7 right-0 flex sm:hidden pr-4">
                 <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-[#171717] hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -85,23 +90,26 @@ export default function Navbar() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <DisclosurePanel className="absolute w-full sm:hidden bg-[#171717]">
+            <DisclosurePanel className="absolute w-screen sm:hidden bg-[#171717] z-50">
               <div className="space-y-1 px-2 pt-2 pb-3">
-                {navigation.map((item) => (
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
                   <DisclosureButton
                     key={item.name}
                     as={"a" as const}
                     href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={isActive ? 'page' : undefined}
                     className={classNames(
                       item.name === 'Contact' ? 'font-[myFirstFontBold]' : 'font-[myFirstFont]',
-                      item.current ? 'text-[#e9905a] bold-action-text' : 'text-white hover:font-[myFirstFontBold] hover:text-[#e9905a]',
+                      isActive ? 'text-[#e9905a] bold-action-text' : 'text-white hover:font-[myFirstFontBold] hover:text-[#e9905a]',
                       'block rounded-md px-3 py-2 text-base font-medium',
                     )}
                   >
                     {item.name}
                   </DisclosureButton>
-                ))}
+                  );
+                })}
               </div>
             </DisclosurePanel>
           </Transition>
