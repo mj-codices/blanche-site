@@ -23,6 +23,7 @@ function classNames(...classes: any[]) {
 
 export default function Navbar() {
   const pathname = usePathname();
+
   function renderNavItem(item: navigation) {
     const isActive = pathname === item.href;
     return <Link
@@ -38,11 +39,12 @@ export default function Navbar() {
       {item.name}
     </Link>;
   }
+
   return (
     // The Disclosure holds nav-style elements that incorporate dropdown or popup logic
     // @ts-ignore
     <Disclosure as="nav">
-      {({ open }) => (
+      {({ open }:any) => (
         <>
           {/* This div holds the container that houses the navbar */}
           <div className={`relative mx-0 px-2 sm:px-6 lg:px-8 z-50`}>
@@ -90,21 +92,24 @@ export default function Navbar() {
           >
             <DisclosurePanel className="absolute w-screen sm:hidden bg-[#171717] z-50">
               <div className="space-y-1 px-2 pt-2 pb-3">
-                {navigation.map((item) => (
+                {navigation.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
                   <DisclosureButton
                     key={item.name}
                     as={"a" as const}
                     href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
+                    aria-current={isActive ? 'page' : undefined}
                     className={classNames(
                       item.name === 'Contact' ? 'font-[myFirstFontBold]' : 'font-[myFirstFont]',
-                      item.current ? 'text-[#e9905a] bold-action-text' : 'text-white hover:font-[myFirstFontBold] hover:text-[#e9905a]',
+                      isActive ? 'text-[#e9905a] bold-action-text' : 'text-white hover:font-[myFirstFontBold] hover:text-[#e9905a]',
                       'block rounded-md px-3 py-2 text-base font-medium',
                     )}
                   >
                     {item.name}
                   </DisclosureButton>
-                ))}
+                  );
+                })}
               </div>
             </DisclosurePanel>
           </Transition>
