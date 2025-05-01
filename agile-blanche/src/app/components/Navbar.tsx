@@ -12,7 +12,7 @@ type navigation = {
 const navigation: navigation[] = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services'},
-  { name: 'About', href: '#' },
+  { name: 'About', href: '/about' },
   { name: 'Portfolio', href: '#'},
   { name: 'Contact', href: '#'}
 ]
