@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BlobButton from "../components/BlobButton";
+import { BlobButton } from "../components/BlobButton/BlobButton";
 
 
 export default function AboutPage() {
@@ -45,10 +45,10 @@ export default function AboutPage() {
           </div> */}
 
           <div className="mt-10 flex justify-center space-x-4">
-              <BlobButton>Contact Us</BlobButton>
-              <BlobButton>Our Work</BlobButton>
-            </div>
-    
+            <BlobButton text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
+            <BlobButton text="Our Work" onClick={() => console.log('Work button clicked!')} />
+          </div>
+
 
         </section>
         <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">

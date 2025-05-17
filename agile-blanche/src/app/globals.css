@@ -6,11 +6,15 @@
   --background: #FFFFFF;
   --foreground: #171717;
   --color-persian-orange: #e9905a;
-
   --black: #171717;
   --color-text: var(--black);
   --color-primary-action: #e9905a;
   --color-secondary-action: #e9905a;
+  
+  /* Blob button variables */
+  --cyan: #171717;
+  --dark: #e9905a;
+  --borderW: 2px;
 }
 
 /* @theme inline {

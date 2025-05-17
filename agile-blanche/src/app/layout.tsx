@@ -29,23 +29,19 @@ export default function RootLayout({
           <Footer />
         </div>
         <svg style={{ position: "absolute", width: 0, height: 0, visibility: "hidden" }}>
-        <defs>
-          <filter id="goo">
-            <feGaussianBlur
-              in="SourceGraphic"
-              result="blur"
-              stdDeviation="10"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
-              result="goo"
-            />
-            <feBlend in="SourceGraphic" in2="goo" result="mix" />
-          </filter>
-        </defs>
-      </svg>
+          <defs>
+            <filter id="goo">
+              <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+                result="goo"
+              />
+              <feBlend in="SourceGraphic" in2="goo" result="mix" />
+            </filter>
+          </defs>
+        </svg>
       </body>
     </html>
   );
