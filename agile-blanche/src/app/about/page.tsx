@@ -1,10 +1,11 @@
+"use client"
 import Image from "next/image";
 import { BlobButton } from "../components/BlobButton/BlobButton";
 
 
 export default function AboutPage() {
   return (
-    <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-10 lg:mb-15">
+    <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
       <div className="z-50 mb-5 flex h-auto flex-row justify-center space-x-6 pb-2 text-lg shadow-lg sm:mb-5 sm:pb-4 sm:pl-10 sm:text-xl md:mb-0 md:pl-0 md:text-2xl lg:text-3xl">
         <span>A</span>
         <span>B</span>
@@ -20,7 +21,7 @@ export default function AboutPage() {
             Where <span className="text-[#e9905a]">pragmatism</span> meets the
             human <span className="text-[#e9905a]">spirit</span>
           </h1>
-          <p className="px-15 pt-4 text-center text-sm leading-7 text-[#88807B] sm:px-20 sm:pt-5 sm:text-base md:p-0 md:text-left md:text-lg md:leading-9 lg:text-xl lg:leading-11">
+          <p className="px-15 pt-4 text-center text-sm leading-7 text-[#88807B] sm:px-20 sm:pt-5 sm:text-base md:p-0 md:mb-10 lg:mb-0 md:text-left md:text-lg md:leading-9 lg:text-xl lg:leading-11">
             Combining technical expertise with personal touch, we at{" "}
             <span className="fredoka text-xs tracking-wider text-[#171717] sm:text-sm md:pl-1 md:text-base lg:text-lg">
               AGILE-
@@ -32,23 +33,10 @@ export default function AboutPage() {
             your ideas and businesses to grow. As a small team, we champion
             practical solutions, clear communication, and custom development.
           </p>
-          {/* <div className="flex flex-row items-center justify-center my-5 sm:my-8 lg:mt-2 md:hidden lg:inline-flex lg:space-x-7">
-            <button className="mt-1 flex cursor-pointer rounded-full border-2 border-black bg-[#171717] px-3 py-2 text-xs whitespace-nowrap text-white sm:text-sm lg:ml-8 lg:text-base">
-              Contact Us
-            </button>
-            
-            <div className="lg:hidden mx-3 h-[40px] sm:h-[45px] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
-
-            <button className="mt-1 flex cursor-pointer rounded-full border-2 border-black bg-white px-4 py-2 text-xs whitespace-nowrap text-black sm:text-sm lg:text-base">
-              Our Work
-            </button>
-          </div> */}
-
-          <div className="mt-10 flex justify-center space-x-4">
-            <BlobButton text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
+          <div className="flex flex-row justify-center my-3 sm:my-4 lg:my-0 lg:mb-10 lg:ml-5 md:hidden lg:inline-flex">
+            <BlobButton isOrange={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
             <BlobButton text="Our Work" onClick={() => console.log('Work button clicked!')} />
           </div>
-
 
         </section>
         <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">
@@ -62,7 +50,7 @@ export default function AboutPage() {
             width={1200}
             height={500}
           />
-          <div className="md:pl-4">
+          <div className="md:pl-2">
             <p className="pt-6 text-center text-xs tracking-widest text-[#88807B] md:text-left">
               JESLYN WHITE - Senior Software Developer
             </p>
@@ -70,14 +58,10 @@ export default function AboutPage() {
               JULIAN WHITE - Software Developer
             </p>
           </div>
-          <span className="hidden md:block lg:hidden">
-            <button className="mt-5 ml-12 flex inline cursor-pointer rounded-full border-1 border-black bg-[#171717] px-3 py-2 text-sm whitespace-nowrap text-white">
-              Contact Us
-            </button>
-            <button className="mt-5 ml-8 flex inline cursor-pointer rounded-full border-2 border-black bg-white px-4 py-2 text-sm whitespace-nowrap text-black">
-              Our Work
-            </button>
-          </span>
+          <div className="flex flex-row md:pl-10 md:pt-4 hidden md:block lg:hidden">
+            <BlobButton isOrange={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
+            <BlobButton text="Our Work" onClick={() => console.log('Work button clicked!')} />
+          </div>
         </section>
       </div>
     </div>
