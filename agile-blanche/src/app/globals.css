@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./styles/blob-button.css";
+
 
 :root {
   --background: #FFFFFF;

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import BlobButton from "../components/BlobButton";
+
 
 export default function AboutPage() {
   return (
@@ -30,18 +32,24 @@ export default function AboutPage() {
             your ideas and businesses to grow. As a small team, we champion
             practical solutions, clear communication, and custom development.
           </p>
-          <div className="flex flex-row items-center justify-center my-5 sm:my-8 lg:mt-2 md:hidden lg:inline-flex lg:space-x-7">
+          {/* <div className="flex flex-row items-center justify-center my-5 sm:my-8 lg:mt-2 md:hidden lg:inline-flex lg:space-x-7">
             <button className="mt-1 flex cursor-pointer rounded-full border-2 border-black bg-[#171717] px-3 py-2 text-xs whitespace-nowrap text-white sm:text-sm lg:ml-8 lg:text-base">
               Contact Us
             </button>
-
-            {/* Vertical Divider */}
+            
             <div className="lg:hidden mx-3 h-[40px] sm:h-[45px] w-px bg-gradient-to-tr from-transparent via-neutral-500 to-transparent opacity-25 dark:via-neutral-400" />
 
             <button className="mt-1 flex cursor-pointer rounded-full border-2 border-black bg-white px-4 py-2 text-xs whitespace-nowrap text-black sm:text-sm lg:text-base">
               Our Work
             </button>
-          </div>
+          </div> */}
+
+          <div className="mt-10 flex justify-center space-x-4">
+              <BlobButton>Contact Us</BlobButton>
+              <BlobButton>Our Work</BlobButton>
+            </div>
+    
+
         </section>
         <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">
           <h1 className="hidden text-center tracking-widest text-[#171717] md:mb-3 md:block md:text-2xl lg:mb-6 lg:text-3xl">
