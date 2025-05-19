@@ -6,7 +6,7 @@ import { BlobButton } from "../components/BlobButton/BlobButton";
 export default function AboutPage() {
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
-      <div className="z-50 mb-5 flex h-auto flex-row justify-center space-x-6 pb-2 text-lg shadow-lg sm:mb-5 sm:pb-4 sm:pl-10 sm:text-xl md:mb-0 md:pl-0 md:text-2xl lg:text-3xl">
+      <div className="z-50 mb-5 flex h-auto flex-row justify-center space-x-6 pb-2 text-lg shadow-lg sm:pl-10 sm:text-xl md:mb-0 md:pl-0 md:text-2xl lg:text-3xl">
         <span>A</span>
         <span>B</span>
         <span>O</span>
@@ -16,7 +16,7 @@ export default function AboutPage() {
         <span>S</span>
       </div>
       <div className="relative z-10 flex flex-grow flex-col md:flex-row">
-        <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-22 lg:pr-20 lg:pl-25">
+        <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-20 lg:pr-20 lg:pl-25">
           <h1 className="px-1 text-center text-xl text-[#88807B] sm:text-2xl md:pb-5 md:text-left md:leading-10 lg:pb-7 lg:text-3xl lg:leading-12 lg:tracking-wider font-[myFirstFont]">
             Where <span className="text-[#e9905a]">pragmatism</span> meets the
             human <span className="text-[#e9905a]">spirit</span>
@@ -39,7 +39,7 @@ export default function AboutPage() {
           </div>
 
         </section>
-        <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-25 lg:pr-20">
+        <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">
           <h1 className="hidden text-center tracking-widest text-[#171717] md:mb-3 md:block md:text-2xl lg:mb-6 lg:text-3xl font-[myFirstFont]">
             Our Team
           </h1>
