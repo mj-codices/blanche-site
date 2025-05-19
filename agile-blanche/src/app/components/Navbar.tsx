@@ -12,7 +12,7 @@ type navigation = {
 const navigation: navigation[] = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services'},
-  { name: 'About', href: '#' },
+  { name: 'About', href: '/about' },
   { name: 'Portfolio', href: '#'},
   { name: 'Contact', href: '#'}
 ]
@@ -66,7 +66,7 @@ export default function Navbar() {
               {/* These divs holds the mapping logic of our "expanded view" nav links */}
               <div className="flex pt-6 inset-x-0 top-0 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="hidden sm:ml-6 sm:block">
-                  <div className="flex sm:space-x-4 md:space-x-12 lg:space-x-20">
+                  <div className="flex sm:space-x-4 md:space-x-12 lg:space-x-15">
                     {navigation.filter((item) => item.name !== "Contact").map((item) => (
                       renderNavItem(item)
                     ))}

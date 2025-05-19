@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
     <section className="flex items-center justify-center">
-      <div className="pt-2 sm:pt-8 md:pt-10 lg:pt-15 mobile-landscape-padding">
+      <div className="pt-2 sm:pt-8 md:pt-10 lg:pt-15 lg:pb-7 mobile-landscape-padding">
         <span className="ml-5 sm:ml-0 fredoka text-7xl sm:text-7xl md:text-7xl lg:text-8xl tracking-wide">AGILE-</span>
         <span className="ml-5 sm:ml-0 fredoka text-6xl sm:text-7xl md:text-7xl lg:text-8xl text-[#88807B] tracking-wide">BLANCHE</span>
       </div>
@@ -18,7 +18,7 @@ export default function Home() {
           <p className="invisible sm:visible font-[myFirstFontBold] lg:text-[#171717] text-xs sm:text-sm md:text-base lg:text-lg mobile-landscape-hidden">Redefining app development with modern, nimble and results-driven solutions.</p>
         </div>
         <div className="flex items-center justify-center">
-            <Button className="rounded-full bg-[#171717] font-[myFirstFont] text-white transition delay-50 duration-150 ease-in-out hover:drop-shadow-lg text-lg pl-3.5 pr-3.5 pb-3 pt-3.5 mt-10">Contact Us</Button>
+            <Button className="rounded-full bg-[#171717] font-[myFirstFont] text-white transition delay-50 duration-150 ease-in-out hover:drop-shadow-lg text-lg pl-3.5 pr-3.5 pb-3 pt-3.5 mt-10 cursor-pointer">Contact Us</Button>
         </div>
       </div>
     </section>

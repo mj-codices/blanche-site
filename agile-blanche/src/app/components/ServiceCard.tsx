@@ -61,7 +61,7 @@ export default function ServiceCard({ name, icon, description, index, descriptio
         {index === 1 && (
           <button
             onClick={() => setFlipped(true)}
-            className={`${flipped ? "opacity-0" : "opacity-100"} writing-vertical-rl absolute top-0 right-0 h-full justify-center rounded-tr rounded-br bg-[#e9905a] pr-1 font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm md:relative md:mx-25 md:-mt-1 md:mb-5 md:h-auto md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-25 lg:mt-3 lg:mb-5 lg:px-3 lg:pt-3 lg:pb-2`}
+            className={`${flipped ? "opacity-0" : "opacity-100"} writing-vertical-rl absolute top-0 right-0 h-full justify-center rounded-tr rounded-br bg-[#e9905a] hover:bg-[#e26f28] pr-1 font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm md:relative md:mx-25 md:-mt-1 md:mb-5 md:h-auto md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-25 lg:mt-3 lg:mb-5 lg:px-3 lg:pt-3 lg:pb-2 cursor-pointer`}
           >
             MORE
           </button>
@@ -89,11 +89,11 @@ export default function ServiceCard({ name, icon, description, index, descriptio
             <div className="flex flex-col items-center sm:gap-0 md:flex-row md:gap-3">
               <button
                 onClick={() => setFlipped(false)}
-                className="writing-vertical-rl mb-0 flex-1 rounded-tr bg-[#e9905a] py-1 pt-4 pb-1 pb-2 pl-0 font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm md:mx-5 md:mt-4 md:mb-5 md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-5 lg:mt-10 lg:mb-5 lg:px-3 lg:pt-3 lg:pb-2"
+                className="writing-vertical-rl mb-0 flex-1 rounded-tr bg-[#e9905a] hover:bg-[#e26f28] py-1 pt-4 pb-1 pb-2 pl-0 font-[myFirstFontBold] text-xs text-white transition duration-100 ease-in-out hover:drop-shadow-sm md:mx-5 md:mt-4 md:mb-5 md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-5 lg:mt-10 lg:mb-5 lg:px-3 lg:pt-3 lg:pb-2"
               >
                 BACK
               </button>
-              <button className="writing-vertical-rl flex-1 rounded-br bg-[#171717] pt-4 pr-1 pb-4 pl-0 font-[myFirstFontBold] text-xs text-white hover:drop-shadow-md sm:mt-0 md:mx-5 md:-mt-1 md:mb-0 md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-5 lg:mt-6 lg:mb-1 lg:px-3 lg:pt-3 lg:pb-2">
+              <button className="writing-vertical-rl flex-1 rounded-br bg-[#171717] hover:text-[#e9905a] pt-4 pr-1 pb-4 pl-0 font-[myFirstFontBold] text-xs text-white hover:drop-shadow-md sm:mt-0 md:mx-5 md:-mt-1 md:mb-0 md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-5 lg:mt-6 lg:mb-1 lg:px-3 lg:pt-3 lg:pb-2">
                 <span
                   className={`${flipped ? "opacity-0 md:opacity-100" : "opacity-0 md:opacity-100"} absolute md:relative md:pr-1.5`}
                 >
