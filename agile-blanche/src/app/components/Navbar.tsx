@@ -3,6 +3,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { BlobButton } from './BlobButton/BlobButton';
 
 type navigation = {
   name: string;
@@ -31,7 +32,7 @@ export default function Navbar() {
       href={item.href}
       aria-current={isActive ? 'page' : undefined}
       className={classNames(
-        item.name === 'Contact' ? 'font-[myFirstFont] rounded-full bg-[#171717] text-white hover:text-white' : 'font-[myFirstFont]',
+        item.name === 'Contact' ? 'hidden font-[myFirstFont] rounded-full bg-[#171717] text-white hover:text-white' : 'font-[myFirstFont]',
         isActive ? 'text-[#e9905a]' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
         'px-3 py-2.5 text-sm md:text-base lg:text-lg'
       )}
@@ -73,10 +74,11 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="hidden sm:flex ml-5 pt-6 w-[170px] items-start">
+              <div className="hidden sm:flex ml-5 pt-4 w-[170px] items-start">
                 {navigation.filter((item) => item.name === "Contact").map((item) => (
                   renderNavItem(item)
                 ))}
+                <BlobButton isNav={true} text="Contact" onClick={() => console.log('Contact button clicked!')} />
               </div>
             </div>
           </div>
