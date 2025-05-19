@@ -17,11 +17,11 @@ export default function AboutPage() {
       </div>
       <div className="relative z-10 flex flex-grow flex-col md:flex-row">
         <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-22 lg:pr-20 lg:pl-25">
-          <h1 className="px-1 text-center text-xl text-[#88807B] sm:text-2xl md:pb-5 md:text-left md:leading-10 lg:pb-7 lg:text-3xl lg:leading-12 lg:tracking-wider">
+          <h1 className="px-1 text-center text-xl text-[#88807B] sm:text-2xl md:pb-5 md:text-left md:leading-10 lg:pb-7 lg:text-3xl lg:leading-12 lg:tracking-wider font-[myFirstFont]">
             Where <span className="text-[#e9905a]">pragmatism</span> meets the
             human <span className="text-[#e9905a]">spirit</span>
           </h1>
-          <p className="px-15 pt-4 text-center text-sm leading-7 text-[#88807B] sm:px-20 sm:pt-5 sm:text-base md:p-0 md:mb-10 lg:mb-0 md:text-left md:text-lg md:leading-9 lg:text-xl lg:leading-11">
+          <p className="px-15 pt-4 text-center text-sm leading-7 text-[#88807B] sm:px-20 sm:pt-5 sm:text-base md:p-0 md:mb-10 lg:mb-4 md:text-left md:text-lg md:leading-9 lg:text-xl lg:leading-11">
             Combining technical expertise with personal touch, we at{" "}
             <span className="fredoka text-xs tracking-wider text-[#171717] sm:text-sm md:pl-1 md:text-base lg:text-lg">
               AGILE-
@@ -34,13 +34,13 @@ export default function AboutPage() {
             practical solutions, clear communication, and custom development.
           </p>
           <div className="flex flex-row justify-center my-3 sm:my-4 lg:my-0 lg:mb-10 lg:ml-5 md:hidden lg:inline-flex">
-            <BlobButton isOrange={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
-            <BlobButton text="Our Work" onClick={() => console.log('Work button clicked!')} />
+            <BlobButton isBlack={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
+            <BlobButton isWhite={true} text="Our Work" onClick={() => console.log('Work button clicked!')} />
           </div>
 
         </section>
-        <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">
-          <h1 className="hidden text-center tracking-widest text-[#171717] md:mb-3 md:block md:text-2xl lg:mb-6 lg:text-3xl">
+        <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-25 lg:pr-20">
+          <h1 className="hidden text-center tracking-widest text-[#171717] md:mb-3 md:block md:text-2xl lg:mb-6 lg:text-3xl font-[myFirstFont]">
             Our Team
           </h1>
           <Image
@@ -51,16 +51,16 @@ export default function AboutPage() {
             height={500}
           />
           <div className="md:pl-2">
-            <p className="pt-6 text-center text-xs tracking-widest text-[#88807B] md:text-left">
+            <p className="pt-6 text-center text-xs tracking-widest text-[#88807B] md:text-left font-[myFirstFont]">
               JESLYN WHITE - Senior Software Developer
             </p>
-            <p className="pt-4 text-center text-xs tracking-widest text-[#88807B] md:text-left">
+            <p className="pt-4 text-center text-xs tracking-widest text-[#88807B] md:text-left font-[myFirstFont]">
               JULIAN WHITE - Software Developer
             </p>
           </div>
           <div className="flex flex-row md:pl-10 md:pt-4 hidden md:block lg:hidden">
-            <BlobButton isOrange={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
-            <BlobButton text="Our Work" onClick={() => console.log('Work button clicked!')} />
+            <BlobButton isBlack={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
+            <BlobButton isWhite={true} text="Our Work" onClick={() => console.log('Work button clicked!')} />
           </div>
         </section>
       </div>
