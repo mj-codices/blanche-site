@@ -33,7 +33,7 @@ export default function Navbar() {
       aria-current={isActive ? 'page' : undefined}
       className={classNames(
         item.name === 'Contact' ? 'hidden font-[myFirstFont] rounded-full bg-[#171717] text-white hover:text-white' : 'font-[myFirstFont]',
-        isActive ? 'text-[#e9905a]' : 'text-[#171717] transition delay-50 duration-200 ease-in-out hover:text-[#e9905a] hover:drop-shadow-lg',
+        isActive ? 'text-[#e9905a]' : 'text-[#171717] transition duration-600 hover:text-[#e9905a] hover:drop-shadow-lg',
         'px-3 py-2.5 text-sm md:text-base lg:text-lg'
       )}
     >
@@ -53,7 +53,7 @@ export default function Navbar() {
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
               <div className="absolute top-7 right-0 flex sm:hidden pr-4">
-                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white bg-[#171717] transition duration-500 hover:text-[#e9905a] focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white bg-[#171717] focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset cursor-pointer">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
