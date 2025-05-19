@@ -67,7 +67,8 @@ export default function ServiceCard({ name, icon, description, index, descriptio
           </button>
         )}
         {index !== 1 && (
-          <hr className="invisible flex justify-center text-gray-200 md:visible md:mx-4 md:mt-3 lg:mx-5 lg:mt-4" />
+           <div className="h-px w-24 lg:w-35 my-2 lg:my-4 mx-auto md:block hidden bg-gradient-to-r from-transparent via-gray-500 to-transparent"></div>
+
         )}
 
         {/* Back Card */}
