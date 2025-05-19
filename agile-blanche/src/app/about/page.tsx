@@ -39,7 +39,7 @@ export default function AboutPage() {
               text="Contact Us"
               onClick={() => console.log("Contact button clicked!")}
             />
-            <div className="w-px mt-2 sm:mt-4 md:mt-0  h-9 sm:h-12 mx-4 block md:hidden bg-gradient-to-b from-transparent via-gray-500 to-transparent" />
+            <div className="w-px mt-2 sm:mt-4 md:mt-0  h-9 sm:h-12 mx-4 block md:hidden bg-gradient-to-b from-transparent via-gray-500 to-transparent"></div>
             <BlobButton
               isWhite={true}
               text="Our Work"
