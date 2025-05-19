@@ -53,7 +53,7 @@ export default function Navbar() {
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
               <div className="absolute top-7 right-0 flex sm:hidden pr-4">
-                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-[#171717] hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+                <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-white bg-[#171717] transition duration-500 hover:text-[#e9905a] focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   <Bars3Icon aria-hidden="true" className="block size-6 group-data-open:hidden" />
