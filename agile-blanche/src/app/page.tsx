@@ -13,16 +13,14 @@ export default function Home() {
     </section>
     <section className="flex items-center justify-center">
       <div className="pt-6">
-        <span className="pl-2 pr-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a] mobile-landscape-hidden">Software</span>
-        <span className="pr-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a] mobile-landscape-hidden">Development</span>
-        <span className="block sm:inline pl-2 sm:pl-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest mobile-landscape-hidden">Services</span>
+        <span className="pl-2 pr-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a]">Software</span>
+        <span className="pr-3 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wider font-[myFirstFontBold] text-[#e9905a]">Development</span>
+        <span className="block sm:inline pl-2 sm:pl-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-widest">Services</span>
         <div className="flex sm:pt-10 items-center justify-center">
-          <p className="invisible sm:visible font-[myFirstFontBold] lg:text-[#171717] text-xs sm:text-sm md:text-base lg:text-lg mobile-landscape-hidden">Redefining app development with modern, nimble and results-driven solutions.</p>
+          <p className="invisible sm:visible font-[myFirstFontBold] lg:text-[#171717] text-xs sm:text-sm md:text-base lg:text-lg">Redefining app development with modern, nimble and results-driven solutions.</p>
         </div>
-        <div className="flex items-center justify-center pt-6 sm:pt-5 md:pt-8 lg:pt-10">
+        <div className="flex items-center justify-center pb-10 pt-6 sm:pt-5 md:pt-8 lg:pt-10">
             <BlobButton isHome={true} text="Contact Us" onClick={() => console.log('Contact button clicked!')} />
-              {/* Left button as reference */}
-            {/* <Button className="rounded-full bg-[#171717] font-[myFirstFont] text-white transition delay-50 duration-150 ease-in-out hover:drop-shadow-lg text-lg pl-3.5 pr-3.5 pb-3 pt-3.5 mt-10 cursor-pointer">Contact Us</Button> */}
         </div>
       </div>
     </section>
