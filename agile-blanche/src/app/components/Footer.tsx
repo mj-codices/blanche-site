@@ -34,16 +34,16 @@ export default function Footer() {
             <footer className="bg-[#171717] text-white py-4 text-center">
                 <div className="flex justify-center space-x-8">
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook className="text-xl hover:text-[#e9905a] transition" />
+                        <FaFacebook className="text-xl hover:text-[#e9905a] transition duration-600" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter className="text-xl hover:text-[#e9905a] transition" />
+                        <FaTwitter className="text-xl hover:text-[#e9905a] transition duration-600" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaLinkedin className="text-xl hover:text-[#e9905a] transition" />
+                        <FaLinkedin className="text-xl hover:text-[#e9905a] transition duration-600" />
                     </a>
                     <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaGithub className="text-xl hover:text-[#e9905a] transition" />
+                        <FaGithub className="text-xl hover:text-[#e9905a] transition duration-600" />
                     </a>
                 </div>
                 <div className="pt-4">
