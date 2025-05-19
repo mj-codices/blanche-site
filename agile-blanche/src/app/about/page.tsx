@@ -5,7 +5,7 @@ import { BlobButton } from "../components/BlobButton/BlobButton";
 export default function AboutPage() {
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
-      <div className="z-50 mb-5 flex h-auto flex-row justify-center space-x-6 pb-2 text-lg shadow-lg sm:pl-10 sm:text-xl md:mb-0 md:pl-0 md:text-2xl lg:text-3xl">
+      <div className="z-10 mb-5 flex h-auto flex-row justify-center space-x-6 pb-2 text-lg shadow-lg sm:pl-10 sm:text-xl md:mb-0 md:pl-0 md:text-2xl lg:text-3xl">
         <span>A</span>
         <span>B</span>
         <span>O</span>
