@@ -70,14 +70,12 @@ export default function Navbar() {
                 <DisclosureButton className="group relative inline-flex cursor-pointer items-center justify-center rounded-md bg-[#171717] p-2 text-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
-                  <Bars3Icon
-                    aria-hidden="true"
-                    className="block size-6 group-data-open:hidden"
-                  />
-                  <XMarkIcon
-                    aria-hidden="true"
-                    className="hidden size-6 group-data-open:block"
-                  />
+                  <div id="nav-icon3" className={open ? 'open' : ''}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
                 </DisclosureButton>
               </div>
               {/* This div holds our logo */}
@@ -154,7 +152,7 @@ export default function Navbar() {
                         href={item.href}
                         aria-current={isActive ? "page" : undefined}
                         className={classNames(
-                          "block text-center uppercase rounded-md pb-2 pt-3 font-[myFirstFont] text-base font-lg tracking-[1rem]",
+                          "font-lg block rounded-md pt-3 pb-2 text-center font-[myFirstFont] text-base tracking-[1rem] uppercase",
                           isActive
                             ? "text-[#e9905a]"
                             : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
@@ -165,7 +163,7 @@ export default function Navbar() {
 
                       {!isLast && (
                         <div className="my-3 flex justify-center">
-                          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent"/>
+                          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
                         </div>
                       )}
                     </div>
