@@ -149,7 +149,7 @@ body {
   position: absolute;
   height: 2px;
   width: 100%;
-  background: #ffffff;
+  background: #FFFFFF;
   border-radius: 3px;
   opacity: 1;
   left: 0;
@@ -184,3 +184,4 @@ body {
 #nav-icon3.open span:nth-child(3) {
   transform: rotate(-45deg);
 }
+
