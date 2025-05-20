@@ -58,6 +58,9 @@ export default function Navbar() {
     <Disclosure as="nav">
       {({ open }: any) => (
         <>
+          {open && (
+            <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm transition-opacity duration-600 sm:hidden" />
+          )}
           {/* This div holds the container that houses the navbar */}
           <div className={`relative z-50 mx-0 px-2 sm:px-6 lg:px-8`}>
             {/* This div is the container for the navbar */}
@@ -151,9 +154,9 @@ export default function Navbar() {
                         href={item.href}
                         aria-current={isActive ? "page" : undefined}
                         className={classNames(
-                          "block rounded-md px-3 pb-2 font-[myFirstFont] text-base font-medium tracking-widest",
+                          "block text-center uppercase rounded-md pb-2 pt-3 font-[myFirstFont] text-base font-lg tracking-[1rem]",
                           isActive
-                            ? "bold-action-text text-[#e9905a]"
+                            ? "text-[#e9905a]"
                             : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
                         )}
                       >
@@ -162,7 +165,7 @@ export default function Navbar() {
 
                       {!isLast && (
                         <div className="my-3 flex justify-center">
-                          <div className="h-px w-40 bg-gradient-to-r from-transparent via-gray-600 to-transparent lg:w-35" />
+                          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent"/>
                         </div>
                       )}
                     </div>
