@@ -5,14 +5,10 @@ import { BlobButton } from "../components/BlobButton/BlobButton";
 export default function AboutPage() {
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
-      <div className="z-10 mb-5 flex h-auto flex-row justify-center space-x-6 pb-2 text-lg shadow-lg sm:pl-10 sm:text-xl md:mb-0 md:pl-0 md:text-2xl lg:text-3xl">
-        <span>A</span>
-        <span>B</span>
-        <span>O</span>
-        <span>U</span>
-        <span>T</span>
-        <span className="pl-5">U</span>
-        <span>S</span>
+      <div className="mb-5 flex justify-center pl-10 shadow-lg">
+        <span className="mb-5 text-center text-lg tracking-[2rem] uppercase sm:text-xl md:text-2xl lg:text-3xl">
+          About Us
+        </span>
       </div>
       <div className="relative z-10 flex flex-grow flex-col md:flex-row">
         <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-20 lg:pr-20 lg:pl-25">
@@ -39,14 +35,13 @@ export default function AboutPage() {
               text="Contact Us"
               onClick={() => console.log("Contact button clicked!")}
             />
-            <div className="w-px mt-2 sm:mt-4 md:mt-0  h-9 sm:h-12 mx-4 block md:hidden bg-gradient-to-b from-transparent via-gray-500 to-transparent"></div>
+            <div className="mx-4 mt-2 block h-9 w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent sm:mt-4 sm:h-12 md:mt-0 md:hidden"></div>
             <BlobButton
               isWhite={true}
               text="Our Work"
               onClick={() => console.log("Work button clicked!")}
             />
           </div>
-         
         </section>
         <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">
           <h1 className="hidden text-center font-[myFirstFont] tracking-widest text-[#171717] md:mb-3 md:block md:text-2xl lg:mb-6 lg:text-3xl">
