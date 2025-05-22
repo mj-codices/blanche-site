@@ -6,7 +6,7 @@ export default function AboutPage() {
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
       <div className="mb-5 flex justify-center pl-10 shadow-lg">
-        <span className="mb-5 text-center text-lg tracking-[2rem] uppercase sm:text-xl md:text-2xl lg:text-3xl">
+        <span className="mb-5 text-center text-lg tracking-[1.7rem] uppercase sm:text-xl md:text-2xl lg:text-3xl">
           About Us
         </span>
       </div>
