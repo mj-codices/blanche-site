@@ -59,7 +59,7 @@ export default function Navbar() {
       {({ open }: any) => (
         <>
           {open && (
-            <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm transition-opacity duration-600 sm:hidden" />
+            <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm sm:hidden" />
           )}
           {/* This div holds the container that houses the navbar */}
           <div className={`relative z-50 mx-0 px-2 sm:px-6 lg:px-8`}>
