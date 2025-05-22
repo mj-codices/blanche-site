@@ -102,7 +102,7 @@ export default function Navbar() {
                   .filter((item) => item.name === "Contact")
                   .map((item) => renderNavItem(item))}
                 <BlobButton
-                  isNav={true}
+                  isNav
                   text="Contact"
                   onClick={() => console.log("Contact button clicked!")}
                 />

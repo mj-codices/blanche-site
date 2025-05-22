@@ -31,13 +31,13 @@ export default function AboutPage() {
 
           <div className="my-3 flex flex-row justify-center sm:my-4 md:hidden lg:my-0 lg:mb-10 lg:ml-5 lg:inline-flex">
             <BlobButton
-              isBlack={true}
+              isBlack
               text="Contact Us"
               onClick={() => console.log("Contact button clicked!")}
             />
             <div className="mx-4 mt-2 block h-9 w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent sm:mt-4 sm:h-12 md:mt-0 md:hidden"></div>
             <BlobButton
-              isWhite={true}
+              isWhite
               text="Our Work"
               onClick={() => console.log("Work button clicked!")}
             />
@@ -64,12 +64,12 @@ export default function AboutPage() {
           </div>
           <div className="flex hidden flex-row md:block md:pt-4 md:pl-10 lg:hidden">
             <BlobButton
-              isBlack={true}
+              isBlack
               text="Contact Us"
               onClick={() => console.log("Contact button clicked!")}
             />
             <BlobButton
-              isWhite={true}
+              isWhite
               text="Our Work"
               onClick={() => console.log("Work button clicked!")}
             />
