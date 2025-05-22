@@ -4,11 +4,11 @@ import {
   DisclosurePanel,
   Transition,
 } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BlobButton } from "./BlobButton/BlobButton";
+import { BlobButton } from "../components/BlobButton/BlobButton";
+import "./Navbar.css"
 
 type navigation = {
   name: string;
