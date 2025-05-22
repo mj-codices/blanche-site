@@ -1,36 +1,19 @@
 @import "tailwindcss";
 
-
-
 :root {
-  --background: #FFFFFF;
-  --foreground: #171717;
-  --color-persian-orange: #e9905a;
+  /* setting the variable */
   --black: #171717;
-  --color-text: var(--black);
-  --color-primary-action: #e9905a;
-  --color-secondary-action: #e9905a;
-  
+  --white: #ffffff;
+  --grey: #88807b;
+  --accent: #e9905a;
+  /* using the variable */
+  --background: var(--white);
+  --foreground: var(--black);
 }
-
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-persian-orange: #e9905a;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #FFFBEE;
-    --foreground: #171717;
-  }
-} */
 
 @font-face {
   font-family: myFirstFont;
-  src: url(../../public/fonts/URWGothic-Book.otf)
+  src: url(../../public/fonts/URWGothic-Book.otf);
 }
 
 @font-face {
@@ -39,16 +22,13 @@
   text-shadow: 1px 1px 1px black;
 }
 
-
 @font-face {
   font-family: myFirstFontOblique;
-  src: url(../../public/fonts/URWGothic-DemiOblique.otf)
+  src: url(../../public/fonts/URWGothic-DemiOblique.otf);
 }
 
 body {
   background: var(--background);
-  /* color: var(--color-persian-orange); */
-  /* font-family: myFirstFont; */
 }
 
 .bold-action-text {
@@ -61,8 +41,7 @@ body {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
-  font-variation-settings:
-    "wdth" 98.1;
+  font-variation-settings: "wdth" 98.1;
 }
 @keyframes waveMove {
   0% {
@@ -74,35 +53,41 @@ body {
 }
 
 .wave {
-  @apply absolute bottom-0 w-[200%] h-16;
+  @apply absolute bottom-0 h-16 w-[200%];
   animation: waveMove 12s linear infinite;
 }
 
 @media (max-width: 640px) and (orientation: landscape) {
   .wave {
-    @apply w-[300%] h-12;
+    @apply h-12 w-[300%];
     animation: waveMove 12s linear infinite;
   }
-  
+
   .wave path {
-    d: path("M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z");
+    d: path(
+      "M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z"
+    );
   }
 }
 
 @media (max-width: 640px) and (orientation: portrait) {
   .wave {
-    @apply w-[300%] h-20;
+    @apply h-20 w-[300%];
     animation: waveMove 10s linear infinite;
   }
-  
+
   .wave path {
-    d: path("M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z");
+    d: path(
+      "M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z"
+    );
   }
 }
 
 @media (min-width: 641px) {
   .wave path {
-    d: path("M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V100 H0 Z");
+    d: path(
+      "M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V100 H0 Z"
+    );
   }
 }
 
@@ -120,7 +105,6 @@ body {
   }
 }
 
-
 @media (max-width: 766px) {
   .writing-vertical-rl {
     writing-mode: vertical-rl; /* or horizontal-tb if you want to be specific */
@@ -129,55 +113,5 @@ body {
   .button-text-upright {
     text-orientation: initial;
   }
-}
-
-#nav-icon3 {
-  width: 17px;
-  height: 17px;
-  position: relative;
-  transform: rotate(0deg);
-  transition: cubic-bezier(0.6, -0.28, 0.735, 0.045)s ease-in-out;
-  cursor: pointer;
-}
-
-#nav-icon3 span {
-  display: block;
-  position: absolute;
-  height: 2px;
-  width: 100%;
-  background: #FFFFFF;
-  border-radius: 3px;
-  opacity: 1;
-  left: 0;
-  transform: rotate(0deg);
-  transition: 0.4s ease-in-out;
-}
-
-#nav-icon3 span:nth-child(1) {
-  top: 0px;
-}
-
-#nav-icon3 span:nth-child(2),
-#nav-icon3 span:nth-child(3) {
-  top: 7px;
-}
-
-#nav-icon3 span:nth-child(4) {
-  top: 14px;
-}
-
-#nav-icon3.open span:nth-child(1),
-#nav-icon3.open span:nth-child(4) {
-  top: 12px;
-  width: 0%;
-  left: 50%;
-}
-
-#nav-icon3.open span:nth-child(2) {
-  transform: rotate(45deg);
-}
-
-#nav-icon3.open span:nth-child(3) {
-  transform: rotate(-45deg);
 }
 

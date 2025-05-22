@@ -4,11 +4,11 @@ import {
   DisclosurePanel,
   Transition,
 } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BlobButton } from "./BlobButton/BlobButton";
+import { BlobButton } from "../components/BlobButton/BlobButton";
+import "./Navbar.css"
 
 type navigation = {
   name: string;
@@ -59,7 +59,7 @@ export default function Navbar() {
       {({ open }: any) => (
         <>
           {open && (
-            <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm transition-opacity duration-600 sm:hidden" />
+            <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm sm:hidden" />
           )}
           {/* This div holds the container that houses the navbar */}
           <div className={`relative z-50 mx-0 px-2 sm:px-6 lg:px-8`}>
@@ -102,7 +102,7 @@ export default function Navbar() {
                   .filter((item) => item.name === "Contact")
                   .map((item) => renderNavItem(item))}
                 <BlobButton
-                  isNav={true}
+                  isNav
                   text="Contact"
                   onClick={() => console.log("Contact button clicked!")}
                 />
