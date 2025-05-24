@@ -1,0 +1,24 @@
+.gear {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.gear-large {
+  animation: spin 11s linear infinite;
+}
+
+.gear-small {
+  animation: spin-reverse 7s linear infinite;
+  color: var(--accent);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+

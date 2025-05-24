@@ -19,7 +19,7 @@ const navigation: navigation[] = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Portfolio", href: "#" },
+  { name: "Portfolio", href: "/portfolio" },
   { name: "Contact", href: "#" },
 ];
 
