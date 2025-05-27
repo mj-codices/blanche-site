@@ -5,11 +5,8 @@ export default function ServiceCard({ name, icon, description, index, descriptio
   const [flipped, setFlipped] = useState(false);
 
   const getIconClassName = (isWebDev: boolean): string => {
-    if (flipped && isWebDev) {
-      return "invisible";
-    }
     return isWebDev
-      ? `size-18 md:pt-1 pb-5 sm:pb-3 md:pb-0 mx-2 text-white`
+      ? `size-18 md:pt-1 pb-5 sm:pb-3 md:pb-0 mx-2 text-white ${flipped ? "transition delay-250 opacity-0" : "delay-250 opacity-100"}`
       : `size-10 pb-2 sm:p-1 m-2 text-white`;
   };
   
