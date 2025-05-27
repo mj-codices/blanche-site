@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="relative left-0 w-full mt-auto">
             <div className="absolute top-2 left-0 w-full">
                 <svg
-                    className="relative block w-full lg:h-24 wave sm:h-16 h-12"
+                    className="relative block w-full wave"
                     viewBox="0 0 1200 100"
                     preserveAspectRatio="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export default function Footer() {
             </div>
             <div className="absolute top-2 left-0 w-full">
                 <svg
-                    className="relative block w-full lg:h-24 wave left-[100%] sm:h-16 h-12"
+                    className="relative block w-full wave left-[100%]"
                     viewBox="0 0 1200 100"
                     preserveAspectRatio="none"
                     xmlns="http://www.w3.org/2000/svg"

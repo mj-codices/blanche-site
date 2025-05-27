@@ -43,6 +43,7 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 98.1;
 }
+
 @keyframes waveMove {
   0% {
     transform: translateX(0);
@@ -91,19 +92,6 @@ body {
   }
 }
 
-@media (max-width: 896px) and (orientation: landscape) and (pointer: coarse),
-  (max-width: 932px) and (orientation: landscape) and (pointer: coarse) {
-  /* Styles for mobile landscape only */
-  .mobile-landscape-hidden {
-    visibility: hidden;
-  }
-}
-
-@media (orientation: landscape) and (pointer: coarse) {
-  .mobile-landscape-padding {
-    padding-top: 0px;
-  }
-}
 
 @media (max-width: 766px) {
   .writing-vertical-rl {
