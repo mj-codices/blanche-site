@@ -16,7 +16,7 @@ export default function Porfolio() {
       <div className="flex flex-col justify-center text-black md:flex-row">
         <section className="md:w-md">
           <p className="text-base sm:text-md md:tracking-16 lg:tracking-18 mx-15 sm:mx-25 md:mx-auto text-center font-[myFirstFontBold] sm:text-xl text-[#88807B] pt-3 sm:pt-5 pb-3 sm:pb-2 leading-12 sm:leading-14 md:py-13 md:text-left md:text-2xl md:leading-16 lg:py-15 lg:text-3xl lg:leading-18">
-            We are in the process of building something great. Stay tuned!
+            We are in the process of building something great. Stay tuned.
           </p>
         </section>
         <svg
