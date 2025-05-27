@@ -28,7 +28,7 @@ const serviceInfo = [
 export default function ServicesPage() {
   return (
     <>
-      <div className="mb-5 flex justify-center pl-10 shadow-lg">
+      <div className="flex justify-center pl-10 shadow-lg">
         <span className="mb-5 text-center text-lg tracking-[2rem] uppercase sm:text-xl md:text-2xl lg:text-3xl">
           Services
         </span>
