@@ -1,8 +1,12 @@
 "use client";
 import Image from "next/image";
 import { BlobButton } from "../components/BlobButton/BlobButton";
+import { useRouter } from 'next/navigation';
+
 
 export default function AboutPage() {
+  const router = useRouter();
+  
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
       <div className="mb-5 flex justify-center pl-10 shadow-lg">
@@ -39,7 +43,7 @@ export default function AboutPage() {
             <BlobButton
               isWhite
               text="Our Work"
-              onClick={() => console.log("Work button clicked!")}
+              onClick={() => router.push('/portfolio')} 
             />
           </div>
         </section>

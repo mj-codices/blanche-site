@@ -13,7 +13,7 @@ interface BlobButtonProps {
 
 export const BlobButton = ({isNav = false, isHome = false, isWhite = false, isBlack = false, text, onClick }: BlobButtonProps) => {
     return (
-        <div className="buttons md:inline p-2 sm:p-3 lg:p-3">
+        <div onClick={onClick} className="buttons md:inline p-2 sm:p-3 lg:p-3">
             <button className={`${isWhite ? 'blob-btn-text-white blob-btn px-3 py-2 sm:px-4 sm:py-3 md:px-3 md:py-2 lg:px-4 lg:py-3 text-sm sm:text-base md:text-sm lg:text-lg font-[myFirstFont]' : ''} 
                                 ${isBlack ? 'blob-btn blob-btn-black px-3 py-2 sm:px-4 sm:py-3 md:px-3 md:py-2 lg:px-4 lg:py-3 text-sm sm:text-base md:text-sm lg:text-lg font-[myFirstFont]' : ''}
                                 ${isHome ? 'blob-btn-text-home blob-btn px-4 py-3 text-lg font-[myFirstFont] hover:font-[myFirstFontBold]' : ''} 
