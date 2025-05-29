@@ -7,7 +7,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BlobButton } from "../components/BlobButton/BlobButton";
+import { BlobButton } from "../BlobButton/BlobButton";
 import "./Navbar.css"
 
 type navigation = {
