@@ -9,6 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
 import { useRouter } from "next/navigation";
+import "./Navbar.css";
 
 type navigation = {
   name: string;
@@ -122,26 +123,6 @@ export default function Navbar() {
           >
             <DisclosurePanel className="absolute z-50 w-screen bg-[#171717] sm:hidden">
               <div className="space-y-1 px-2 pt-5 pb-4">
-                {/* {navigation.map((item, index) => {
-                  const isLastItem = index === navigation.length - 1;
-                  const isActive = pathname === item.href;
-                  return (
-                  <DisclosureButton
-                    key={item.name}
-                    as={"a" as const}
-                    href={item.href}
-                    aria-current={isActive ? 'page' : undefined}
-                    className={classNames(
-                      item.name === 'Contact' ? 'font-[myFirstFont] tracking-widest' : 'font-[myFirstFont] tracking-widest',
-                      isActive ? 'text-[#e9905a] bold-action-text' : 'text-white transition duration-600 ease-in-out hover:text-[#e9905a]',
-                      'block rounded-md px-3 py-2 text-base font-medium',
-                    )}
-                  >
-                    {item.name}
-                  {isLastItem ? '' : <div className="h-px w-40  lg:w-35 mx-auto bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>}
-                  </DisclosureButton>
-                  );
-                })} */}
                 {navigation.map((item, index) => {
                   const isActive = pathname === item.href;
                   const isLast = index === navigation.length - 1;
