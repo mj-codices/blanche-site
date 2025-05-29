@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
-import "./Navbar.css"
+import { useRouter } from "next/navigation";
 
 type navigation = {
   name: string;
@@ -20,7 +20,7 @@ const navigation: navigation[] = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
   { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "#" },
+  { name: "Contact", href: "/contact" },
 ];
 
 function classNames(...classes: any[]) {
@@ -28,6 +28,7 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
+  const router = useRouter();
   const pathname = usePathname();
 
   function renderNavItem(item: navigation) {
@@ -104,7 +105,7 @@ export default function Navbar() {
                 <BlobButton
                   isNav
                   text="Contact"
-                  onClick={() => console.log("Contact button clicked!")}
+                  onClick={() => router.push("/contact")}
                 />
               </div>
             </div>
