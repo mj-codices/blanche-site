@@ -1,15 +1,14 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 
 export default function ServiceCard({ name, icon, description, index, descriptionCont = null }:any) {
   const [flipped, setFlipped] = useState(false);
+  const router = useRouter();
 
   const getIconClassName = (isWebDev: boolean): string => {
-    if (flipped && isWebDev) {
-      return "invisible";
-    }
     return isWebDev
-      ? `size-18 md:pt-1 pb-5 sm:pb-3 md:pb-0 mx-2 text-white`
+      ? `size-18 md:pt-1 pb-5 sm:pb-3 md:pb-0 mx-2 text-white ${flipped ? "transition delay-250 opacity-0" : "delay-250 opacity-100"}`
       : `size-10 pb-2 sm:p-1 m-2 text-white`;
   };
   
@@ -94,7 +93,9 @@ export default function ServiceCard({ name, icon, description, index, descriptio
               >
                 BACK
               </button>
-              <button className="writing-vertical-rl flex-1 rounded-br bg-[#171717] transition duration-600 hover:text-[#e9905a] pt-4 pr-1 pb-4 pl-0 font-[myFirstFontBold] text-xs text-white hover:drop-shadow-md sm:mt-0 md:mx-5 md:-mt-1 md:mb-0 md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-5 lg:mt-6 lg:mb-1 lg:px-3 lg:pt-3 lg:pb-2 cursor-pointer">
+              <button 
+                onClick={() => router.push('/about')}
+                className="writing-vertical-rl flex-1 rounded-br bg-[#171717] transition duration-600 hover:text-[#e9905a] pt-4 pr-1 pb-4 pl-0 font-[myFirstFontBold] text-xs text-white hover:drop-shadow-md sm:mt-0 md:mx-5 md:-mt-1 md:mb-0 md:rounded-full md:px-3 md:pt-2 md:pb-1 lg:mx-5 lg:mt-6 lg:mb-1 lg:px-3 lg:pt-3 lg:pb-2 cursor-pointer">
                 <span
                   className={`${flipped ? "opacity-0 md:opacity-100" : "opacity-0 md:opacity-100"} absolute md:relative md:pr-1.5`}
                 >

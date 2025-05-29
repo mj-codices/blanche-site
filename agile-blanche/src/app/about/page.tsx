@@ -1,8 +1,31 @@
 "use client";
 import Image from "next/image";
 import { BlobButton } from "../components/BlobButton/BlobButton";
+import { useRouter } from "next/navigation";
 
 export default function AboutPage() {
+  const router = useRouter();
+
+  function renderContactBtn() {
+    return (
+      <BlobButton
+        isBlack
+        text="Contact Us"
+        onClick={() => console.log("Contact button clicked!")}
+      />
+    );
+  }
+
+  function renderPortfolioBtn() {
+    return (
+      <BlobButton
+        isWhite
+        text="Our Work"
+        onClick={() => router.push("/portfolio")}
+      />
+    );
+  }
+
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
       <div className="mb-5 flex justify-center pl-10 shadow-lg">
@@ -30,17 +53,9 @@ export default function AboutPage() {
           </p>
 
           <div className="my-3 flex flex-row justify-center sm:my-4 md:hidden lg:my-0 lg:mb-10 lg:ml-5 lg:inline-flex">
-            <BlobButton
-              isBlack
-              text="Contact Us"
-              onClick={() => console.log("Contact button clicked!")}
-            />
+            {renderContactBtn()}
             <div className="mx-4 mt-2 block h-9 w-px bg-gradient-to-b from-transparent via-gray-500 to-transparent sm:mt-4 sm:h-12 md:mt-0 md:hidden"></div>
-            <BlobButton
-              isWhite
-              text="Our Work"
-              onClick={() => console.log("Work button clicked!")}
-            />
+            {renderPortfolioBtn()}
           </div>
         </section>
         <section className="pt-3 sm:pt-0 md:pt-20 md:pr-20 lg:pt-21 lg:pr-20">
@@ -63,16 +78,8 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="flex hidden flex-row md:block md:pt-4 md:pl-10 lg:hidden">
-            <BlobButton
-              isBlack
-              text="Contact Us"
-              onClick={() => console.log("Contact button clicked!")}
-            />
-            <BlobButton
-              isWhite
-              text="Our Work"
-              onClick={() => console.log("Work button clicked!")}
-            />
+            {renderContactBtn()}
+            {renderPortfolioBtn()}
           </div>
         </section>
       </div>

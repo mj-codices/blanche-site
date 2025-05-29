@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
     <section className="flex items-center justify-center">
-      <div className="pt-2 sm:pt-15 md:pt-15 lg:pt-15 lg:pb-7 mobile-landscape-padding">
+      <div className="pt-2 sm:pt-15 md:pt-15 lg:pt-15 lg:pb-7">
         <span className="ml-5 sm:ml-0 fredoka text-7xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide">AGILE-</span>
         <span className="ml-5 sm:ml-0 fredoka text-6xl sm:text-6xl md:text-7xl lg:text-8xl text-[#88807B] tracking-wide">BLANCHE</span>
       </div>

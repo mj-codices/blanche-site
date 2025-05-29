@@ -43,6 +43,7 @@ body {
   font-style: normal;
   font-variation-settings: "wdth" 98.1;
 }
+
 @keyframes waveMove {
   0% {
     transform: translateX(0);
@@ -57,20 +58,8 @@ body {
   animation: waveMove 12s linear infinite;
 }
 
-@media (max-width: 640px) and (orientation: landscape) {
-  .wave {
-    @apply h-12 w-[300%];
-    animation: waveMove 12s linear infinite;
-  }
 
-  .wave path {
-    d: path(
-      "M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z"
-    );
-  }
-}
-
-@media (max-width: 640px) and (orientation: portrait) {
+@media (max-width: 100vw) {
   .wave {
     @apply h-20 w-[300%];
     animation: waveMove 10s linear infinite;
@@ -83,27 +72,7 @@ body {
   }
 }
 
-@media (min-width: 641px) {
-  .wave path {
-    d: path(
-      "M0,50 C100,100 200,0 300,50 C400,100 500,0 600,50 C700,100 800,0 900,50 C1000,100 1100,0 1200,50 V100 H0 Z"
-    );
-  }
-}
 
-@media (max-width: 896px) and (orientation: landscape) and (pointer: coarse),
-  (max-width: 932px) and (orientation: landscape) and (pointer: coarse) {
-  /* Styles for mobile landscape only */
-  .mobile-landscape-hidden {
-    visibility: hidden;
-  }
-}
-
-@media (orientation: landscape) and (pointer: coarse) {
-  .mobile-landscape-padding {
-    padding-top: 0px;
-  }
-}
 
 @media (max-width: 766px) {
   .writing-vertical-rl {
