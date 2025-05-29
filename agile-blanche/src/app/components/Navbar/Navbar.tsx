@@ -31,6 +31,9 @@ function classNames(...classes: any[]) {
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
+  const contactPath = pathname === "/contact";
+  
+  
 
   function renderNavItem(item: navigation) {
     const isActive = pathname === item.href;
@@ -96,14 +99,14 @@ export default function Navbar() {
                     {navigation
                       .filter((item) => item.name !== "Contact")
                       .map((item) => renderNavItem(item))}
+                      
                   </div>
                 </div>
               </div>
               <div className="ml-5 hidden w-[170px] items-start pt-4 sm:flex">
-                {navigation
-                  .filter((item) => item.name === "Contact")
-                  .map((item) => renderNavItem(item))}
                 <BlobButton
+                  isActiveNav={contactPath}
+                  disableHover={contactPath}
                   isNav
                   text="Contact"
                   onClick={() => router.push("/contact")}

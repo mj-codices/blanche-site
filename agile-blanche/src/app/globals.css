@@ -84,3 +84,18 @@ body {
   }
 }
 
+@keyframes textColorPulse {
+  0% {
+    color: var(--white);
+  }
+  50% {
+    color: var(--accent);
+  }
+  100% {
+    color: var(--white);
+  }
+}
+
+.text-oscillate {
+  animation: textColorPulse 4s ease-in-out infinite;
+}

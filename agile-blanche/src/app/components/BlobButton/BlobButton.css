@@ -16,13 +16,19 @@
   border-radius: 30px;
 }
 
+.blob-btn-text-active {
+  cursor: auto;
+   
+}
+
 .blob-btn-text {
   color: var(--black);
 }
 
-.blob-btn-text:hover {
+.blob-btn-text:not(.disable-hover):hover {
   color: var(--white) !important;
 }
+
 
 .blob-btn-text-white {
   color: var(--black);
