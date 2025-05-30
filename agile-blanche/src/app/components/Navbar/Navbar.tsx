@@ -129,7 +129,7 @@ export default function Navbar() {
                 {navigation.map((item, index) => {
                   const isActive = pathname === item.href;
                   const isLast = index === navigation.length - 1;
-
+                  const contactPath = pathname === "/contact";
                   return (
                     <div key={item.name}>
                       <DisclosureButton
@@ -141,6 +141,7 @@ export default function Navbar() {
                           isActive
                             ? "text-[#e9905a]"
                             : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                          item.name === "Contact" && contactPath ? "text-oscillate" : "",
                         )}
                       >
                         {item.name}
