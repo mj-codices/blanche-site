@@ -77,7 +77,7 @@ export default function AboutPage() {
               JULIAN WHITE - Software Developer
             </p>
           </div>
-          <div className="flex hidden flex-row md:block md:pt-4 md:pl-10 lg:hidden">
+          <div className="my-4 hidden flex-row justify-center gap-4 md:flex lg:hidden">
             {renderContactBtn()}
             {renderPortfolioBtn()}
           </div>
