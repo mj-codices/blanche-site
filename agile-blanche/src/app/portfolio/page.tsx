@@ -1,4 +1,5 @@
 import "./portfolio.css";
+import Link from "next/link";
 
 export default function Porfolio() {
   return (
@@ -15,15 +16,15 @@ export default function Porfolio() {
       </div>
       <div className="flex flex-col justify-center text-black md:flex-row">
         <section className="md:w-md">
-          <p className="text-base sm:text-md md:tracking-16 lg:tracking-18 mx-15 sm:mx-25 md:mx-auto text-center font-[myFirstFontBold] sm:text-xl text-[#88807B] pt-3 sm:pt-5 pb-3 sm:pb-2 leading-12 sm:leading-14 md:py-13 md:text-left md:text-2xl md:leading-16 lg:py-15 lg:text-3xl lg:leading-18">
-            We are in the process of building something great. Stay tuned.
+          <p className="text-base sm:text-md md:tracking-16 lg:tracking-18 mx-15 sm:mx-25 md:mx-auto text-center font-[myFirstFontBold] sm:text-xl text-[#88807B] pt-3 sm:pt-5 pb-3 sm:pb-2 leading-12 sm:leading-14 md:py-10 md:text-left md:text-2xl md:leading-16 lg:py-10 lg:text-3xl lg:leading-18">
+            We are in the process of building something great. Till then, <Link href="/contact" className="underline cursor-pointer transition duration-600 ease-in-out hover:text-[#e9905a]">let's get in touch.</Link>
           </p>
         </section>
         <svg
           viewBox="0 0 512 512"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
-          className="pb-5 md:pb-0 mx-auto sm:mt-3 sm:h-30 sm:w-30 md:mx-0 md:mt-8 h-25 w-25 md:h-35 md:w-35 lg:mt-10 lg:h-45 lg:w-45"
+          className="pb-5 md:pb-0 mx-auto sm:mt-3 sm:h-30 sm:w-30 md:mx-0 md:mt-10 h-25 w-25 md:h-35 md:w-35 lg:mt-10 lg:h-45 lg:w-45"
         >
           <g>
             <path
