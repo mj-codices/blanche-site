@@ -99,3 +99,16 @@ body {
 .text-oscillate {
   animation: textColorPulse 4s ease-in-out infinite;
 }
+
+@keyframes pulseGrow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.pulse-grow {
+  animation: pulseGrow 4s ease-in-out infinite;
+}

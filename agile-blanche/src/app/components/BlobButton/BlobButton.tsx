@@ -1,42 +1,56 @@
-'use client';
+"use client";
 
-import './BlobButton.css';
+import "./BlobButton.css";
 
 interface BlobButtonProps {
-    text: string;
-    onClick?: () => void;
-    isBlack?: boolean;
-    isWhite?: boolean;
-    isHome?: boolean;
-    isNav?: boolean;
-    isActiveNav?: boolean;
-    disableHover?: boolean;
+  text: string;
+  onClick?: () => void;
+  isBlack?: boolean;
+  isWhite?: boolean;
+  isHome?: boolean;
+  isNav?: boolean;
+  isActiveNav?: boolean;
+  disableHover?: boolean;
 }
 
-export const BlobButton = ({isNav = false, isHome = false, isWhite = false, isBlack = false, isActiveNav = false, disableHover = false, text, onClick }: BlobButtonProps) => {
-    return (
-        <div onClick={onClick} className="buttons md:inline p-2 sm:p-3 lg:p-3">
-            <button className={`${isWhite ? 'blob-btn-text-white blob-btn px-3 py-2 sm:px-4 sm:py-3 md:px-3 md:py-2 lg:px-4 lg:py-3 text-sm sm:text-base md:text-sm lg:text-lg font-[myFirstFont]' : ''} 
-                                ${isBlack ? 'blob-btn blob-btn-black px-3 py-2 sm:px-4 sm:py-3 md:px-3 md:py-2 lg:px-4 lg:py-3 text-sm sm:text-base md:text-sm lg:text-lg font-[myFirstFont]' : ''}
-                                ${isHome ? 'blob-btn-text-home blob-btn px-4 py-3 text-lg font-[myFirstFont] hover:font-[myFirstFontBold]' : ''} 
-                                ${isNav ? 'blob-btn blob-btn-text sm:px-3 sm:py-2 md:px-4 md:py-3 lg:px-4 lg:py-3 text-sm md:text-base lg:text-lg font-[myFirstFont]' : ''}
-                                ${isActiveNav ? 'blob-btn-text-active text-oscillate' : '' }
-                                ${disableHover ? 'disable-hover' : '' }`}
-                                >
-                {text}
-                                <span className={`${isBlack || isHome || isActiveNav ? 'blob-btn_inner-black' : ''} blob-btn__inner`}>
-                    <span className="blob-btn__blobs">
-                        <span className={`${isBlack ? 'blob-btn__blob-orange' : ''}
-                                            ${isHome ? 'blob-btn_blob-home' : ''} blob-btn__blob`}></span>
-                       <span className={`${isBlack ? 'blob-btn__blob-orange' : ''}
-                                            ${isHome ? 'blob-btn_blob-home' : ''} blob-btn__blob`}></span>
-                        <span className={`${isBlack ? 'blob-btn__blob-orange' : ''}
-                                            ${isHome ? 'blob-btn_blob-home' : ''} blob-btn__blob`}></span>
-                        <span className={`${isBlack ? 'blob-btn__blob-orange' : ''}
-                                            ${isHome ? 'blob-btn_blob-home' : ''} blob-btn__blob`}></span>
-                    </span>
-                </span>
-            </button>
-        </div>
-    );
-}; 
+export const BlobButton = ({
+  isNav = false,
+  isHome = false,
+  isWhite = false,
+  isBlack = false,
+  isActiveNav = false,
+  disableHover = false,
+  text,
+  onClick,
+}: BlobButtonProps) => {
+  return (
+    <div
+      onClick={onClick}
+      className={`${isActiveNav && isNav ? "pulse-grow" : ""} buttons p-2 sm:p-3 md:inline lg:p-3`}
+    >
+      <button
+        className={`${isWhite ? "blob-btn-text-white blob-btn px-3 py-2 font-[myFirstFont] text-sm sm:px-4 sm:py-3 sm:text-base md:px-3 md:py-2 md:text-sm lg:px-4 lg:py-3 lg:text-lg" : ""} ${isBlack ? "blob-btn blob-btn-black px-3 py-2 font-[myFirstFont] text-sm sm:px-4 sm:py-3 sm:text-base md:px-3 md:py-2 md:text-sm lg:px-4 lg:py-3 lg:text-lg" : ""} ${isHome ? "blob-btn-text-home blob-btn px-4 py-3 font-[myFirstFont] text-lg hover:font-[myFirstFontBold]" : ""} ${isNav ? "blob-btn blob-btn-text font-[myFirstFont] text-sm sm:px-3 sm:py-2 md:px-4 md:py-3 md:text-base lg:px-4 lg:py-3 lg:text-lg" : ""} ${isActiveNav ? "blob-btn-text-active text-oscillate" : ""} ${disableHover ? "disable-hover" : ""}`}
+      >
+        {text}
+        <span
+          className={`${isBlack || isHome || isActiveNav ? "blob-btn_inner-black" : ""} blob-btn__inner`}
+        >
+          <span className="blob-btn__blobs">
+            <span
+              className={`${isBlack ? "blob-btn__blob-orange" : ""} ${isHome ? "blob-btn_blob-home" : ""} blob-btn__blob`}
+            ></span>
+            <span
+              className={`${isBlack ? "blob-btn__blob-orange" : ""} ${isHome ? "blob-btn_blob-home" : ""} blob-btn__blob`}
+            ></span>
+            <span
+              className={`${isBlack ? "blob-btn__blob-orange" : ""} ${isHome ? "blob-btn_blob-home" : ""} blob-btn__blob`}
+            ></span>
+            <span
+              className={`${isBlack ? "blob-btn__blob-orange" : ""} ${isHome ? "blob-btn_blob-home" : ""} blob-btn__blob`}
+            ></span>
+          </span>
+        </span>
+      </button>
+    </div>
+  );
+};
