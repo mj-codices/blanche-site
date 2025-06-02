@@ -4,11 +4,11 @@
 }
 
 .gear-large {
-  animation: spin 11s linear infinite;
+  animation: spin 10s linear infinite;
 }
 
 .gear-small {
-  animation: spin-reverse 7s linear infinite;
+  animation: spin-reverse 10s linear infinite;
   color: var(--accent);
 }
 

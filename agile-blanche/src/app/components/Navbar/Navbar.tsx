@@ -103,7 +103,7 @@ export default function Navbar() {
                   </div>
                 </div>
               </div>
-              <div className="ml-5 hidden w-[170px] items-start pt-4 sm:flex">
+              <div className="ml-5 hidden w-[170px] items-start pt-4 sm:flex sm:pl-10 md:pl-0">
                 <BlobButton
                   isActiveNav={contactPath}
                   disableHover={contactPath}
@@ -137,11 +137,11 @@ export default function Navbar() {
                         href={item.href}
                         aria-current={isActive ? "page" : undefined}
                         className={classNames(
-                          "font-lg block rounded-md pt-3 pb-2 text-center font-[myFirstFont] text-base tracking-[1rem] uppercase",
+                          "font-lg block rounded-md pt-3 pb-2 text-center  text-base tracking-[1rem] uppercase",
                           isActive
                             ? "text-[#e9905a]"
                             : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                          item.name === "Contact" && contactPath ? "text-oscillate" : "",
+                          item.name === "Contact" ? "font-[myFirstFontBold]" : "font-[myFirstFont]",
                         )}
                       >
                         {item.name}
