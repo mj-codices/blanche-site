@@ -22,7 +22,7 @@ export default function Home() {
           <p className="invisible sm:visible font-[myFirstFontBold] lg:text-[#171717] text-xs sm:text-sm md:text-base lg:text-lg">Redefining app development with modern, nimble and results-driven solutions.</p>
         </div>
         <div className="flex items-center justify-center pb-10 pt-6 sm:pt-5 md:pt-8 lg:pt-10">
-            <BlobButton isHome text="Contact Us" onClick={() => router.push("/contact")} />
+            <BlobButton isHome text="Contact Us" onClick={() => router.push("")} />
         </div>
       </div>
     </section>

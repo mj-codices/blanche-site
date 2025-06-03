@@ -11,7 +11,7 @@ export default function AboutPage() {
       <BlobButton
         isBlack
         text="Contact Us"
-        onClick={() => router.push("/contact")}
+        // onClick={() => router.push("/contact")}
       />
     );
   }

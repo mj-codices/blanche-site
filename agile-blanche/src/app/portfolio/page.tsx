@@ -19,7 +19,7 @@ export default function Porfolio() {
           <p className="sm:text-md md:tracking-16 lg:tracking-18 mx-15 pt-3 pb-3 text-center font-[myFirstFontBold] text-base leading-12 text-[#88807B] sm:mx-25 sm:pt-5 sm:pb-2 sm:text-xl sm:leading-14 md:mx-auto md:py-10 md:text-left md:text-2xl md:leading-16 lg:py-10 lg:text-3xl lg:leading-18">
             We are in the process of building something great. Till then,{" "}
             <Link
-              href="/contact"
+              href=""
               className="cursor-pointer underline transition duration-600 ease-in-out hover:text-[#e9905a]"
             >
               let's get in touch.

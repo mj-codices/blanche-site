@@ -109,7 +109,7 @@ export default function Navbar() {
                   disableHover={contactPath}
                   isNav
                   text="Contact"
-                  onClick={() => router.push("/contact")}
+                  // onClick={() => router.push("/contact")}
                 />
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function Navbar() {
                 {navigation.map((item, index) => {
                   const isActive = pathname === item.href;
                   const isLast = index === navigation.length - 1;
-                  const contactPath = pathname === "/contact";
+                  const contactPath = pathname === "";
                   return (
                     <div key={item.name}>
                       <DisclosureButton
