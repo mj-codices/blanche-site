@@ -142,6 +142,7 @@ export default function Navbar() {
                             ? "text-[#e9905a]"
                             : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
                           item.name === "Contact" ? "font-[myFirstFontBold]" : "font-[myFirstFont]",
+                           item.name === "Contact" && contactPath ?  "text-oscillate" : ""
                         )}
                       >
                         {item.name}
