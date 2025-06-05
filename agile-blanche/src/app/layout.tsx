@@ -2,6 +2,7 @@
 import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
+import { ContactDrawer } from "./components/ContactDrawer/ContactDrawer";
 
 export default function RootLayout({
   children,
@@ -26,7 +27,10 @@ export default function RootLayout({
         <Navbar />
         <div className="flex min-h-[calc(100dvh-170px)] flex-col">
           <main className="flex-grow">{children}</main>
-          <Footer />
+          <Footer 
+          
+          />
+          <ContactDrawer/>
         </div>
         <svg style={{ position: "absolute", width: 0, height: 0, visibility: "hidden" }}>
         <defs>
