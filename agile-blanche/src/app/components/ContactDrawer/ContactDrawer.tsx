@@ -23,11 +23,11 @@ export const ContactDrawer = () => {
 
           {/* Drawer */}
           <motion.div
-            className="fixed right-0 bottom-0 left-0 z-50 h-[50vh] w-screen bg-[#171717]"
+            className="fixed right-0 bottom-0 left-0 z-50 h-[100vh] w-screen bg-[#171717]"
             initial={{ y: "100%" }}
             animate={{ y: "50%" }}
             exit={{ y: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ type: "spring", stiffness: 240, damping: 30 }}
           >
             <div className="w-screen">
               <div className="relative left-0 mt-auto w-screen">

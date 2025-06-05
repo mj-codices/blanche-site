@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
 import { useRouter } from "next/navigation";
 import "./Navbar.css";
+import { useUIStore } from "@/app/store/ui-store";
 
 type navigation = {
   name: string;
@@ -31,7 +32,9 @@ function classNames(...classes: any[]) {
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
-  const contactPath = pathname === "/contact";
+  const openContactDrawer = useUIStore((state) => state.openContactDrawer);
+  const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
+ 
   
   
 
@@ -105,8 +108,8 @@ export default function Navbar() {
               </div>
               <div className="ml-5 hidden w-[170px] items-start pt-4 sm:flex sm:pl-10 md:pl-0">
                 <BlobButton
-                  isActiveNav={contactPath}
-                  disableHover={contactPath}
+                  isActiveNav={isDrawerOpen}
+                  disableHover={isDrawerOpen}
                   isNav
                   text="Contact"
                   // onClick={() => router.push("/contact")}
