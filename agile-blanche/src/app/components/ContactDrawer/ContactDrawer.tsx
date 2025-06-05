@@ -51,28 +51,6 @@ export const ContactDrawer = () => {
                     <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717"></path>
                   </svg>
                 </div>
-                {/* <div className="absolute top-0 left-0 z-50 w-full overflow-hidden">
-                  <svg
-                    className="block h-[100px] w-full"
-                    viewBox="0 0 1200 100"
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <pattern
-                        id="wavePattern"
-                        x="0"
-                        y="0"
-                        width="1200"
-                        height="100"
-                        patternUnits="userSpaceOnUse"
-                      >
-                        <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
-                      </pattern>
-                    </defs>
-                    <rect width="100%" height="100" fill="url(#wavePattern)" />
-                  </svg>
-                </div> */}
               </div>
               {/* <h2 className="text-2xl font-bold mb-4">Contact Us</h2> */}
               {/* <form>
