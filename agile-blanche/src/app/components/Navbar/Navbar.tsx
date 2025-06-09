@@ -8,9 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
-import { useRouter } from "next/navigation";
 import "./Navbar.css";
 import { useUIStore } from "@/app/store/ui-store";
+import { useRef } from "react";
 
 type navigation = {
   name: string;
@@ -34,6 +34,7 @@ export default function Navbar() {
   const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
   const closeContactDrawer = useUIStore((state) => state.closeContactDrawer);
+  const disclosureButtonRef = useRef<HTMLButtonElement>(null);
   const handleContactClick = (e?: React.MouseEvent) => {
     e?.stopPropagation(); // Prevent parent from catching the click
     if (isDrawerOpen) {
@@ -74,7 +75,12 @@ export default function Navbar() {
       {({ open }: any) => (
         <>
           {open && (
-            <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm sm:hidden" />
+            <div
+              className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm sm:hidden"
+              onClick={() => {
+                disclosureButtonRef.current?.click();
+              }}
+            />
           )}
           {/* This div holds the container that houses the navbar */}
           <div
@@ -87,6 +93,7 @@ export default function Navbar() {
               <div className="absolute top-7 right-0 flex pr-4 sm:hidden">
                 <DisclosureButton
                   onClick={closeContactDrawer}
+                  ref={disclosureButtonRef}
                   className="group relative inline-flex cursor-pointer items-center justify-center rounded-md bg-[#171717] p-2 text-white"
                 >
                   <span className="absolute -inset-0.5" />
