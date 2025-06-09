@@ -1,7 +1,10 @@
+"use client"
 import "./portfolio.css";
 import Link from "next/link";
+import { useUIStore } from "../store/ui-store";
 
 export default function Porfolio() {
+  const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   return (
     <div className="inset-0">
       <div className="mb-5 flex justify-center shadow-lg md:pl-10">
@@ -20,6 +23,7 @@ export default function Porfolio() {
             We are in the process of building something great. Till then,{" "}
             <Link
               href=""
+              onClick={openContactDrawer}
               className="cursor-pointer underline transition duration-600 ease-in-out hover:text-[#e9905a]"
             >
               let's get in touch.

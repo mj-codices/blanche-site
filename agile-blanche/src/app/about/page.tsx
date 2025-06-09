@@ -2,18 +2,13 @@
 import Image from "next/image";
 import { BlobButton } from "../components/BlobButton/BlobButton";
 import { useRouter } from "next/navigation";
+import { useUIStore } from "../store/ui-store";
 
 export default function AboutPage() {
   const router = useRouter();
-
+  const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   function renderContactBtn() {
-    return (
-      <BlobButton
-        isBlack
-        text="Contact Us"
-        // onClick={() => router.push("/contact")}
-      />
-    );
+    return <BlobButton isBlack text="Contact Us" onClick={openContactDrawer} />;
   }
 
   function renderPortfolioBtn() {
