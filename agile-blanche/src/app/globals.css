@@ -84,7 +84,7 @@ body {
   }
 }
 
-@keyframes textColorPulse {
+/* @keyframes textColorPulse {
   0% {
     color: var(--white);
   }
@@ -98,6 +98,18 @@ body {
 
 .text-oscillate {
   animation: textColorPulse 4s ease-in-out infinite;
+} */
+
+/* @keyframes pulseGrow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
 }
 
+.pulse-grow {
+  animation: pulseGrow ;
+} */
 
