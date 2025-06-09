@@ -30,12 +30,12 @@ function classNames(...classes: any[]) {
 }
 
 export default function Navbar() {
-  const router = useRouter();
   const pathname = usePathname();
   const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
   const closeContactDrawer = useUIStore((state) => state.closeContactDrawer);
-  const handleContactClick = () => {
+  const handleContactClick = (e?: React.MouseEvent) => {
+    e?.stopPropagation(); // Prevent parent from catching the click
     if (isDrawerOpen) {
       closeContactDrawer();
     } else {
@@ -77,7 +77,10 @@ export default function Navbar() {
             <div className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm sm:hidden" />
           )}
           {/* This div holds the container that houses the navbar */}
-          <div className={`relative z-50 mx-0 px-2 sm:px-6 lg:px-8`}>
+          <div
+            onClick={closeContactDrawer}
+            className={`relative z-50 mx-0 px-2 sm:px-6 lg:px-8`}
+          >
             {/* This div is the container for the navbar */}
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
@@ -121,7 +124,7 @@ export default function Navbar() {
                   disableHover={isDrawerOpen}
                   isNav
                   text="Contact"
-                  onClick={handleContactClick}
+                  onClick={(e) => handleContactClick(e)}
                 />
               </div>
             </div>
@@ -139,53 +142,53 @@ export default function Navbar() {
             <DisclosurePanel className="absolute z-40 w-screen bg-[#171717] sm:hidden">
               <div className="space-y-1 px-2 pt-5 pb-4">
                 {navigation.map((item, index) => {
-  const isActive = pathname === item.href;
-  const isLast = index === navigation.length - 1;
+                  const isActive = pathname === item.href;
+                  const isLast = index === navigation.length - 1;
 
-  const isContact = item.name === "Contact";
+                  const isContact = item.name === "Contact";
 
-  return (
-    <div key={item.name}>
-      {isContact ? (
-        <DisclosureButton
-          as="button"
-          onClick={() => {
-            openContactDrawer();
-            // Close the Disclosure dropdown
-          }}
-          className={classNames(
-            "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-            "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-            "font-[myFirstFontBold]"
-          )}
-        >
-          {item.name}
-        </DisclosureButton>
-      ) : (
-        <DisclosureButton
-          as="a"
-          href={item.href}
-          aria-current={isActive ? "page" : undefined}
-          className={classNames(
-            "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-            isActive
-              ? "text-[#e9905a]"
-              : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-            "font-[myFirstFont]"
-          )}
-        >
-          {item.name}
-        </DisclosureButton>
-      )}
+                  return (
+                    <div key={item.name}>
+                      {isContact ? (
+                        <DisclosureButton
+                          as="button"
+                          onClick={() => {
+                            openContactDrawer();
+                            // Close the Disclosure dropdown
+                          }}
+                          className={classNames(
+                            "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+                            "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                            "font-[myFirstFontBold]",
+                          )}
+                        >
+                          {item.name}
+                        </DisclosureButton>
+                      ) : (
+                        <DisclosureButton
+                          as="a"
+                          href={item.href}
+                          aria-current={isActive ? "page" : undefined}
+                          className={classNames(
+                            "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+                            isActive
+                              ? "text-[#e9905a]"
+                              : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                            "font-[myFirstFont]",
+                          )}
+                        >
+                          {item.name}
+                        </DisclosureButton>
+                      )}
 
-      {!isLast && (
-        <div className="my-3 flex justify-center">
-          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
-        </div>
-      )}
-    </div>
-  );
-})}
+                      {!isLast && (
+                        <div className="my-3 flex justify-center">
+                          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </DisclosurePanel>
           </Transition>
