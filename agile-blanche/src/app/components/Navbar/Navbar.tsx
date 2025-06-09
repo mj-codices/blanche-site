@@ -139,36 +139,53 @@ export default function Navbar() {
             <DisclosurePanel className="absolute z-40 w-screen bg-[#171717] sm:hidden">
               <div className="space-y-1 px-2 pt-5 pb-4">
                 {navigation.map((item, index) => {
-                  const isActive = pathname === item.href;
-                  const isLast = index === navigation.length - 1;
-                  const contactPath = pathname === "";
-                  return (
-                    <div key={item.name}>
-                      <DisclosureButton
-                        as={"a" as const}
-                        href={item.href}
-                        aria-current={isActive ? "page" : undefined}
-                        className={classNames(
-                          "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-                          isActive
-                            ? "text-[#e9905a]"
-                            : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                          item.name === "Contact"
-                            ? "font-[myFirstFontBold]"
-                            : "font-[myFirstFont]",
-                        )}
-                      >
-                        {item.name}
-                      </DisclosureButton>
+  const isActive = pathname === item.href;
+  const isLast = index === navigation.length - 1;
 
-                      {!isLast && (
-                        <div className="my-3 flex justify-center">
-                          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+  const isContact = item.name === "Contact";
+
+  return (
+    <div key={item.name}>
+      {isContact ? (
+        <DisclosureButton
+          as="button"
+          onClick={() => {
+            openContactDrawer();
+            // Close the Disclosure dropdown
+          }}
+          className={classNames(
+            "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+            "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+            "font-[myFirstFontBold]"
+          )}
+        >
+          {item.name}
+        </DisclosureButton>
+      ) : (
+        <DisclosureButton
+          as="a"
+          href={item.href}
+          aria-current={isActive ? "page" : undefined}
+          className={classNames(
+            "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+            isActive
+              ? "text-[#e9905a]"
+              : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+            "font-[myFirstFont]"
+          )}
+        >
+          {item.name}
+        </DisclosureButton>
+      )}
+
+      {!isLast && (
+        <div className="my-3 flex justify-center">
+          <div className="h-px w-50 bg-gradient-to-r from-transparent via-gray-700 to-transparent" />
+        </div>
+      )}
+    </div>
+  );
+})}
               </div>
             </DisclosurePanel>
           </Transition>
