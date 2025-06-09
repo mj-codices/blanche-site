@@ -28,7 +28,7 @@ export const ContactDrawer = () => {
             initial={{ y: "100%" }}
             animate={{ y: "50%" }}
             exit={{ y: "100%" }}
-            transition={{ type: "spring", stiffness: 240, damping: 30, delay: 0.3 }}
+            transition={{ type: "spring", stiffness: 220, damping: 30, delay: 0.3 }}
           >
             <div className="w-screen">
               <div className="relative left-0 mt-auto w-screen">

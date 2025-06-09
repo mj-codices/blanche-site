@@ -3,7 +3,7 @@
   border-radius: 30px;
 }
 
-.buttons:active {
+.buttons:not(.disable-hover):active {
   transform: scale(0.95);
   transition: transform 0.2s ease-in-out;
 }
@@ -21,15 +21,16 @@
   border-radius: 30px;
 }
 
-.blob-btn-text-active {
-  cursor: auto;
-  box-shadow: 0 11px 17px 0 rgba(0,0,0,0.2), 0 8px 22px 0 rgba(0,0,0,0.19);
-  transition: box-shadow 0.2s;
-}
-
 .blob-btn-text {
   color: var(--black);
 }
+
+.blob-btn-text-active {
+  box-shadow: 0 11px 17px 0 rgba(0,0,0,0.2), 0 8px 22px 0 rgba(0,0,0,0.19);
+  transition: box-shadow 0.2s;
+  color: var(--accent) !important;
+}
+
 
 .blob-btn-text:not(.disable-hover):hover {
   color: var(--white) !important;

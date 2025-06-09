@@ -34,9 +34,14 @@ export default function Navbar() {
   const pathname = usePathname();
   const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
- 
-  
-  
+  const closeContactDrawer = useUIStore((state) => state.closeContactDrawer);
+  const handleContactClick = () => {
+  if (isDrawerOpen) {
+    closeContactDrawer();
+  } else {
+    openContactDrawer();
+  }
+};
 
   function renderNavItem(item: navigation) {
     const isActive = pathname === item.href;
@@ -45,12 +50,15 @@ export default function Navbar() {
         key={item.name}
         href={item.href}
         aria-current={isActive ? "page" : undefined}
+        onClick={closeContactDrawer}
         className={classNames(
           item.name === "Contact"
             ? "hidden rounded-full bg-[#171717] font-[myFirstFont] text-white hover:text-white"
             : "font-[myFirstFont]",
           isActive
-            ? "text-[#e9905a]"
+            ? isDrawerOpen
+              ? "text-[#171717] opacity-25 transition duration-600 hover:text-[#e9905a] hover:opacity-100" // Neutral color when drawer is open
+              : "text-[#e9905a]" // Highlight when active and drawer is closed
             : "text-[#171717] transition duration-600 hover:text-[#e9905a] hover:drop-shadow-lg",
           "px-3 py-2.5 text-sm md:text-base lg:text-lg",
         )}
@@ -78,7 +86,7 @@ export default function Navbar() {
                 <DisclosureButton className="group relative inline-flex cursor-pointer items-center justify-center rounded-md bg-[#171717] p-2 text-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
-                  <div id="nav-icon3" className={open ? 'open' : ''}>
+                  <div id="nav-icon3" className={open ? "open" : ""}>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -102,7 +110,6 @@ export default function Navbar() {
                     {navigation
                       .filter((item) => item.name !== "Contact")
                       .map((item) => renderNavItem(item))}
-                      
                   </div>
                 </div>
               </div>
@@ -112,7 +119,8 @@ export default function Navbar() {
                   disableHover={isDrawerOpen}
                   isNav
                   text="Contact"
-                  // onClick={() => router.push("/contact")}
+                  onClick={handleContactClick}
+                  
                 />
               </div>
             </div>
@@ -140,12 +148,13 @@ export default function Navbar() {
                         href={item.href}
                         aria-current={isActive ? "page" : undefined}
                         className={classNames(
-                          "font-lg block rounded-md pt-3 pb-2 text-center  text-base tracking-[1rem] uppercase",
+                          "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
                           isActive
                             ? "text-[#e9905a]"
                             : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                          item.name === "Contact" ? "font-[myFirstFontBold]" : "font-[myFirstFont]",
-                           item.name === "Contact" && contactPath ?  "text-oscillate" : ""
+                          item.name === "Contact"
+                            ? "font-[myFirstFontBold]"
+                            : "font-[myFirstFont]",
                         )}
                       >
                         {item.name}
