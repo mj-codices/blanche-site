@@ -36,13 +36,12 @@ export default function Navbar() {
   const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
   const closeContactDrawer = useUIStore((state) => state.closeContactDrawer);
   const handleContactClick = () => {
-  if (isDrawerOpen) {
-    closeContactDrawer();
-  } else {
-    openContactDrawer();
-  }
-};
-
+    if (isDrawerOpen) {
+      closeContactDrawer();
+    } else {
+      openContactDrawer();
+    }
+  };
   function renderNavItem(item: navigation) {
     const isActive = pathname === item.href;
     return (
@@ -83,7 +82,10 @@ export default function Navbar() {
             <div className="relative flex justify-between">
               {/* This div holds the DisclosureButton. This is our "hamburger" button for "mobile view" */}
               <div className="absolute top-7 right-0 flex pr-4 sm:hidden">
-                <DisclosureButton className="group relative inline-flex cursor-pointer items-center justify-center rounded-md bg-[#171717] p-2 text-white">
+                <DisclosureButton
+                  onClick={closeContactDrawer}
+                  className="group relative inline-flex cursor-pointer items-center justify-center rounded-md bg-[#171717] p-2 text-white"
+                >
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   <div id="nav-icon3" className={open ? "open" : ""}>
@@ -120,7 +122,6 @@ export default function Navbar() {
                   isNav
                   text="Contact"
                   onClick={handleContactClick}
-                  
                 />
               </div>
             </div>
@@ -135,7 +136,7 @@ export default function Navbar() {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <DisclosurePanel className="absolute z-50 w-screen bg-[#171717] sm:hidden">
+            <DisclosurePanel className="absolute z-40 w-screen bg-[#171717] sm:hidden">
               <div className="space-y-1 px-2 pt-5 pb-4">
                 {navigation.map((item, index) => {
                   const isActive = pathname === item.href;
