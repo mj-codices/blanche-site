@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
       <footer className="bg-[#171717] py-4 text-center text-white">
      
-        <div className={`${isDrawerOpen ? "transition duration-200 opacity-0" : "transition delay-600 duration-600 opacity-100"} flex justify-center space-x-8 z-100`}>
+        <div className={`${isDrawerOpen ? "transition duration-200 opacity-0" : "transition delay-900 duration-900 opacity-100"} flex justify-center space-x-8 z-100`}>
           <a href="#" target="_blank" rel="noopener noreferrer">
             <FaFacebook className="text-xl transition duration-600 hover:text-[#e9905a]" />
           </a>

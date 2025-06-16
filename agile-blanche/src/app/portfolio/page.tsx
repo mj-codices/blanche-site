@@ -26,7 +26,7 @@ export default function Porfolio() {
               onClick={openContactDrawer}
               className="cursor-pointer underline transition duration-600 ease-in-out hover:text-[#e9905a]"
             >
-              let's get in touch.
+              let's keep in touch.
             </Link>
           </p>
         </section>
