@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import "./portfolio.css";
 import Link from "next/link";
 import { useUIStore } from "../store/ui-store";
+import { FormButtonTest } from "../components/test/FormButtonTest";
 
 export default function Porfolio() {
   const openContactDrawer = useUIStore((state) => state.openContactDrawer);
@@ -48,7 +49,6 @@ export default function Porfolio() {
               <feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
               <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
             </filter>
-        
 
             <linearGradient
               id="metal-gradient"
@@ -76,6 +76,9 @@ export default function Porfolio() {
             />
           </g>
         </svg>
+      </div>
+      <div className="mx-150 h-50">
+        <FormButtonTest />
       </div>
     </div>
   );
