@@ -71,7 +71,7 @@
  
   &:active{
     transform: scale(0.9);
-    background-color: var(--black);
+    background-color: #db8753;
       transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
   box-shadow: 0 2px 25px rgba(233, 150, 90, 0.502);
   }
@@ -133,4 +133,11 @@
 .bubbly-button:active #arrow-hover {
   opacity: 1;
   transform: translateX(5px);
+}
+
+.float-labels {
+  transition-property: top, font-size, line-height;
+  transition-duration: 150ms;
+  pointer-events: none;
+  transition-timing-function: linear;
 }

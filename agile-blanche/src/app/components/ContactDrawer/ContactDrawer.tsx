@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { ContactButton } from "./ContactButton";
 
-
 export const ContactDrawer = () => {
   const isOpen = useUIStore((state) => state.isContactDrawerOpen);
   const closeDrawer = useUIStore((state) => state.closeContactDrawer);
@@ -31,7 +30,6 @@ export const ContactDrawer = () => {
     return () => clearTimeout(timeout);
   }, [isOpen]);
 
-  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("loading");
@@ -130,28 +128,69 @@ export const ContactDrawer = () => {
                     </div>
                   </div>
 
-                  <div className="mt-12 mr-10 w-110">
+                  <div className="mt-15 mr-10 w-110">
                     <form onSubmit={handleSubmit}>
-                      <input
+                      {/* <input
                         type="text"
                         placeholder="Your Name"
                         className="border-transition custom-input my-5 w-full border-0 border-b-2 border-gray-600 bg-transparent pb-2 text-white transition-colors duration-800 hover:border-[#a67b5b] focus:border-[#a67b5b] focus:ring-0 focus:outline-none"
-                      />
-
-                      <input
+                      /> */}
+                      <div className="relative mt-2 w-full">
+                        <input
+                          id="name"
+                          type="text"
+                          className="peer w-full border-b border-b-2 border-gray-600 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
+                          placeholder=" "
+                        />
+                        <label
+                          htmlFor="name"
+                          className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-600 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+                        >
+                          Your Name
+                        </label>
+                      </div>
+                      {/* <input
                         type="email"
                         placeholder="Your Email"
                         className="border-transition custom-input1 mt-3 mb-2 w-full border-0 border-b-2 border-gray-500 bg-transparent pb-2 text-white transition-colors duration-800 hover:border-[#c7936d] focus:border-[#c7936d] focus:ring-0 focus:outline-none"
-                      />
-                      <textarea
+                      /> */}
+                      <div className="relative mt-6 w-full">
+                        <input
+                          id="email"
+                          type="text"
+                          className="peer w-full border-b border-b-2 border-gray-500 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
+                          placeholder=" "
+                        />
+                        <label
+                          htmlFor="email"
+                          className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-500 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+                        >
+                          Email Address
+                        </label>
+                      </div>
+                      {/* <textarea
                         className="border-transition custom-input2 my-5 w-full border-0 border-b-2 border-gray-400 bg-transparent pb-2 text-white transition-colors duration-800 hover:border-[#f6b88b] focus:border-[#f6b88b] focus:ring-0 focus:outline-none"
                         placeholder="Start the conversation..."
-                      />
+                      /> */}
+                         <div className="relative mt-6 w-full">
+                        <textarea
+                          id="message"
+                          className="peer w-full border-b border-b-2 border-gray-400 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
+                          placeholder=" "
+                        />
+                        <label
+                          htmlFor="message"
+                          className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+                        >
+                          Your Message...
+                        </label>
+                      </div>
+
                       <div className="mt-5">
-                         <ContactButton onSubmit={handleSubmit} />
+                        <ContactButton onSubmit={handleSubmit} />
                       </div>
                     </form>
-                    <div className="mt-9 flex justify-center gap-27">
+                    <div className="mt-12 flex justify-center gap-27">
                       <a href="#" target="_blank" rel="noopener noreferrer">
                         <FaFacebook className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
                       </a>
