@@ -1,34 +1,17 @@
-/* .form-button {
-  display: inline-flex;
-  height: 43px;
-  background-color: #e9905a;
-  text-decoration: none;
-  font-size: 0.8em;
-  letter-spacing: 1.5px;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-} */
-
-/* .form-button:active {
-  transform: scale(0.97);
-  transition: transform 0.6s ease-in-out;
-} */
-
-
 .bubbly-button{
   font-family: 'Helvetica', 'Arial', sans-serif;
   display: inline-block;
   font-size: 1em;
   padding: 1em 2em;
-  margin-top: 100px;
-  margin-bottom: 60px;
   -webkit-appearance: none;
   appearance: none;
+  image-rendering: optimizeQuality;
+   backface-visibility: visible;
+   overflow: visible;
+  perspective: none;
   background-color: #ff0081;
   color: #fff;
-  border-radius: 4px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
   position: relative;
@@ -43,11 +26,11 @@
     position: absolute;
     content: '';
     display: block;
-    width: 140%;
+    width: 120%;
     height: 100%;
-    left: -20%;
+    left: -4%;
     z-index: -1000;
-    transition: all ease-in-out 0.5s;
+    transition: all ease-in-out .3s;
     background-repeat: no-repeat;
   }
   
@@ -124,4 +107,21 @@
     background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
   background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
   }
+}
+
+#arrow-hover {
+  width: 24px;
+  height: 10px;
+  position: absolute;
+  transform: translateX(60px);
+  opacity: 0;
+  transition-delay: 0.8s;
+  transition: all 0.2s cubic-bezier(0.14, 0.59, 1, 1.01);
+  margin: 0 8px;
+  padding: 0 5px;
+}
+
+.bubbly-button:hover #arrow-hover {
+  opacity: 1;
+  transform: translateX(50px);
 }

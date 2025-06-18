@@ -1,8 +1,7 @@
 "use client";
-
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./ContactDrawer.css";
+import "./FormButtonTest.css";
 
 interface ContactButtonProps {
   onSubmit: (e: React.FormEvent) => Promise<void>;
@@ -10,28 +9,56 @@ interface ContactButtonProps {
 
 export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
 
-  const handleClick = (e: any) => {
+  const triggerBubblyEffect = () => {
+    
+    const btn = buttonRef.current;
+    if (!btn) return;
+
+    btn.classList.remove("animate");
+    void btn.offsetWidth; // force reflow
+    btn.classList.add("animate");
+
+    setTimeout(() => {
+      btn.classList.remove("animate");
+    }, 700);
+  };
+
+  const handleClick = async (e: React.FormEvent) => {
     if (status !== "idle") return;
 
     setStatus("loading");
 
-    // Call parent logic
-    onSubmit(e);
+    // Call parent async logic
+    await onSubmit(e);
 
     setTimeout(() => {
       setStatus("sent");
+
+      // Wait for checkmark to animate, then bubbly pop
       setTimeout(() => {
-        setStatus("idle");
-      }, 1500);
+        triggerBubblyEffect();
+
+        // Return to idle
+        setTimeout(() => {
+          setStatus("idle");
+        }, 800); // allow bubbly to finish before reset
+      }, 1000);
     }, 2000);
   };
 
+
   return (
-    <button
+
+    <div className="flex justify-end">
+
+    
+       <button
+      ref={buttonRef}
       type="button"
       onClick={handleClick}
-      className="button relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-md bg-[#e9905a] px-4 py-2 text-white"
+      className="bubbly-button gap-2 rounded-md text-white w-[200px]"
     >
       <AnimatePresence mode="wait" initial={false}>
         {status === "idle" && (
@@ -40,7 +67,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2 pr-2"
+            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont] tracking-widest"
           >
             Send it
             <img
@@ -60,7 +87,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, rotate: 0 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont]"
           >
             Sending
             <motion.div
@@ -76,7 +103,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont]"
           >
             Sent
             <motion.svg
@@ -102,5 +129,6 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
         )}
       </AnimatePresence>
     </button>
+    </div>
   );
 };

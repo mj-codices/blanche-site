@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
-import "./ContactDrawer.css";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { ContactButton } from "./ContactButton";
 
@@ -106,7 +105,7 @@ export const ContactDrawer = () => {
               >
                 <div className="flex justify-evenly">
                   <div className="flex justify-evenly">
-                    <div className="mt-7 ml-20">
+                    <div className="mt-8 ml-18">
                       <h2 className="fredoka text-1xl mb-4 text-8xl tracking-wider text-[#FDFDFB]">
                         Contact
                       </h2>
@@ -131,7 +130,7 @@ export const ContactDrawer = () => {
                     </div>
                   </div>
 
-                  <div className="mt-12 mr-3 w-110">
+                  <div className="mt-10 mr-10 w-110">
                     <form onSubmit={handleSubmit}>
                       <input
                         type="text"
@@ -152,18 +151,18 @@ export const ContactDrawer = () => {
                          <ContactButton onSubmit={handleSubmit} />
                       </div>
                     </form>
-                    <div className="mt-12 flex justify-center gap-23">
+                    <div className="mt-9 flex justify-center gap-25">
                       <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                        <FaFacebook className="text-3xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
                       </a>
                       <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                        <FaTwitter className="text-3xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
                       </a>
                       <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaLinkedin className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                        <FaLinkedin className="text-3xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
                       </a>
                       <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaGithub className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                        <FaGithub className="text-3xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
                       </a>
                     </div>
                   </div>
