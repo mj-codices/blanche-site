@@ -8,15 +8,15 @@
    backface-visibility: visible;
    overflow: visible;
   perspective: none;
-  background-color: #ff0081;
+  background-color: var(--accent);
   color: #fff;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.5);
-  
+  box-shadow: 0 2px 25px rgba(233, 150, 90, 0.502);
+
   &:focus {
     outline: 0;
   }
@@ -37,15 +37,15 @@
     display: none;
     top: -75%;
     background-image:  
-      radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle,  transparent 20%, #ff0081 20%, transparent 30%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%), 
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, #ff0081 15%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%);
+      radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle,  transparent 20%, var(--accent) 20%, transparent 30%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%), 
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle,  transparent 10%, var(--accent) 15%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%);
   background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
   /* background-position: 0% 80%, -5% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 85% 30%; */
   }
@@ -54,21 +54,22 @@
     display: none;
     bottom: -75%;
     background-image:  
-    radial-gradient(circle, #ff0081 20%, transparent 20%), 
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle,  transparent 10%, #ff0081 15%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%),
-    radial-gradient(circle, #ff0081 20%, transparent 20%);
+    radial-gradient(circle, var(--accent) 20%, transparent 20%), 
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle,  transparent 10%, var(--accent) 15%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%),
+    radial-gradient(circle, var(--accent) 20%, transparent 20%);
   background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
   /* background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%; */
   }
  
   &:active{
     transform: scale(0.9);
-    background-color: darken(#ff0081, 5%);
-    box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+    background-color: darken(var(--accent), 5%);
+      transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(233, 150, 90, 0.502);
   }
   
   &.animate{
@@ -115,7 +116,7 @@
   transform: translateX(60px);
   opacity: 0;
   transition-delay: 0.8s;
-  transition: all 0.2s cubic-bezier(0.14, 0.59, 1, 1.01);
+  transition: all 0.3s cubic-bezier(0.14, 0.59, 1, 1.01);
   margin: 0px 0px;
   padding: 0px 5px;
 }
