@@ -14,8 +14,12 @@
   border: none;
   cursor: pointer;
   position: relative;
-  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  transition: transform ease-in 0.5s, box-shadow ease-in 0.25s;
   box-shadow: 0 2px 25px rgba(233, 150, 90, 0.502);
+    transition:
+    transform 0.4s ease-in,
+    box-shadow 0.25s ease-in,
+    background-color 0.25s ease-in;
 
   &:focus {
     outline: 0;
@@ -67,7 +71,7 @@
  
   &:active{
     transform: scale(0.9);
-    background-color: darken(var(--accent), 5%);
+    background-color: var(--black);
       transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
   box-shadow: 0 2px 25px rgba(233, 150, 90, 0.502);
   }
@@ -122,6 +126,11 @@
 }
 
 .bubbly-button:hover #arrow-hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.bubbly-button:active #arrow-hover {
   opacity: 1;
   transform: translateX(5px);
 }

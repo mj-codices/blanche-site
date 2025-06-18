@@ -43,7 +43,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
         // Return to idle
         setTimeout(() => {
           setStatus("idle");
-        }, 800); // allow bubbly to finish before reset
+        }, 1100); // allow bubbly to finish before reset
       }, 1000);
     }, 2000);
   };
