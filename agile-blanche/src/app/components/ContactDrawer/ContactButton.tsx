@@ -58,7 +58,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
       ref={buttonRef}
       type="button"
       onClick={handleClick}
-      className="bubbly-button gap-2 rounded-md text-white w-[200px]"
+      className="bubbly-button group gap-1 flex rounded-md text-white w-[200px] px-3 py-4"
     >
       <AnimatePresence mode="wait" initial={false}>
         {status === "idle" && (
@@ -67,7 +67,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont] tracking-widest"
+            className="flex items-center font-[myFirstFont] tracking-widest pl-12"
           >
             Send it
             <img
@@ -76,7 +76,8 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
               alt="Paper Plane"
               width={20}
               height={20}
-              style={{ position: "absolute" }}
+              // style={{ position: "absolute" }}
+              className="transition-opacity duration-200 ml-1 opacity-0 group-hover:opacity-100"
             />
           </motion.span>
         )}
@@ -87,7 +88,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, rotate: 0 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont]"
+            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont] tracking-widest"
           >
             Sending
             <motion.div
@@ -103,13 +104,13 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont]"
+            className="flex items-center gap-2 text-center justify-center text-base font-[myFirstFont] tracking-widest"
           >
             Sent
             <motion.svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="h-5 w-5 text-white"
+              className="h-6 w-6 text-white pb-1"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"

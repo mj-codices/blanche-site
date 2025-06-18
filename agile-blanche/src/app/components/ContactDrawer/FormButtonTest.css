@@ -2,7 +2,6 @@
   font-family: 'Helvetica', 'Arial', sans-serif;
   display: inline-block;
   font-size: 1em;
-  padding: 1em 2em;
   -webkit-appearance: none;
   appearance: none;
   image-rendering: optimizeQuality;
@@ -112,16 +111,16 @@
 #arrow-hover {
   width: 24px;
   height: 10px;
-  position: absolute;
+  position: relative;
   transform: translateX(60px);
   opacity: 0;
   transition-delay: 0.8s;
   transition: all 0.2s cubic-bezier(0.14, 0.59, 1, 1.01);
-  margin: 0 8px;
-  padding: 0 5px;
+  margin: 0px 0px;
+  padding: 0px 5px;
 }
 
 .bubbly-button:hover #arrow-hover {
   opacity: 1;
-  transform: translateX(50px);
+  transform: translateX(5px);
 }
