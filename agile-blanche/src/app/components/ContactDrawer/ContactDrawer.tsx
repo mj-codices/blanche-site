@@ -130,11 +130,6 @@ export const ContactDrawer = () => {
 
                   <div className="mt-15 mr-10 w-110">
                     <form onSubmit={handleSubmit}>
-                      {/* <input
-                        type="text"
-                        placeholder="Your Name"
-                        className="border-transition custom-input my-5 w-full border-0 border-b-2 border-gray-600 bg-transparent pb-2 text-white transition-colors duration-800 hover:border-[#a67b5b] focus:border-[#a67b5b] focus:ring-0 focus:outline-none"
-                      /> */}
                       <div className="relative mt-2 w-full">
                         <input
                           id="name"
@@ -149,11 +144,6 @@ export const ContactDrawer = () => {
                           Your Name
                         </label>
                       </div>
-                      {/* <input
-                        type="email"
-                        placeholder="Your Email"
-                        className="border-transition custom-input1 mt-3 mb-2 w-full border-0 border-b-2 border-gray-500 bg-transparent pb-2 text-white transition-colors duration-800 hover:border-[#c7936d] focus:border-[#c7936d] focus:ring-0 focus:outline-none"
-                      /> */}
                       <div className="relative mt-6 w-full">
                         <input
                           id="email"
@@ -168,10 +158,6 @@ export const ContactDrawer = () => {
                           Email Address
                         </label>
                       </div>
-                      {/* <textarea
-                        className="border-transition custom-input2 my-5 w-full border-0 border-b-2 border-gray-400 bg-transparent pb-2 text-white transition-colors duration-800 hover:border-[#f6b88b] focus:border-[#f6b88b] focus:ring-0 focus:outline-none"
-                        placeholder="Start the conversation..."
-                      /> */}
                          <div className="relative mt-6 w-full">
                         <textarea
                           id="message"
