@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaGithub, FaPhone, FaEnvelope } from "react-icons/fa";
 import { ContactButton } from "./ContactButton";
 
 export const ContactDrawer = () => {
