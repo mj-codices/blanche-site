@@ -3,7 +3,14 @@
 import { useEffect, useState } from "react";
 import { useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebook, FaTwitter, FaLinkedin, FaGithub, FaPhone, FaEnvelope } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaLinkedin,
+  FaGithub,
+  FaPhone,
+  FaEnvelope,
+} from "react-icons/fa";
 import { ContactButton } from "./ContactButton";
 
 export const ContactDrawer = () => {
@@ -11,7 +18,8 @@ export const ContactDrawer = () => {
   const closeDrawer = useUIStore((state) => state.closeContactDrawer);
   const [showContent, setShowContent] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
+  const [showThankYou, setShowThankYou] = useState(false);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -29,21 +37,6 @@ export const ContactDrawer = () => {
     }
     return () => clearTimeout(timeout);
   }, [isOpen]);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    setTimeout(() => {
-      setStatus("success");
-
-      // Optional reset after delay
-      setTimeout(() => {
-        setStatus("idle");
-        // optionally reset form fields here
-      }, 2000);
-    }, 2000);
-  };
 
   return (
     <AnimatePresence>
@@ -72,128 +65,186 @@ export const ContactDrawer = () => {
               delay: isOpen ? 0.3 : 0,
             }}
           >
-            <div className="w-screen">
-              <div className="relative left-0 mt-auto w-screen">
-                <div className="absolute top-2 left-0 w-screen">
-                  <svg
-                    className="wave relative block w-screen"
-                    viewBox="0 0 1200 100"
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717"></path>
-                  </svg>
-                </div>
-                <div className="absolute top-2 left-0 w-screen">
-                  <svg
-                    className="wave relative left-[100%] block w-screen"
-                    viewBox="0 0 1200 100"
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717"></path>
-                  </svg>
-                </div>
-              </div>
-
-              <div
-                className={`transition-opacity duration-300 ease-in-out ${
-                  showContent ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <div className="flex justify-evenly">
-                  <div className="flex justify-evenly">
-                    <div className="mt-10 ml-18">
-                      <h2 className="fredoka text-1xl mb-4 text-8xl tracking-wider text-[#FDFDFB]">
-                        Contact
-                      </h2>
-
-                      {/* Flex row: line + Us */}
-                      <div className="flex items-center gap-4 pt-1 pl-4">
-                        <div className="h-[.2rem] w-22 rounded-md bg-[#e9905a] lg:w-56"></div>
-                        <h2 className="fredoka text-1xl text-8xl tracking-wider text-[#FDFDFB]">
-                          Us
-                        </h2>
+            <AnimatePresence mode="wait">
+              {!showThankYou ? (
+                <motion.div key="form">
+                  <div className="w-screen">
+                    <div className="relative left-0 mt-auto w-screen">
+                      <div className="absolute top-2 left-0 w-screen">
+                        <svg
+                          className="wave relative block w-screen"
+                          viewBox="0 0 1200 100"
+                          preserveAspectRatio="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0,50 L1200,50 V100 H0 Z"
+                            fill="#171717"
+                          ></path>
+                        </svg>
                       </div>
-                      <p className="w-[18rem] pt-2 pb-5 pl-2 font-[myFirstFont] text-base leading-8 text-[#FDFDFB]">
-                        We’re happy to answer your questions, hear your ideas,
-                        or just chat about your next project.
-                      </p>
-                      <div className="fredoka pb-2 pl-6 text-sm tracking-widest text-[#88807B]">
-                        +909-900-000
+                      <div className="absolute top-2 left-0 w-screen">
+                        <svg
+                          className="wave relative left-[100%] block w-screen"
+                          viewBox="0 0 1200 100"
+                          preserveAspectRatio="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0,50 L1200,50 V100 H0 Z"
+                            fill="#171717"
+                          ></path>
+                        </svg>
                       </div>
-                      <div className="fredoka pl-6 text-sm tracking-widest text-[#88807B]">
-                        agile_blanche@gmail.com
+                    </div>
+
+                    <div
+                      className={`transition-opacity duration-300 ease-in-out ${
+                        showContent ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <div className="flex justify-evenly">
+                        <div className="flex justify-evenly">
+                          <div className="mt-10 ml-18">
+                            <h2 className="fredoka text-1xl mb-4 text-8xl tracking-wider text-[#FDFDFB]">
+                              Contact
+                            </h2>
+
+                            {/* Flex row: line + Us */}
+                            <div className="flex items-center gap-4 pt-1 pl-4">
+                              <div className="h-[.2rem] w-22 rounded-md bg-[#e9905a] lg:w-56"></div>
+                              <h2 className="fredoka text-1xl text-8xl tracking-wider text-[#FDFDFB]">
+                                Us
+                              </h2>
+                            </div>
+                            <p className="w-[18rem] pt-2 pb-5 pl-2 font-[myFirstFont] text-base leading-8 text-[#FDFDFB]">
+                              We’re happy to answer your questions, hear your
+                              ideas, or just chat about your next project.
+                            </p>
+                            <div className="fredoka pb-2 pl-6 text-sm tracking-widest text-[#88807B]">
+                              +909-900-000
+                            </div>
+                            <div className="fredoka pl-6 text-sm tracking-widest text-[#88807B]">
+                              agile_blanche@gmail.com
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="mt-15 mr-10 w-110">
+                          <form>
+                            <div className="relative mt-2 w-full">
+                              <input
+                                id="name"
+                                type="text"
+                                className="peer w-full border-b border-b-2 border-gray-600 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
+                                placeholder=" "
+                              />
+                              <label
+                                htmlFor="name"
+                                className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-600 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+                              >
+                                Your Name
+                              </label>
+                            </div>
+                            <div className="relative mt-6 w-full">
+                              <input
+                                id="email"
+                                type="text"
+                                className="peer w-full border-b border-b-2 border-gray-500 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
+                                placeholder=" "
+                              />
+                              <label
+                                htmlFor="email"
+                                className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-500 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+                              >
+                                Email Address
+                              </label>
+                            </div>
+                            <div className="relative mt-6 w-full">
+                              <textarea
+                                id="message"
+                                className="peer w-full border-b border-b-2 border-gray-400 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
+                                placeholder=" "
+                              />
+                              <label
+                                htmlFor="message"
+                                className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+                              >
+                                Your Message...
+                              </label>
+                            </div>
+
+                            <div className="mt-7">
+                              <ContactButton
+                                status={status}
+                                setStatus={setStatus}
+                                onComplete={() => setShowThankYou(true)}
+                              />
+                            </div>
+                          </form>
+                          <div className="mt-12 flex justify-center gap-27">
+                            <a
+                              href="#"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FaFacebook className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                            </a>
+                            <a
+                              href="#"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FaTwitter className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                            </a>
+                            <a
+                              href="#"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FaLinkedin className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                            </a>
+                            <a
+                              href="#"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <FaGithub className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-
-                  <div className="mt-15 mr-10 w-110">
-                    <form onSubmit={handleSubmit}>
-                      <div className="relative mt-2 w-full">
-                        <input
-                          id="name"
-                          type="text"
-                          className="peer w-full border-b border-b-2 border-gray-600 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
-                          placeholder=" "
-                        />
-                        <label
-                          htmlFor="name"
-                          className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-600 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
-                        >
-                          Your Name
-                        </label>
-                      </div>
-                      <div className="relative mt-6 w-full">
-                        <input
-                          id="email"
-                          type="text"
-                          className="peer w-full border-b border-b-2 border-gray-500 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
-                          placeholder=" "
-                        />
-                        <label
-                          htmlFor="email"
-                          className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-500 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
-                        >
-                          Email Address
-                        </label>
-                      </div>
-                         <div className="relative mt-6 w-full">
-                        <textarea
-                          id="message"
-                          className="peer w-full border-b border-b-2 border-gray-400 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
-                          placeholder=" "
-                        />
-                        <label
-                          htmlFor="message"
-                          className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
-                        >
-                          Your Message...
-                        </label>
-                      </div>
-
-                      <div className="mt-7">
-                        <ContactButton onSubmit={handleSubmit} />
-                      </div>
-                    </form>
-                    <div className="mt-12 flex justify-center gap-27">
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaFacebook className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
-                      </a>
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaTwitter className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
-                      </a>
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaLinkedin className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
-                      </a>
-                      <a href="#" target="_blank" rel="noopener noreferrer">
-                        <FaGithub className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
-                      </a>
-                    </div>
+                </motion.div>
+              ) : (
+                <motion.div key="thanks" className="flex w-screen">
+                  <div className="absolute top-2 left-0 w-screen">
+                    <svg
+                      className="wave relative block w-screen"
+                      viewBox="0 0 1200 100"
+                      preserveAspectRatio="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
+                    </svg>
                   </div>
-                </div>
-              </div>
-            </div>
+                  <div className="absolute top-2 left-0 w-screen">
+                    <svg
+                      className="wave relative left-[100%] block w-screen"
+                      viewBox="0 0 1200 100"
+                      preserveAspectRatio="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
+                    </svg>
+                  </div>
+                  <div className="text-center">
+                    {/* This will be where my thank you page will go */}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </>
       )}

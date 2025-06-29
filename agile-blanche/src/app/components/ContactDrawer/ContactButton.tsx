@@ -4,11 +4,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./ContactButton.css";
 
 interface ContactButtonProps {
-  onSubmit: (e: React.FormEvent) => Promise<void>;
+  status: "idle" | "loading" | "sent";
+  setStatus: React.Dispatch<React.SetStateAction<"idle" | "loading" | "sent">>;
+  onComplete: () => void;
 }
 
-export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
-  const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
+export const ContactButton = ({ status, setStatus, onComplete }: ContactButtonProps) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const triggerBubblyEffect = () => {
@@ -30,9 +31,6 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
 
     setStatus("loading");
 
-    // Call parent async logic
-    await onSubmit(e);
-
     setTimeout(() => {
       setStatus("sent");
 
@@ -43,6 +41,7 @@ export const ContactButton = ({ onSubmit }: ContactButtonProps) => {
         // Return to idle
         setTimeout(() => {
           setStatus("idle");
+          onComplete(); // trigger thank-you transition
         }, 1100); // allow bubbly to finish before reset
       }, 1000);
     }, 2000);
