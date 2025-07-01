@@ -103,7 +103,7 @@ const ContactDrawerContent = ({
       const token = await executeRecaptcha("contact_form");
       console.log("reCAPTCHA token:", token);
 
-      const res = await fetch("/api/contac", {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, token }),
@@ -186,7 +186,7 @@ const ContactDrawerContent = ({
                     >
                       <div className="flex justify-evenly">
                         {/* Contact Info */}
-                        <div className="mt-10 ml-18">
+                        <div className="mt-11 ml-18">
                           <h2 className="fredoka mb-4 text-8xl tracking-wider text-[#FDFDFB]">
                             Contact
                           </h2>
@@ -196,11 +196,11 @@ const ContactDrawerContent = ({
                               Us
                             </h2>
                           </div>
-                          <p className="w-[18rem] pt-2 pb-5 pl-2 font-[myFirstFont] text-base leading-8 text-[#FDFDFB]">
+                          <p className="w-[18rem] pt-3 pb-6 pl-2 font-[myFirstFont] text-base leading-8 text-[#FDFDFB]">
                             We’re happy to answer your questions, hear your
                             ideas, or just chat about your next project.
                           </p>
-                          <div className="fredoka pb-2 pl-6 text-sm tracking-widest text-[#88807B]">
+                          <div className="fredoka pb-3 pl-6 text-sm tracking-widest text-[#88807B]">
                             +909-900-000
                           </div>
                           <div className="fredoka pl-6 text-sm tracking-widest text-[#88807B]">
@@ -209,7 +209,7 @@ const ContactDrawerContent = ({
                         </div>
 
                         {/* Contact Form */}
-                        <div className="mt-8 mr-10 w-110">
+                        <div className="mt-7 mr-10 w-110">
                           <form onSubmit={handleSubmit(onSubmit)}>
                             {/* Name */}
                             <InputField
@@ -294,7 +294,7 @@ const ContactDrawerContent = ({
                           </form>
                                     {/* Socials */}
                           <div
-                            className={`mt-8 flex justify-center gap-30 transition-opacity duration-500 ${hasErrors ? "pointer-events-none opacity-0" : "opacity-100"}`}
+                            className={`mt-8 flex justify-end gap-25 transition-opacity duration-500 ${hasErrors ? "pointer-events-none opacity-0" : "opacity-100"}`}
                           >
                             {[FaFacebook, FaTwitter, FaLinkedin, FaGithub].map(
                               (Icon, idx) => (
@@ -402,7 +402,7 @@ const TextareaField = ({
 
     <label
       htmlFor={id}
-      className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+      className="float-labels font-[myFirstFont] absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
     >
       {label}
     </label>
