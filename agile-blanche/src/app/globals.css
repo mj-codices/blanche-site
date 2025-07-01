@@ -151,3 +151,7 @@ body {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
