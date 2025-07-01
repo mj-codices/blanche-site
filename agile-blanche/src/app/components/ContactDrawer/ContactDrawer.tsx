@@ -31,7 +31,7 @@ export const ContactDrawer = () => {
       timeout = setTimeout(() => setShowContent(true), 600);
     } else {
       setShowContent(false);
-      timeout = setTimeout(() => setIsVisible(false), 600);
+      timeout = setTimeout(() => setIsVisible(false), 300);
     }
 
     return () => clearTimeout(timeout);
