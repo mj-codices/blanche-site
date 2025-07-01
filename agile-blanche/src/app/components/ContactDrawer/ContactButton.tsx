@@ -6,57 +6,20 @@ import "./ContactButton.css";
 interface ContactButtonProps {
   status: "idle" | "loading" | "sent";
   setStatus: React.Dispatch<React.SetStateAction<"idle" | "loading" | "sent">>;
-  onComplete: () => void;
+  buttonRef: React.RefObject<HTMLButtonElement | null >;
 }
 
-export const ContactButton = ({ status, setStatus, onComplete }: ContactButtonProps) => {
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-
-  const triggerBubblyEffect = () => {
-    
-    const btn = buttonRef.current;
-    if (!btn) return;
-
-    btn.classList.remove("animate");
-    void btn.offsetWidth; // force reflow
-    btn.classList.add("animate");
-
-    setTimeout(() => {
-      btn.classList.remove("animate");
-    }, 700);
-  };
-
-  const handleClick = async (e: React.FormEvent) => {
-    if (status !== "idle") return;
-
-    setStatus("loading");
-
-    setTimeout(() => {
-      setStatus("sent");
-
-      // Wait for checkmark to animate, then bubbly pop
-      setTimeout(() => {
-        triggerBubblyEffect();
-
-        // Return to idle
-        setTimeout(() => {
-          setStatus("idle");
-          onComplete(); // trigger thank-you transition
-        }, 1100); // allow bubbly to finish before reset
-      }, 1000);
-    }, 2000);
-  };
-
+export const ContactButton = ({ status, setStatus, buttonRef }: ContactButtonProps) => {
 
   return (
 
     <div className="flex justify-end">
 
     
-       <button
+      <button
+      disabled={status === 'loading'}
       ref={buttonRef}
-      type="button"
-      onClick={handleClick}
+      type="submit"
       className="bubbly-button group gap-1 flex rounded-md text-white w-[200px] px-3 py-4"
     >
       <AnimatePresence mode="wait" initial={false}>

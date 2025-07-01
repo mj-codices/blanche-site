@@ -1,6 +1,6 @@
 // src/components/ContactDrawer/ContactDrawer.tsx
 "use client";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -12,6 +12,13 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { ContactButton } from "./ContactButton";
+import { useForm } from "react-hook-form";
+
+type ContactFormData = {
+  name: string;
+  email: string;
+  message: string;
+};
 
 export const ContactDrawer = () => {
   const isOpen = useUIStore((state) => state.isContactDrawerOpen);
@@ -20,6 +27,66 @@ export const ContactDrawer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
   const [showThankYou, setShowThankYou] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const triggerBubblyEffect = () => {
+    const btn = buttonRef.current;
+    if (!btn) return;
+
+    btn.classList.remove("animate");
+    void btn.offsetWidth; // force reflow
+    btn.classList.add("animate");
+
+    setTimeout(() => {
+      btn.classList.remove("animate");
+    }, 700);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setError,
+    formState: { errors },
+  } = useForm<ContactFormData>();
+
+  const hasErrors = Object.keys(errors).length > 0;
+
+  const onSubmit = async (data: ContactFormData) => {
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setStatus("sent");
+      setTimeout(() => {
+        triggerBubblyEffect(); // 💥 Add this here!
+
+        // ⏱️ Wait for button animation (e.g., 1s) before fading out
+        setTimeout(() => {
+          setShowContent(false);
+
+          setTimeout(() => {
+            setShowThankYou(true);
+            reset();
+          }, 600); // Wait for fade-out to finish
+        }, 700); // Wait for bubbly effect
+      }, 600); // Let the ContactButton finish 'sent' animation
+    } catch (error) {
+      console.error(error);
+      setStatus("idle");
+      setError("root", {
+        type: "manual",
+        message: "Something went wrong. Please try again.",
+      });
+    }
+  };
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -33,7 +100,7 @@ export const ContactDrawer = () => {
       setShowContent(false); // Trigger content fade-out
       timeout = setTimeout(() => {
         setIsVisible(false); // Unmount drawer AFTER fade-out
-      }, 400); // Give content time to fade out
+      }, 600); // Give content time to fade out
     }
     return () => clearTimeout(timeout);
   }, [isOpen]);
@@ -99,8 +166,10 @@ export const ContactDrawer = () => {
                     </div>
 
                     <div
-                      className={`transition-opacity duration-300 ease-in-out ${
-                        showContent ? "opacity-100" : "opacity-0"
+                      className={`transition-opacity duration-500 ease-in-out ${
+                        showContent && !showThankYou
+                          ? "opacity-100"
+                          : "opacity-0"
                       }`}
                     >
                       <div className="flex justify-evenly">
@@ -131,14 +200,27 @@ export const ContactDrawer = () => {
                         </div>
 
                         <div className="mt-15 mr-10 w-110">
-                          <form>
+                          <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="relative mt-2 w-full">
                               <input
+                                {...register("name", { required: true })}
                                 id="name"
                                 type="text"
                                 className="peer w-full border-b border-b-2 border-gray-600 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
                                 placeholder=" "
                               />
+                              <div
+                                className={`overflow-hidden transition-all duration-500 ${
+                                  errors.name
+                                    ? "mt-1 max-h-10 opacity-100"
+                                    : "mt-0 max-h-0 opacity-0"
+                                }`}
+                              >
+                                <p className="text-sm text-[#DB4437]">
+                                  Name is required
+                                </p>
+                              </div>
+
                               <label
                                 htmlFor="name"
                                 className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-600 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-600 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
@@ -148,11 +230,26 @@ export const ContactDrawer = () => {
                             </div>
                             <div className="relative mt-6 w-full">
                               <input
+                                {...register("email", {
+                                  required: true,
+                                  pattern: /^\S+@\S+$/i,
+                                })}
                                 id="email"
-                                type="text"
+                                type="email"
                                 className="peer w-full border-b border-b-2 border-gray-500 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
                                 placeholder=" "
                               />
+                              <div
+                                className={`overflow-hidden transition-all duration-500 ${
+                                  errors.email
+                                    ? "mt-1 max-h-10 opacity-100"
+                                    : "mt-0 max-h-0 opacity-0"
+                                }`}
+                              >
+                                <p className="text-sm text-[#DB4437]">
+                                  Email is required
+                                </p>
+                              </div>
                               <label
                                 htmlFor="email"
                                 className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-500 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
@@ -162,10 +259,22 @@ export const ContactDrawer = () => {
                             </div>
                             <div className="relative mt-6 w-full">
                               <textarea
+                                {...register("message", { required: true })}
                                 id="message"
                                 className="peer w-full border-b border-b-2 border-gray-400 bg-transparent py-1 text-lg text-white transition transition-all duration-400 outline-none focus:border-[#c7936d]"
                                 placeholder=" "
                               />
+                              <div
+                                className={`overflow-hidden transition-all duration-500 ${
+                                  errors.message
+                                    ? "mt-1 max-h-10 opacity-100"
+                                    : "mt-0 max-h-0 opacity-0"
+                                }`}
+                              >
+                                <p className="text-sm text-[#DB4437]">
+                                  Message is required
+                                </p>
+                              </div>
                               <label
                                 htmlFor="message"
                                 className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
@@ -178,11 +287,28 @@ export const ContactDrawer = () => {
                               <ContactButton
                                 status={status}
                                 setStatus={setStatus}
-                                onComplete={() => setShowThankYou(true)}
+                                buttonRef={buttonRef}
                               />
                             </div>
+                            <div
+                              className={`overflow-hidden text-center transition-all duration-500 ${
+                                errors.root
+                                  ? "mt-5 max-h-10 opacity-100"
+                                  : "mt-0 max-h-0 opacity-0"
+                              }`}
+                            >
+                              <p className="text-sm text-[#DB4437]">
+                                {errors.root?.message || ""}
+                              </p>
+                            </div>
                           </form>
-                          <div className="mt-12 flex justify-center gap-27">
+                          <div
+                            className={`mt-12 flex justify-center gap-27 ${
+                              hasErrors
+                                ? "pointer-events-none opacity-0"
+                                : "opacity-100"
+                            } transition-opacity duration-500`}
+                          >
                             <a
                               href="#"
                               target="_blank"
