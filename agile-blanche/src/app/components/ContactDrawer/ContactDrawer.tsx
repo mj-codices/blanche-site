@@ -9,7 +9,6 @@ import {
   GoogleReCaptchaProvider,
   useGoogleReCaptcha,
 } from "react-google-recaptcha-v3";
-import { div } from "framer-motion/client";
 
 type ContactFormData = {
   name: string;
