@@ -109,7 +109,7 @@ export default function Navbar() {
               {/* This div holds our logo */}
               <div className="inset-y-0 left-0 flex-none items-center">
                 <Image
-                  src="/agile-logo.png"
+                  src="/assets/agile-logo.png"
                   alt="company logo"
                   width={170}
                   height={170}

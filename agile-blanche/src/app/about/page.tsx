@@ -59,7 +59,7 @@ export default function AboutPage() {
           </h1>
           <Image
             className="mx-auto max-w-80 rounded-lg shadow-lg sm:max-w-120 md:max-w-80 md:min-w-60 lg:max-w-96"
-            src="/placeholder.png"
+            src="/assets/placeholder.png"
             alt=""
             width={1200}
             height={500}
