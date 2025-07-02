@@ -30,7 +30,7 @@ export const ContactDrawer = () => {
       timeout = setTimeout(() => setShowContent(true), 600);
     } else {
       setShowContent(false);
-      timeout = setTimeout(() => setIsVisible(false), 300);
+      timeout = setTimeout(() => setIsVisible(false), 200);
     }
 
     return () => clearTimeout(timeout);
@@ -66,7 +66,7 @@ const ContactDrawerContent = ({
   closeDrawer: () => void;
 }) => {
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
-  const [showThankYou, setShowThankYou] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(true);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const triggerBubblyEffect = () => {
@@ -186,14 +186,14 @@ const ContactDrawerContent = ({
                       <div className="flex justify-evenly">
                         {/* Contact Info */}
                         <div className="mt-11 ml-18">
-                          <h2 className="fredoka mb-4 text-8xl tracking-wider text-[#FDFDFB]">
+                          <h1 className="fredoka mb-4 text-8xl tracking-wider text-[#FDFDFB]">
                             Contact
-                          </h2>
+                          </h1>
                           <div className="flex items-center gap-4 pt-1 pl-4">
                             <div className="h-[.2rem] w-22 rounded-md bg-[#e9905a] lg:w-56" />
-                            <h2 className="fredoka text-8xl tracking-wider text-[#FDFDFB]">
+                            <h1 className="fredoka text-8xl tracking-wider text-[#FDFDFB]">
                               Us
-                            </h2>
+                            </h1>
                           </div>
                           <p className="w-[18rem] pt-3 pb-6 pl-2 font-[myFirstFont] text-base leading-8 text-[#FDFDFB]">
                             We’re happy to answer your questions, hear your
@@ -314,8 +314,16 @@ const ContactDrawerContent = ({
                   </motion.div>
                 ) : (
                   <motion.div key="thanks" className="flex w-screen">
-                    {/* Thank you content goes here */}
-                     
+                    <div className="flex">
+                      {/* Paperplane SVG Goes Here */}
+                    </div>
+                    <div>
+                      {/* Thank You Content Goes Here */}
+                      <h1>Thanks for reaching out!</h1>
+                    </div>
+                    <div>
+                      {/* Stars SVG Goes Here */}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
