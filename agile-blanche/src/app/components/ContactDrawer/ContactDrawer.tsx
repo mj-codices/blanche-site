@@ -22,8 +22,9 @@ export const ContactDrawer = () => {
   const closeDrawer = useUIStore((state) => state.closeContactDrawer);
   const [showContent, setShowContent] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(true);
+  const [showThankYou, setShowThankYou] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
+  const [submittedName, setSubmittedName] = useState<string | null>(null);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -60,10 +61,42 @@ export const ContactDrawer = () => {
         setShowThankYou={setShowThankYou}
         status={status}
         setStatus={setStatus}
+        submittedName={submittedName}
+        setSubmittedName={setSubmittedName}
       />
     </GoogleReCaptchaProvider>
   );
 };
+
+const capitalizeFirstLetter = (name: string): string =>
+  name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+const getFirstName = (fullName: string): string | null => {
+  if (!fullName) return null;
+
+  const titles = new Set([
+    "mr", "mrs", "ms", "miss", "dr", "prof", "sir", "madam", "sr", "jr",
+  ]);
+
+  const words = fullName.trim().toLowerCase().split(/\s+/);
+
+  for (const word of words) {
+    // Strip punctuation
+    const cleaned = word.replace(/[^\p{L}]/gu, "");
+
+    if (
+      cleaned.length >= 2 &&
+      cleaned.length <= 20 &&
+      /^[a-zA-Z\u00C0-\u017F]+$/.test(cleaned) && // letters only (including accents)
+      !titles.has(cleaned)
+    ) {
+      return capitalizeFirstLetter(cleaned);
+    }
+  }
+
+  return null;
+};
+
 
 // ----------------------
 // Internal Content Component
@@ -78,6 +111,8 @@ const ContactDrawerContent = ({
   closeDrawer,
   showThankYou,
   setShowThankYou,
+  submittedName,
+  setSubmittedName,
 }: {
   status: "idle" | "loading" | "sent";
   setStatus: React.Dispatch<React.SetStateAction<"idle" | "loading" | "sent">>;
@@ -87,6 +122,8 @@ const ContactDrawerContent = ({
   closeDrawer: () => void;
   showThankYou: boolean;
   setShowThankYou: React.Dispatch<React.SetStateAction<boolean>>;
+  submittedName: string | null;
+  setSubmittedName: React.Dispatch<React.SetStateAction<string | null>>;
 }) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
@@ -132,6 +169,7 @@ const ContactDrawerContent = ({
       if (!res.ok) throw new Error("Failed to send");
 
       setStatus("sent");
+      setSubmittedName(data.name); // Save the full name
 
       setTimeout(() => {
         triggerBubblyEffect();
@@ -352,9 +390,12 @@ const ContactDrawerContent = ({
 
                           {/* Right: Message */}
                           <div className="flex flex-1 flex-col items-center justify-center text-center">
-                            <h2 className="fredoka text-4xl font-semibold text-white">
-                              Thanks for reaching out!
+                            <h2 className="fredoka text-7xl font-semibold text-white">
+                              {submittedName && getFirstName(submittedName)
+                                ? `Thanks for reaching out, ${getFirstName(submittedName)}!`
+                                : "Thanks for reaching out!"}
                             </h2>
+
                             <p className="mt-4 max-w-lg font-[myFirstFontBold] text-base text-gray-300">
                               We’ve received your message and will be in touch
                               shortly. In the mean time, make sure to connect
@@ -381,12 +422,13 @@ const ContactDrawerContent = ({
                               Have more to say? Feel free to{" "}
                               <a
                                 onClick={() => {
-                                  setShowThankYou(false); // fade out thank-you
+                                  setShowThankYou(false);
+                                  setSubmittedName(null); // Reset the name for the next round
                                   setTimeout(() => {
-                                    setShowContent(true); // fade in form
-                                    reset(); // clear fields
-                                    setStatus("idle"); // reset button state!
-                                  }, 300); // Adjust this delay to match your fade duration
+                                    setShowContent(true);
+                                    reset();
+                                    setStatus("idle");
+                                  }, 300);
                                 }}
                                 className="cursor-pointer underline transition hover:text-[#e9905a]"
                               >
