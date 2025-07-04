@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from "react";
 import { useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import PaperPlane from "@/app/assets/paper-plane.svg";
 import { ContactButton } from "./ContactButton";
 import { useForm } from "react-hook-form";
 import {
@@ -21,6 +22,8 @@ export const ContactDrawer = () => {
   const closeDrawer = useUIStore((state) => state.closeContactDrawer);
   const [showContent, setShowContent] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(true);
+  const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -31,6 +34,14 @@ export const ContactDrawer = () => {
     } else {
       setShowContent(false);
       timeout = setTimeout(() => setIsVisible(false), 200);
+
+      if (showThankYou) {
+        setShowThankYou(false);
+      }
+
+      if (status === "sent") {
+        setStatus("idle");
+      }
     }
 
     return () => clearTimeout(timeout);
@@ -45,6 +56,10 @@ export const ContactDrawer = () => {
         showContent={showContent}
         setShowContent={setShowContent}
         closeDrawer={closeDrawer}
+        showThankYou={showThankYou}
+        setShowThankYou={setShowThankYou}
+        status={status}
+        setStatus={setStatus}
       />
     </GoogleReCaptchaProvider>
   );
@@ -58,15 +73,21 @@ const ContactDrawerContent = ({
   isVisible,
   showContent,
   setShowContent,
+  status,
+  setStatus,
   closeDrawer,
+  showThankYou,
+  setShowThankYou,
 }: {
+  status: "idle" | "loading" | "sent";
+  setStatus: React.Dispatch<React.SetStateAction<"idle" | "loading" | "sent">>;
   isVisible: boolean;
-  setShowContent: React.Dispatch<React.SetStateAction<boolean>>;
   showContent: boolean;
+  setShowContent: React.Dispatch<React.SetStateAction<boolean>>;
   closeDrawer: () => void;
+  showThankYou: boolean;
+  setShowThankYou: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
-  const [showThankYou, setShowThankYou] = useState(true);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const triggerBubblyEffect = () => {
@@ -291,7 +312,7 @@ const ContactDrawerContent = ({
                               </p>
                             )}
                           </form>
-                                    {/* Socials */}
+                          {/* Socials */}
                           <div
                             className={`mt-8 flex justify-end gap-25 transition-opacity duration-500 ${hasErrors ? "pointer-events-none opacity-0" : "opacity-100"}`}
                           >
@@ -313,16 +334,82 @@ const ContactDrawerContent = ({
                     </div>
                   </motion.div>
                 ) : (
-                  <motion.div key="thanks" className="flex w-screen">
-                    <div className="flex">
-                      {/* Paperplane SVG Goes Here */}
-                    </div>
-                    <div>
-                      {/* Thank You Content Goes Here */}
-                      <h1>Thanks for reaching out!</h1>
-                    </div>
-                    <div>
-                      {/* Stars SVG Goes Here */}
+                  <motion.div key="thanks" className="w-screen">
+                    <div className="">
+                      {showThankYou && (
+                        <motion.div
+                          key="thanks"
+                          className="flex h-full w-full items-center justify-center px-10"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -20 }}
+                          transition={{ duration: 0.6, ease: "easeInOut" }}
+                        >
+                          {/* Left: SVG Illustration */}
+                          <div className="flex flex-1 justify-center">
+                            <PaperPlane className="h-auto w-64 md:w-80" />
+                          </div>
+
+                          {/* Right: Message */}
+                          <div className="flex flex-1 flex-col items-center justify-center text-center">
+                            <h2 className="fredoka text-4xl font-semibold text-white">
+                              Thanks for reaching out!
+                            </h2>
+                            <p className="mt-4 max-w-lg font-[myFirstFontBold] text-base text-gray-300">
+                              We’ve received your message and will be in touch
+                              shortly. In the mean time, make sure to connect
+                              with us on our socials below.
+                            </p>
+                            <div className="flex gap-30">
+                              {[
+                                FaFacebook,
+                                FaTwitter,
+                                FaLinkedin,
+                                FaGithub,
+                              ].map((Icon, idx) => (
+                                <a
+                                  key={idx}
+                                  href="#"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  <Icon className="text-xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                                </a>
+                              ))}
+                            </div>
+                            <p className="mt-6 text-center text-sm text-gray-600">
+                              Have more to say? Feel free to{" "}
+                              <a
+                                onClick={() => {
+                                  setShowThankYou(false); // fade out thank-you
+                                  setTimeout(() => {
+                                    setShowContent(true); // fade in form
+                                    reset(); // clear fields
+                                    setStatus("idle"); // reset button state!
+                                  }, 300); // Adjust this delay to match your fade duration
+                                }}
+                                className="cursor-pointer underline transition hover:text-[#e9905a]"
+                              >
+                                send another message
+                              </a>
+                              or just{" "}
+                              <a
+                                onClick={closeDrawer}
+                                className="cursor-pointer underline hover:text-white"
+                              >
+                                return back to browsing
+                              </a>
+                              .
+                            </p>
+                            <div>
+                              <p className="fredoka text-white">Sincerely,</p>
+                              <p className="fredoka text-white">
+                                The Agile-Blanche Team
+                              </p>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
                     </div>
                   </motion.div>
                 )}
@@ -339,7 +426,7 @@ const ContactDrawerContent = ({
 // Field Components
 // ----------------------
 
- const InputField = ({
+const InputField = ({
   id,
   label,
   register,
@@ -382,7 +469,6 @@ const ContactDrawerContent = ({
   </div>
 );
 
-
 const TextareaField = ({
   id,
   label,
@@ -409,7 +495,7 @@ const TextareaField = ({
 
     <label
       htmlFor={id}
-      className="float-labels font-[myFirstFont] absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
+      className="float-labels absolute -top-5 left-0 max-w-[calc(100%-18px)] cursor-text truncate font-[myFirstFont] text-sm text-gray-400 peer-placeholder-shown:top-0 peer-placeholder-shown:text-base peer-focus:-top-5 peer-focus:text-sm peer-focus:text-[#c7936d]"
     >
       {label}
     </label>
