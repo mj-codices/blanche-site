@@ -3,7 +3,10 @@ import { useRef, useEffect, useState } from "react";
 import { useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
-import PaperPlane from "@/app/assets/paper-plane.svg";
+import PaperPlane from "../PaperPlane";
+import Stars from "../Stars";
+import mwSig from "public/assets/mw-sig.png";
+import jwSig from "public/assets/jw-sig.png";
 import { ContactButton } from "./ContactButton";
 import { useForm } from "react-hook-form";
 import {
@@ -75,7 +78,16 @@ const getFirstName = (fullName: string): string | null => {
   if (!fullName) return null;
 
   const titles = new Set([
-    "mr", "mrs", "ms", "miss", "dr", "prof", "sir", "madam", "sr", "jr",
+    "mr",
+    "mrs",
+    "ms",
+    "miss",
+    "dr",
+    "prof",
+    "sir",
+    "madam",
+    "sr",
+    "jr",
   ]);
 
   const words = fullName.trim().toLowerCase().split(/\s+/);
@@ -96,7 +108,6 @@ const getFirstName = (fullName: string): string | null => {
 
   return null;
 };
-
 
 // ----------------------
 // Internal Content Component
@@ -372,36 +383,48 @@ const ContactDrawerContent = ({
                     </div>
                   </motion.div>
                 ) : (
-                  <motion.div key="thanks" className="w-screen">
-                    <div className="">
+                  <motion.div
+                    key="thanks"
+                    className="flex h-full w-screen justify-center"
+                  >
+                    <div className="relative flex w-full max-w-6xl justify-center">
                       {showThankYou && (
                         <motion.div
                           key="thanks"
-                          className="flex h-full w-full items-center justify-center px-10"
+                          className="flex w-full max-w-6xl justify-center gap-16"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                           {/* Left: SVG Illustration */}
-                          <div className="flex flex-1 justify-center">
-                            <PaperPlane className="h-auto w-64 md:w-80" />
+                          <div className="absolute left-[4rem] flex">
+                            <PaperPlane className="h-auto w-60 overflow-visible pt-28 md:w-43" />
                           </div>
 
                           {/* Right: Message */}
-                          <div className="flex flex-1 flex-col items-center justify-center text-center">
-                            <h2 className="fredoka text-7xl font-semibold text-white">
-                              {submittedName && getFirstName(submittedName)
-                                ? `Thanks for reaching out, ${getFirstName(submittedName)}!`
-                                : "Thanks for reaching out!"}
+                          <div className="flex flex-1 flex-col items-center text-center">
+                            <h2 className="fredoka mt-10 mb-6 w-3xl text-5xl leading-6 font-semibold tracking-wide text-white">
+                              <span className="text-[#88807B]">Thanks</span>
+                              {" for reaching out"}
+                              {submittedName && getFirstName(submittedName) && (
+                                <>
+                                  ,{" "}
+                                  <span className="text-[#8faf9e]">
+                                    {getFirstName(submittedName)}
+                                  </span>
+                                </>
+                              )}
+                              {!submittedName && "!"}
+                              {submittedName && "!"}
                             </h2>
 
-                            <p className="mt-4 max-w-lg font-[myFirstFontBold] text-base text-gray-300">
+                            <p className="fredoka mt-4 mb-4 max-w-lg text-base leading-9 text-gray-300">
                               We’ve received your message and will be in touch
                               shortly. In the mean time, make sure to connect
                               with us on our socials below.
                             </p>
-                            <div className="flex gap-30">
+                            <div className="my-4 flex gap-30">
                               {[
                                 FaFacebook,
                                 FaTwitter,
@@ -414,12 +437,12 @@ const ContactDrawerContent = ({
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  <Icon className="text-xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                                  <Icon className="text-4xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
                                 </a>
                               ))}
                             </div>
-                            <p className="mt-6 text-center text-sm text-gray-600">
-                              Have more to say? Feel free to{" "}
+                            <p className="mt-6 mb-5 text-center font-[myFirstFont] text-xs text-gray-300">
+                              Care to say more?—{" "}
                               <a
                                 onClick={() => {
                                   setShowThankYou(false);
@@ -430,25 +453,42 @@ const ContactDrawerContent = ({
                                     setStatus("idle");
                                   }, 300);
                                 }}
-                                className="cursor-pointer underline transition hover:text-[#e9905a]"
+                                className="cursor-pointer font-[myFirstFont] text-xs text-gray-300 underline transition duration-600 hover:text-[#e9905a]"
                               >
-                                send another message
-                              </a>
+                                Send us another message
+                              </a>{" "}
                               or just{" "}
                               <a
                                 onClick={closeDrawer}
-                                className="cursor-pointer underline hover:text-white"
+                                className="cursor-pointer font-[myFirstFont] text-xs text-gray-300 underline transition duration-600 hover:text-[#8faf9e]"
                               >
-                                return back to browsing
+                                continue browsing
                               </a>
                               .
                             </p>
                             <div>
-                              <p className="fredoka text-white">Sincerely,</p>
+                              <p className="fredoka mb-2 text-white">
+                                Sincerely,
+                              </p>
                               <p className="fredoka text-white">
                                 The Agile-Blanche Team
                               </p>
                             </div>
+                            <div className="flex items-start gap-4 pt-5">
+                              <img
+                                src="./assets/jw-sig.png"
+                                alt="Jessie's Signature"
+                                className="h-auto w-20"
+                              />
+                              <img
+                                src="./assets/mw-sig.png"
+                                alt="Mike's Signature"
+                                className="h-auto w-20"
+                              />
+                            </div>
+                          </div>
+                          <div className=" absolute top-[7rem] right-[6rem] flex h-auto overflow-visible">
+                            <Stars className="star-glow h-25 w-25" />
                           </div>
                         </motion.div>
                       )}

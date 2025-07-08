@@ -84,34 +84,6 @@ body {
   }
 }
 
-/* @keyframes textColorPulse {
-  0% {
-    color: var(--white);
-  }
-  50% {
-    color: var(--accent);
-  }
-  100% {
-    color: var(--white);
-  }
-}
-
-.text-oscillate {
-  animation: textColorPulse 4s ease-in-out infinite;
-} */
-
-/* @keyframes pulseGrow {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.08);
-  }
-}
-
-.pulse-grow {
-  animation: pulseGrow ;
-} */
 
 .custom-input::placeholder {
   color: #6b7280; /* Tailwind gray-500 */
@@ -154,4 +126,40 @@ body {
 
 .grecaptcha-badge {
   visibility: hidden;
+}
+
+.star-glow {
+  filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    overflow: visible;
+}
+
+
+.plane-glow {
+  filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    overflow: visible;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.star {
+  transform-origin: center;
+  transform-box: fill-box; /* Important for SVGs */
+}
+
+/* Group A stars pulse in sync */
+.star.twinkle-a {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Group B star (the odd one out) pulses out of phase */
+.star.twinkle-b {
+  animation: twinkle 2s ease-in-out infinite;
+  animation-delay: 1s;
 }
