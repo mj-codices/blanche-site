@@ -5,8 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import PaperPlane from "../PaperPlane";
 import Stars from "../Stars";
-import mwSig from "public/assets/mw-sig.png";
-import jwSig from "public/assets/jw-sig.png";
 import { ContactButton } from "./ContactButton";
 import { useForm } from "react-hook-form";
 import {
@@ -398,8 +396,8 @@ const ContactDrawerContent = ({
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                           {/* SVG: Paper Plane */}
-                          <div className="flex justify-center absolute md:left-[4rem] block z-10 overflow-visible">
-                            <PaperPlane className="w-25 sm:w-30 pt-3 md:w-35 md:pt-28 lg:w-43" />
+                          <div className="flex justify-center absolute md:rotate-350 md:left-[4rem] block z-10 overflow-visible">
+                            <PaperPlane className="w-25 sm:w-30 pt-3 md:w-35 md:pt-38 lg:w-43" />
                           </div>
 
                           {/* Right: Message */}
@@ -474,7 +472,7 @@ const ContactDrawerContent = ({
                                 The Agile-Blanche Team
                               </p>
                             </div>
-                            <div className="flex items-start gap-4 pt-5">
+                            {/* <div className="flex items-start gap-4 pt-5">
                               <img
                                 src="./assets/jw-sig.png"
                                 alt="Jessie's Signature"
@@ -485,10 +483,10 @@ const ContactDrawerContent = ({
                                 alt="Mike's Signature"
                                 className="h-auto w-12 sm:w-15 md:w-17 lg:w-20"
                               />
-                            </div>
+                            </div> */}
                           </div>
-                          <div className="invisible absolute top-[7rem] right-[6rem] flex h-auto overflow-visible md:visible">
-                            <Stars className="star-glow md:h-20 md:w-20 lg:h-25 lg:w-25" />
+                          <div className="invisible absolute top-[3rem] right-[6rem] flex h-auto overflow-visible md:visible">
+                            <Stars className="star-glow md:h-20 md:w-20 lg:h-25 lg:w-20" />
                           </div>
                         </motion.div>
                       )}
