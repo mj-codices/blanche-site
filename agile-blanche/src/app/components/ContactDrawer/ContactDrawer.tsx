@@ -391,20 +391,20 @@ const ContactDrawerContent = ({
                       {showThankYou && (
                         <motion.div
                           key="thanks"
-                          className="flex w-full max-w-6xl justify-center gap-16"
+                          className="flex w-full max-w-6xl flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-16"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
-                          {/* Left: SVG Illustration */}
-                          <div className="absolute left-[4rem] flex">
-                            <PaperPlane className="h-auto w-60 overflow-visible pt-28 md:w-43" />
+                          {/* SVG: Paper Plane */}
+                          <div className="flex justify-center absolute md:left-[4rem] block z-10 overflow-visible">
+                            <PaperPlane className="w-25 sm:w-30 pt-3 md:w-35 md:pt-28 lg:w-43" />
                           </div>
 
                           {/* Right: Message */}
-                          <div className="flex flex-1 flex-col items-center text-center">
-                            <h2 className="fredoka mt-10 mb-6 w-3xl text-5xl leading-6 font-semibold tracking-wide text-white">
+                          <div className="flex flex-1 flex-col items-center text-center z-50">
+                            <h2 className="fredoka tracking-wide font-semibold text-white mt-30 sm:mt-33 mb-3 text-3xl sm:text-4xl sm:leading-4 md:mt-8 md:mb-4 md:leading-5 lg:mt-10 lg:mb-6 lg:text-5xl lg:leading-6">
                               <span className="text-[#88807B]">Thanks</span>
                               {" for reaching out"}
                               {submittedName && getFirstName(submittedName) && (
@@ -419,12 +419,12 @@ const ContactDrawerContent = ({
                               {submittedName && "!"}
                             </h2>
 
-                            <p className="fredoka mt-4 mb-4 max-w-lg text-base leading-9 text-gray-300">
+                            <p className="fredoka text-gray-300 mt-2 sm:mb-2 max-w-md sm:max-w-md text-sm leading-8 md:mt-3 sm:mx-0 sm:mb-0 md:mb-3 lg:mt-4 lg:mb-4 lg:max-w-lg lg:text-base lg:leading-9">
                               We’ve received your message and will be in touch
                               shortly. In the mean time, make sure to connect
                               with us on our socials below.
                             </p>
-                            <div className="my-4 flex gap-30">
+                            <div className="my-4 flex gap-15 sm:gap-20 md:gap-23 lg:gap-30">
                               {[
                                 FaFacebook,
                                 FaTwitter,
@@ -437,11 +437,11 @@ const ContactDrawerContent = ({
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  <Icon className="text-4xl text-[#88807B] transition duration-600 hover:text-[#e9905a]" />
+                                  <Icon className="text-[#88807B] transition duration-600 hover:text-[#e9905a] text-2xl sm:text-2xl md:text-3xl lg:text-4xl" />
                                 </a>
                               ))}
                             </div>
-                            <p className="mt-6 mb-5 text-center font-[myFirstFont] text-xs text-gray-300">
+                            <p className="sm:mt-3 md:mt-6 mb-5 text-center font-[myFirstFont] text-xs text-gray-300">
                               Care to say more?—{" "}
                               <a
                                 onClick={() => {
@@ -467,10 +467,10 @@ const ContactDrawerContent = ({
                               .
                             </p>
                             <div>
-                              <p className="fredoka mb-2 text-white">
+                              <p className="fredoka mb-2 text-white text-sm lg:text-base">
                                 Sincerely,
                               </p>
-                              <p className="fredoka text-white">
+                              <p className="fredoka text-white text-sm lg:text-base">
                                 The Agile-Blanche Team
                               </p>
                             </div>
@@ -478,17 +478,17 @@ const ContactDrawerContent = ({
                               <img
                                 src="./assets/jw-sig.png"
                                 alt="Jessie's Signature"
-                                className="h-auto w-20"
+                                className="h-auto w-12 sm:w-15 md:w-17 lg:w-20"
                               />
                               <img
                                 src="./assets/mw-sig.png"
                                 alt="Mike's Signature"
-                                className="h-auto w-20"
+                                className="h-auto w-12 sm:w-15 md:w-17 lg:w-20"
                               />
                             </div>
                           </div>
-                          <div className=" absolute top-[7rem] right-[6rem] flex h-auto overflow-visible">
-                            <Stars className="star-glow h-25 w-25" />
+                          <div className="invisible absolute top-[7rem] right-[6rem] flex h-auto overflow-visible md:visible">
+                            <Stars className="star-glow md:h-20 md:w-20 lg:h-25 lg:w-25" />
                           </div>
                         </motion.div>
                       )}
