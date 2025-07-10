@@ -163,3 +163,9 @@ body {
   animation: twinkle 2s ease-in-out infinite;
   animation-delay: 1s;
 }
+
+/* @media screen and (max-width: 667px)  and (orientation: landscape) {
+  .landscape-mb-42 {
+    margin-bottom: 10.5rem;
+  }
+} */
