@@ -123,6 +123,7 @@
   transition: all 0.3s cubic-bezier(0.14, 0.59, 1, 1.01);
   margin: 0px 0px;
   padding: 0px 5px;
+  overflow: hidden;
 }
 
 .bubbly-button:hover #arrow-hover {

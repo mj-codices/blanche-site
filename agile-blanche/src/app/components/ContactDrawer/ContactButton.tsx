@@ -13,14 +13,14 @@ export const ContactButton = ({ status, setStatus, buttonRef }: ContactButtonPro
 
   return (
 
-    <div className="flex justify-end">
+    <div className="flex justify-center lg:justify-end">
 
     
       <button
       disabled={status === 'loading'}
       ref={buttonRef}
       type="submit"
-      className="bubbly-button group gap-1 flex rounded-md text-white w-[200px] px-3 py-4"
+      className="bubbly-button group gap-1 flex rounded-md text-white w-[180px] lg:w-[200px] px-2 py-3 lg:px-3 lg:py-4"
     >
       <AnimatePresence mode="wait" initial={false}>
         {status === "idle" && (
@@ -29,7 +29,7 @@ export const ContactButton = ({ status, setStatus, buttonRef }: ContactButtonPro
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="flex items-center font-[myFirstFont] tracking-widest pl-12"
+            className="flex items-center font-[myFirstFont] tracking-widest pl-12 md:pl-10 lg:pl-12"
           >
             Send it
             <img
