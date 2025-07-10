@@ -49,6 +49,19 @@ export const ContactDrawer = () => {
     return () => clearTimeout(timeout);
   }, [isOpen]);
 
+  // ✅ This useEffect must be declared separately, outside of the other
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <GoogleReCaptchaProvider
       reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
@@ -246,28 +259,28 @@ const ContactDrawerContent = ({
               </div>
               <AnimatePresence mode="wait">
                 {!showThankYou ? (
-                  <motion.div key="form">
+                  <motion.div key="form" className="h-full">
                     {/* Content Area */}
                     <div
-                      className={`transition-opacity duration-500 ease-in-out ${showContent && !showThankYou ? "opacity-100" : "opacity-0"}`}
+                      className={`h-screen overflow-y-auto px-4 pb-10 transition-opacity duration-500 ease-in-out md:h-auto ${showContent && !showThankYou ? "opacity-100" : "opacity-0"}`}
                     >
-                      <div className="flex justify-evenly">
+                      <div className="flex justify-evenly md:flex-row">
                         {/* Contact Info */}
-                        <div className="mt-11 ml-18">
-                          <h1 className="fredoka mb-4 text-8xl tracking-wider text-[#FDFDFB]">
+                        <div className="mt-11 ml-18 hidden md:block">
+                          <h1 className="fredoka mb-4 tracking-wider text-[#FDFDFB] md:text-7xl lg:text-8xl">
                             Contact
                           </h1>
                           <div className="flex items-center gap-4 pt-1 pl-4">
                             <div className="h-[.2rem] w-22 rounded-md bg-[#e9905a] lg:w-56" />
-                            <h1 className="fredoka text-8xl tracking-wider text-[#FDFDFB]">
+                            <h1 className="fredoka tracking-wider text-[#FDFDFB] md:text-7xl lg:text-8xl">
                               Us
                             </h1>
                           </div>
-                          <p className="w-[18rem] pt-3 pb-6 pl-2 font-[myFirstFont] text-base leading-8 text-[#FDFDFB]">
+                          <p className="pt-3 pb-6 pl-2 font-[myFirstFont] text-[#FDFDFB] md:w-[16rem] md:text-sm md:leading-7 lg:w-[18rem] lg:text-base lg:leading-8">
                             We’re happy to answer your questions, hear your
                             ideas, or just chat about your next project.
                           </p>
-                          <div className="fredoka pb-3 pl-6 text-sm tracking-widest text-[#88807B]">
+                          <div className="fredoka pl-6 text-sm tracking-widest text-[#88807B] md:pb-1 lg:pb-3">
                             +909-900-000
                           </div>
                           <div className="fredoka pl-6 text-sm tracking-widest text-[#88807B]">
@@ -276,7 +289,10 @@ const ContactDrawerContent = ({
                         </div>
 
                         {/* Contact Form */}
-                        <div className="mt-7 mr-10 w-110">
+                        <div className="landscape-mb-42 mt-1 h-screen w-90 sm:w-100 md:mt-7 md:w-80 lg:mr-10 lg:h-auto lg:w-110">
+                          <h1 className="fredoka mb-4 block text-center text-2xl tracking-wider text-[#FDFDFB] sm:text-4xl md:hidden">
+                            Contact Us
+                          </h1>
                           <form onSubmit={handleSubmit(onSubmit)}>
                             {/* Name */}
                             <InputField
@@ -361,7 +377,7 @@ const ContactDrawerContent = ({
                           </form>
                           {/* Socials */}
                           <div
-                            className={`mt-8 flex justify-end gap-25 transition-opacity duration-500 ${hasErrors ? "pointer-events-none opacity-0" : "opacity-100"}`}
+                            className={`invisible mt-8 flex justify-end gap-25 transition-opacity duration-500 lg:visible ${hasErrors ? "pointer-events-none opacity-0" : "opacity-100"}`}
                           >
                             {[FaFacebook, FaTwitter, FaLinkedin, FaGithub].map(
                               (Icon, idx) => (
@@ -396,13 +412,13 @@ const ContactDrawerContent = ({
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                           {/* SVG: Paper Plane */}
-                          <div className="flex justify-center absolute md:rotate-350 md:left-[4rem] block z-10 overflow-visible">
-                            <PaperPlane className="w-25 sm:w-30 pt-3 md:w-35 md:pt-38 lg:w-43" />
+                          <div className="z-10 block flex justify-center overflow-visible md:left-[4rem] md:rotate-350">
+                            <PaperPlane className="w-25 pt-3 sm:w-30 md:w-35 md:pt-38 lg:w-43" />
                           </div>
 
                           {/* Right: Message */}
-                          <div className="flex flex-1 flex-col items-center text-center z-50">
-                            <h2 className="fredoka tracking-wide font-semibold text-white mt-30 sm:mt-33 mb-3 text-3xl sm:text-4xl sm:leading-4 md:mt-8 md:mb-4 md:leading-5 lg:mt-10 lg:mb-6 lg:text-5xl lg:leading-6">
+                          <div className="z-50 flex flex-1 flex-col items-center text-center">
+                            <h2 className="fredoka mt-30 mb-3 text-3xl font-semibold tracking-wide text-white sm:mt-38 sm:text-4xl sm:leading-4 md:mt-8 md:mb-4 md:leading-5 lg:mt-10 lg:mb-6 lg:text-5xl lg:leading-6">
                               <span className="text-[#88807B]">Thanks</span>
                               {" for reaching out"}
                               {submittedName && getFirstName(submittedName) && (
@@ -417,7 +433,7 @@ const ContactDrawerContent = ({
                               {submittedName && "!"}
                             </h2>
 
-                            <p className="fredoka text-gray-300 mt-2 sm:mb-2 max-w-md sm:max-w-md text-sm leading-8 md:mt-3 sm:mx-0 sm:mb-0 md:mb-3 lg:mt-4 lg:mb-4 lg:max-w-lg lg:text-base lg:leading-9">
+                            <p className="fredoka mt-2 max-w-md text-xs leading-8 text-gray-300 sm:mx-0 sm:mb-0 sm:mb-2 sm:max-w-md sm:text-sm md:mt-3 md:mb-3 lg:mt-4 lg:mb-4 lg:max-w-lg lg:text-base lg:leading-9">
                               We’ve received your message and will be in touch
                               shortly. In the mean time, make sure to connect
                               with us on our socials below.
@@ -435,11 +451,11 @@ const ContactDrawerContent = ({
                                   target="_blank"
                                   rel="noopener noreferrer"
                                 >
-                                  <Icon className="text-[#88807B] transition duration-600 hover:text-[#e9905a] text-2xl sm:text-2xl md:text-3xl lg:text-4xl" />
+                                  <Icon className="text-2xl text-[#88807B] transition duration-600 hover:text-[#e9905a] sm:text-2xl md:text-3xl lg:text-4xl" />
                                 </a>
                               ))}
                             </div>
-                            <p className="sm:mt-3 md:mt-6 mb-5 text-center font-[myFirstFont] text-xs text-gray-300">
+                            <p className="mb-5 text-center font-[myFirstFont] text-xs text-gray-300 sm:mt-3 md:mt-6">
                               Care to say more?—{" "}
                               <a
                                 onClick={() => {
@@ -465,10 +481,10 @@ const ContactDrawerContent = ({
                               .
                             </p>
                             <div>
-                              <p className="fredoka mb-2 text-white text-sm lg:text-base">
+                              <p className="fredoka mb-2 text-sm text-white lg:text-base">
                                 Sincerely,
                               </p>
-                              <p className="fredoka text-white text-sm lg:text-base">
+                              <p className="fredoka text-sm text-white lg:text-base">
                                 The Agile-Blanche Team
                               </p>
                             </div>
@@ -485,7 +501,7 @@ const ContactDrawerContent = ({
                               />
                             </div> */}
                           </div>
-                          <div className="invisible absolute top-[3rem] right-[6rem] flex h-auto overflow-visible md:visible">
+                          <div className="invisible top-[3rem] right-[6rem] flex h-auto overflow-visible md:visible">
                             <Stars className="star-glow md:h-20 md:w-20 lg:h-25 lg:w-20" />
                           </div>
                         </motion.div>
