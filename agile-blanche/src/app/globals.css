@@ -145,11 +145,28 @@ body {
     overflow: visible;
 }
 
+@keyframes glowAndGrowPulse {
+  0% {
+    filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 2px 18px rgba(233, 150, 90, 0.9));
+    transform: scale(1.01);
+  }
+  100% {
+    filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    transform: scale(1);
+  }
+}
 
 .plane-glow {
   filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
-    overflow: visible;
+  overflow: visible;
+  transform-origin: center;
+  animation: glowAndGrowPulse 2s ease-in-out infinite;
 }
+
 
 @keyframes twinkle {
   0%, 100% {
