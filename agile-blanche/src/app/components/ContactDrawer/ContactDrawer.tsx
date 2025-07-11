@@ -409,20 +409,20 @@ const ContactDrawerContent = ({
                       {showThankYou && (
                         <motion.div
                           key="thanks"
-                          className="flex w-full max-w-6xl flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-16"
+                          className="landscape-mobile-height iphone-se-fix overflow-y-auto flex w-full max-w-6xl flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-16"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -20 }}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                           {/* SVG: Paper Plane */}
-                          <div className="absolute z-10 block top-[-1rem] flex overflow-visible md:rotate-350 left-[4rem]">
+                          <div className="md:absolute z-10 block top-[-1rem] flex overflow-visible md:rotate-350 md:left-[4rem]">
                             <PaperPlane className="w-25 sm:w-30 md:w-35 md:pt-38 lg:w-37" />
                           </div>
 
                           {/* Message */}
-                          <div className="z-50 flex flex-1 flex-col items-center text-center">
-                            <h2 className="fredoka mt-30 mb-3 text-3xl font-semibold tracking-wide text-white sm:mt-38 sm:text-4xl sm:leading-4 md:mt-8 md:mb-4 md:leading-5 lg:mt-10 lg:mb-6 lg:text-5xl lg:leading-6">
+                          <div className="z-50 flex flex-1 flex-col items-center text-center landscape-mobile-height">
+                            <h2 className="fredoka mb-3 text-3xl font-semibold tracking-wide text-white sm:mt-3 sm:text-4xl sm:leading-4 md:mt-15 md:mb-4 md:leading-5 lg:mt-10 lg:mb-6 lg:text-5xl lg:leading-6">
                               <span className="text-[#88807B]">Thanks</span>
                               {" for reaching out"}
                               {submittedName && getFirstName(submittedName) && (
