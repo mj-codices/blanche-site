@@ -492,18 +492,6 @@ const ContactDrawerContent = ({
                                 The Agile-Blanche Team
                               </p>
                             </div>
-                            {/* <div className="flex items-start gap-4 pt-5">
-                              <img
-                                src="./assets/jw-sig.png"
-                                alt="Jessie's Signature"
-                                className="h-auto w-12 sm:w-15 md:w-17 lg:w-20"
-                              />
-                              <img
-                                src="./assets/mw-sig.png"
-                                alt="Mike's Signature"
-                                className="h-auto w-12 sm:w-15 md:w-17 lg:w-20"
-                              />
-                            </div> */}
                           </div>
                           {/* Stars */}
                           <div className="absolute invisible top-[8rem] right-[7rem] flex h-auto overflow-visible md:visible">
