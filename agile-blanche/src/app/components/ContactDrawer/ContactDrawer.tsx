@@ -23,7 +23,7 @@ export const ContactDrawer = () => {
   const closeDrawer = useUIStore((state) => state.closeContactDrawer);
   const [showContent, setShowContent] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const [showThankYou, setShowThankYou] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(true);
   const [status, setStatus] = useState<"idle" | "loading" | "sent">("idle");
   const [submittedName, setSubmittedName] = useState<string | null>(null);
 
@@ -378,6 +378,7 @@ const ContactDrawerContent = ({
                               </p>
                             )}
                           </form>
+
                           {/* Socials */}
                           <div
                             className={`invisible mt-8 flex justify-end gap-25 transition-opacity duration-500 lg:visible ${hasErrors ? "pointer-events-none opacity-0" : "opacity-100"}`}
@@ -415,11 +416,11 @@ const ContactDrawerContent = ({
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                           {/* SVG: Paper Plane */}
-                          <div className="z-10 block flex justify-center overflow-visible md:left-[4rem] md:rotate-350">
-                            <PaperPlane className="w-25 pt-3 sm:w-30 md:w-35 md:pt-38 lg:w-43" />
+                          <div className="absolute z-10 block top-[-1rem] flex overflow-visible md:rotate-350 left-[4rem]">
+                            <PaperPlane className="w-25 sm:w-30 md:w-35 md:pt-38 lg:w-37" />
                           </div>
 
-                          {/* Right: Message */}
+                          {/* Message */}
                           <div className="z-50 flex flex-1 flex-col items-center text-center">
                             <h2 className="fredoka mt-30 mb-3 text-3xl font-semibold tracking-wide text-white sm:mt-38 sm:text-4xl sm:leading-4 md:mt-8 md:mb-4 md:leading-5 lg:mt-10 lg:mb-6 lg:text-5xl lg:leading-6">
                               <span className="text-[#88807B]">Thanks</span>
@@ -504,8 +505,9 @@ const ContactDrawerContent = ({
                               />
                             </div> */}
                           </div>
-                          <div className="invisible top-[3rem] right-[6rem] flex h-auto overflow-visible md:visible">
-                            <Stars className="star-glow md:h-20 md:w-20 lg:h-25 lg:w-20" />
+                          {/* Stars */}
+                          <div className="absolute invisible top-[8rem] right-[7rem] flex h-auto overflow-visible md:visible">
+                            <Stars className="star-glow md:h-20 md:w-20 lg:h-20 lg:w-20" />
                           </div>
                         </motion.div>
                       )}
