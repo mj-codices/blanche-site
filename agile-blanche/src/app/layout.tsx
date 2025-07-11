@@ -3,12 +3,16 @@ import "./globals.css";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
 import { ContactDrawer } from "./components/ContactDrawer/ContactDrawer";
+import  ViewportHeightFixer  from "./components/ViewportHeightFixer";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+
+{
   return (
     <html lang="en" className="overflow-x-hidden">
       <head>
@@ -24,8 +28,10 @@ export default function RootLayout({
         />
       </head>
       <body className="overflow-x-hidden">
+        <ViewportHeightFixer />
         <Navbar />
         <div className="flex min-h-[calc(100dvh-170px)] flex-col">
+          
           <main className="flex-grow">{children}</main>
           <Footer 
           

@@ -11,6 +11,18 @@
   --foreground: var(--black);
 }
 
+/* globals.css */
+:root {
+  --vh: 100vh;
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  :root {
+    --vh: 100%;
+  }
+}
+
+
 @font-face {
   font-family: myFirstFont;
   src: url(../../public/fonts/URWGothic-Book.otf);
@@ -164,8 +176,16 @@ body {
   animation-delay: 1s;
 }
 
-/* @media screen and (max-width: 667px)  and (orientation: landscape) {
-  .landscape-mb-42 {
-    margin-bottom: 10.5rem;
+/* Landscape media queries fix */
+@media (max-width: 1024px) and (min-width: 667px) and (max-height:768px)
+        {
+  .landscape-mobile-height {
+    height: calc(var(--vh, 1vh) * 50);
   }
-} */
+}
+/* iPad Mini media query fix */
+@media screen and (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
+  .iphone-se-fix {
+    height: calc(var(--vh, 1vh) * 50); /* Experiment with 200–300 depending on your layout */
+  }
+}

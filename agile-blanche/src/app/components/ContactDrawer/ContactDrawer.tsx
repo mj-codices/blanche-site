@@ -262,7 +262,8 @@ const ContactDrawerContent = ({
                   <motion.div key="form" className="h-full">
                     {/* Content Area */}
                     <div
-                      className={`h-screen overflow-y-auto px-4 pb-10 transition-opacity duration-500 ease-in-out md:h-auto ${showContent && !showThankYou ? "opacity-100" : "opacity-0"}`}
+                      
+                      className={`landscape-mobile-height iphone-se-fix overflow-y-auto px-4 pb-10 transition-opacity duration-500 ease-in-out md:h-auto ${showContent && !showThankYou ? "opacity-100" : "opacity-0"}`}
                     >
                       <div className="flex justify-evenly md:flex-row">
                         {/* Contact Info */}
@@ -289,7 +290,9 @@ const ContactDrawerContent = ({
                         </div>
 
                         {/* Contact Form */}
-                        <div className="landscape-mb-42 mt-1 h-screen w-90 sm:w-100 md:mt-7 md:w-80 lg:mr-10 lg:h-auto lg:w-110">
+                        <div 
+                        
+                        className="landscape-mobile-height mt-1 w-90 sm:w-100 md:mt-7 md:w-80 lg:mr-10 lg:h-auto lg:w-110">
                           <h1 className="fredoka mb-4 block text-center text-2xl tracking-wider text-[#FDFDFB] sm:text-4xl md:hidden">
                             Contact Us
                           </h1>
