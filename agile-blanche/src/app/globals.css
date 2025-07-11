@@ -97,35 +97,6 @@ body {
 }
 
 
-.custom-input::placeholder {
-  color: #6b7280; /* Tailwind gray-500 */
-  transition: color 0.8s ease;
-}
-
-.custom-input:hover::placeholder,
-.custom-input:focus::placeholder {
-  color: #a67b5b; /* Your desired hover color */
-}
-
-.custom-input1::placeholder {
-  color: #6b7280;
-  transition: color 0.8s ease;
-}
-
-.custom-input1:hover::placeholder, 
-.custom-input1:focus::placeholder {
-  color: #c7936d;
-}
-
-.custom-input2::placeholder {
-  color: #6b7280;
-  transition: color 0.8s ease;
-}
-
-.custom-input2:hover::placeholder, 
-.custom-input2:focus::placeholder {
-  color: #f6b88b;
-}
 
 @keyframes spin {
   to {
