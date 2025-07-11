@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import { useUIStore } from '@/app/store/ui-store';
 
