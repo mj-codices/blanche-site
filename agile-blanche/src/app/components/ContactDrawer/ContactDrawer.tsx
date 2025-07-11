@@ -412,7 +412,7 @@ const ContactDrawerContent = ({
                           className="landscape-mobile-height iphone-se-fix overflow-y-auto flex w-full max-w-6xl flex-col items-center gap-10 md:flex-row md:items-start md:justify-center md:gap-16"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -20 }}
+                          exit={{ opacity: 0}}
                           transition={{ duration: 0.6, ease: "easeInOut" }}
                         >
                           {/* SVG: Paper Plane */}
