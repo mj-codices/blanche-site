@@ -49,7 +49,7 @@ export const ContactDrawer = () => {
     return () => clearTimeout(timeout);
   }, [isOpen]);
 
-  // ✅ This useEffect must be declared separately, outside of the other
+ 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
