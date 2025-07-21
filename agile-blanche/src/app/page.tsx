@@ -1,13 +1,12 @@
 "use client"
-import { Button } from '@headlessui/react'
 import { BlobButton } from './components/BlobButton/BlobButton';
-import { useRouter } from "next/navigation";
 import { useUIStore } from './store/ui-store';
+import PageWrapper from "./components/PageWrapper";
 
 export default function Home() {
-  const router = useRouter();
     const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   return (
+    <PageWrapper>
     <div>
     <section className="flex items-center justify-center">
       <div className="pt-2 sm:pt-15 md:pt-15 lg:pt-15 lg:pb-7">
@@ -29,5 +28,6 @@ export default function Home() {
       </div>
     </section>
     </div>
+    </PageWrapper>
   );
 }
