@@ -6,6 +6,7 @@ import { ContactDrawer } from "./components/ContactDrawer/ContactDrawer";
 import ViewportHeightFixer from "./components/ViewportHeightFixer";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import HomeWrapper from "./components/HomeWrapper";
 
 export default function RootLayout({
   children,
@@ -28,13 +29,17 @@ export default function RootLayout({
         />
       </head>
       <body className="overflow-x-hidden">
-        <AnimatePresence mode="wait" initial={false}>
-         <>
+        <AnimatePresence mode="wait" initial={true}>
+          <>
             <ViewportHeightFixer />
-            <Navbar />
+            <HomeWrapper>
+              <Navbar />
+            </HomeWrapper>
             <div className="flex min-h-[calc(100dvh-170px)] flex-col">
               <main className="flex-grow">{children}</main>
-              <Footer />
+              <HomeWrapper>
+                <Footer />
+              </HomeWrapper>
               <ContactDrawer />
             </div>
             <svg
@@ -62,7 +67,7 @@ export default function RootLayout({
                 </filter>
               </defs>
             </svg>
-            </>
+          </>
         </AnimatePresence>
       </body>
     </html>
