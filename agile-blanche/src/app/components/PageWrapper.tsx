@@ -11,12 +11,12 @@ type PageWrapperProps = {
 const PageWrapper = ({ children }: PageWrapperProps) => {
   const pathname = usePathname();
 
-  // You can later customize this logic for per-route animations
   const variants = {
     initial: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -10 },
   };
+
 
   return (
     <motion.div
@@ -25,7 +25,10 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
       animate="animate"
       exit="exit"
       variants={variants}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
+      transition={{
+        duration: 1,
+        ease: "easeInOut",
+      }}
     >
       {children}
     </motion.div>

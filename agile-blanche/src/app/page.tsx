@@ -7,7 +7,6 @@ export default function Home() {
     const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   return (
     <PageWrapper>
-    <div>
     <section className="flex items-center justify-center">
       <div className="pt-2 sm:pt-15 md:pt-15 lg:pt-15 lg:pb-7">
         <span className="ml-5 sm:ml-0 fredoka text-7xl sm:text-6xl md:text-7xl lg:text-8xl tracking-wide">AGILE-</span>
@@ -27,7 +26,6 @@ export default function Home() {
         </div>
       </div>
     </section>
-    </div>
     </PageWrapper>
   );
 }
