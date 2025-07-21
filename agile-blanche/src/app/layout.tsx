@@ -29,13 +29,7 @@ export default function RootLayout({
       </head>
       <body className="overflow-x-hidden">
         <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={pathname}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-          >
+         <>
             <ViewportHeightFixer />
             <Navbar />
             <div className="flex min-h-[calc(100dvh-170px)] flex-col">
@@ -68,7 +62,7 @@ export default function RootLayout({
                 </filter>
               </defs>
             </svg>
-          </motion.div>
+            </>
         </AnimatePresence>
       </body>
     </html>
