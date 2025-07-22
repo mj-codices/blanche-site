@@ -1,6 +1,7 @@
 "use client";
 import ServiceCard from "../components/ServiceCard";
 import { FaMobileAlt, FaLaptopCode, FaHeadset } from "react-icons/fa";
+import PageWrapper from "../components/PageWrapper";
 
 const serviceInfo = [
   {
@@ -33,6 +34,8 @@ export default function ServicesPage() {
           Services
         </span>
       </div>
+
+      <PageWrapper>
       <div
         className={`z-10 mt-3 sm:mt-5 md:mt-0 mx-auto flex flex-col items-start justify-center space-y-4 pr-3 pb-10 pl-1 sm:space-y-6 sm:pl-8 md:mr-0 md:ml-0 md:flex-row md:items-baseline md:space-x-8 md:pt-15 md:pr-0 md:pl-0 lg:space-x-12 lg:pr-0 lg:pl-0`}
       >
@@ -49,6 +52,8 @@ export default function ServicesPage() {
           );
         })}
       </div>
+      </PageWrapper>
+      
     </>
   );
 }
