@@ -9,7 +9,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
 import "./Navbar.css";
-import { useUIStore } from "@/app/store/ui-store";
+import { UIState, useUIStore } from "@/app/store/ui-store";
 import { useRef } from "react";
 
 type navigation = {
@@ -31,9 +31,9 @@ function classNames(...classes: any[]) {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const openContactDrawer = useUIStore((state) => state.openContactDrawer);
-  const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
-  const closeContactDrawer = useUIStore((state) => state.closeContactDrawer);
+  const openContactDrawer = useUIStore((state: UIState) => state.openContactDrawer);
+  const isDrawerOpen = useUIStore((state: UIState) => state.isContactDrawerOpen);
+  const closeContactDrawer = useUIStore((state: UIState) => state.closeContactDrawer);
   const disclosureButtonRef = useRef<HTMLButtonElement>(null);
   const handleContactClick = (e?: MouseEvent) => {
     e?.stopPropagation(); // Prevent parent from catching the click

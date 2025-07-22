@@ -1,6 +1,6 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
-import { useUIStore } from "@/app/store/ui-store";
+import { UIState, useUIStore } from "@/app/store/ui-store";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
 import PaperPlane from "../PaperPlane";
@@ -19,8 +19,8 @@ type ContactFormData = {
 };
 
 export const ContactDrawer = () => {
-  const isOpen = useUIStore((state) => state.isContactDrawerOpen);
-  const closeDrawer = useUIStore((state) => state.closeContactDrawer);
+  const isOpen = useUIStore((state: UIState) => state.isContactDrawerOpen);
+  const closeDrawer = useUIStore((state: UIState) => state.closeContactDrawer);
   const [showContent, setShowContent] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [showThankYou, setShowThankYou] = useState(true);
