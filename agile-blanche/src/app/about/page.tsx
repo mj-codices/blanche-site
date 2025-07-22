@@ -3,8 +3,8 @@ import Image from "next/image";
 import { BlobButton } from "../components/BlobButton/BlobButton";
 import { useRouter } from "next/navigation";
 import { useUIStore } from "../store/ui-store";
-import PageWrapper from "../components/PageWrapper";
-import HeadWrapper from "../components/HeadWrapper";
+import ContentWrapper from "../components/Wrappers/ContentWrapper";
+import HeadWrapper from "../components/Wrappers/HeadWrapper";
 
 export default function AboutPage() {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function AboutPage() {
           </span>
         </HeadWrapper>
       </div>
-      <PageWrapper>
+      <ContentWrapper>
         <div className="relative z-10 flex flex-grow flex-col md:flex-row">
           <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-20 lg:pr-20 lg:pl-25">
             <h1 className="px-1 text-center font-[myFirstFont] text-xl text-[#88807B] sm:text-2xl md:pb-5 md:text-left md:leading-10 lg:pb-7 lg:text-3xl lg:leading-12 lg:tracking-wider">
@@ -83,7 +83,7 @@ export default function AboutPage() {
             </div>
           </section>
         </div>
-      </PageWrapper>
+      </ContentWrapper>
     </div>
   );
 }

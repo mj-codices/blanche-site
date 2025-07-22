@@ -2,8 +2,8 @@
 import "./portfolio.css";
 import Link from "next/link";
 import { useUIStore } from "../store/ui-store";
-import PageWrapper from "../components/PageWrapper";
-import HeadWrapper from "../components/HeadWrapper";
+import ContentWrapper from "../components/Wrappers/ContentWrapper";
+import HeadWrapper from "../components/Wrappers/HeadWrapper";
 
 export default function Porfolio() {
   const openContactDrawer = useUIStore((state) => state.openContactDrawer);
@@ -18,7 +18,7 @@ export default function Porfolio() {
          </HeadWrapper>
       </div>
 
-      <PageWrapper>
+      <ContentWrapper>
         <div className="pt-5 sm:pt-8 lg:pt-12">
           <h1 className="text-center font-[myFirstFontBold] text-4xl tracking-[.3rem] sm:text-5xl sm:tracking-[.5rem] md:pl-2 md:text-6xl md:tracking-[.3rem] lg:pl-4 lg:text-7xl lg:tracking-[.5rem]">
             Coming Soon.
@@ -83,7 +83,7 @@ export default function Porfolio() {
             </g>
           </svg>
         </div>
-      </PageWrapper>
+      </ContentWrapper>
     </div>
   );
 }
