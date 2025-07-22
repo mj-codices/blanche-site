@@ -35,7 +35,7 @@ export default function Navbar() {
   const isDrawerOpen = useUIStore((state) => state.isContactDrawerOpen);
   const closeContactDrawer = useUIStore((state) => state.closeContactDrawer);
   const disclosureButtonRef = useRef<HTMLButtonElement>(null);
-  const handleContactClick = (e?: React.MouseEvent) => {
+  const handleContactClick = (e?: MouseEvent) => {
     e?.stopPropagation(); // Prevent parent from catching the click
     if (isDrawerOpen) {
       closeContactDrawer();

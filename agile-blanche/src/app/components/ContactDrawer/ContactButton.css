@@ -124,6 +124,36 @@
   }
 }
 
+#arrow-hover {
+  width: 24px;
+  height: 10px;
+  position: relative;
+  transform: translateX(60px);
+  opacity: 0;
+  transition-delay: 0.8s;
+  transition: all 0.3s cubic-bezier(0.14, 0.59, 1, 1.01);
+  margin: 0px 0px;
+  padding: 0px 5px;
+  overflow: hidden;
+}
+
+.bubbly-button:hover #arrow-hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.bubbly-button:active #arrow-hover {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.float-labels {
+  transition-property: top, font-size, line-height;
+  transition-duration: 150ms;
+  pointer-events: none;
+  transition-timing-function: linear;
+}
+
 @keyframes topBubbles {
   0% {
     background-position:
@@ -208,34 +238,4 @@
       0% 0%,
       0% 0%;
   }
-}
-
-#arrow-hover {
-  width: 24px;
-  height: 10px;
-  position: relative;
-  transform: translateX(60px);
-  opacity: 0;
-  transition-delay: 0.8s;
-  transition: all 0.3s cubic-bezier(0.14, 0.59, 1, 1.01);
-  margin: 0px 0px;
-  padding: 0px 5px;
-  overflow: hidden;
-}
-
-.bubbly-button:hover #arrow-hover {
-  opacity: 1;
-  transform: translateX(5px);
-}
-
-.bubbly-button:active #arrow-hover {
-  opacity: 1;
-  transform: translateX(5px);
-}
-
-.float-labels {
-  transition-property: top, font-size, line-height;
-  transition-duration: 150ms;
-  pointer-events: none;
-  transition-timing-function: linear;
 }
