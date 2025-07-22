@@ -3,15 +3,19 @@ import "./portfolio.css";
 import Link from "next/link";
 import { useUIStore } from "../store/ui-store";
 import PageWrapper from "../components/PageWrapper";
+import HeadWrapper from "../components/HeadWrapper";
 
 export default function Porfolio() {
   const openContactDrawer = useUIStore((state) => state.openContactDrawer);
   return (
     <div className="inset-0">
-      <div className="mb-5 flex justify-center shadow-lg md:pl-10">
-        <span className="mb-5 pl-6 text-center text-lg tracking-[1.7rem] uppercase sm:pl-2 sm:text-xl md:pl-0 md:text-2xl lg:text-3xl">
+     
+      <div className="flex justify-center shadow-lg md:pl-10">
+         <HeadWrapper className="mb-5">
+        <span className="pl-6 text-center text-lg tracking-[1.7rem] uppercase sm:pl-2 sm:text-xl md:pl-0 md:text-2xl lg:text-3xl">
           Portfolio
         </span>
+         </HeadWrapper>
       </div>
 
       <PageWrapper>

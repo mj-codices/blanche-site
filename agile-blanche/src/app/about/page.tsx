@@ -4,6 +4,7 @@ import { BlobButton } from "../components/BlobButton/BlobButton";
 import { useRouter } from "next/navigation";
 import { useUIStore } from "../store/ui-store";
 import PageWrapper from "../components/PageWrapper";
+import HeadWrapper from "../components/HeadWrapper";
 
 export default function AboutPage() {
   const router = useRouter();
@@ -24,12 +25,13 @@ export default function AboutPage() {
 
   return (
     <div className="mb-20 flex min-h-[calc(100dvh-300px)] flex-col sm:mb-25 md:mb-5 lg:mb-3">
-      <div className="mb-5 flex justify-center pl-10 shadow-lg">
-        <span className="mb-5 text-center text-lg tracking-[1.7rem] uppercase sm:text-xl md:text-2xl lg:text-3xl">
-          About Us
-        </span>
+      <div className="flex justify-center pl-10 shadow-lg">
+        <HeadWrapper className="mb-5">
+          <span className="text-center text-lg tracking-[1.7rem] uppercase sm:text-xl md:text-2xl lg:text-3xl">
+            About Us
+          </span>
+        </HeadWrapper>
       </div>
-
       <PageWrapper>
         <div className="relative z-10 flex flex-grow flex-col md:flex-row">
           <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-20 lg:pr-20 lg:pl-25">
