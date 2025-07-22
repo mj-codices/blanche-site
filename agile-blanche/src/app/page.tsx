@@ -1,12 +1,9 @@
 "use client"
-import { Button } from '@headlessui/react'
 import { BlobButton } from './components/BlobButton/BlobButton';
-import { useRouter } from "next/navigation";
-import { useUIStore } from './store/ui-store';
+import { UIState, useUIStore } from './store/ui-store';
 
 export default function Home() {
-  const router = useRouter();
-    const openContactDrawer = useUIStore((state) => state.openContactDrawer);
+    const openContactDrawer = useUIStore((state: UIState) => state.openContactDrawer);
   return (
     <div>
     <section className="flex items-center justify-center">
