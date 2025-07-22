@@ -1,10 +1,10 @@
 "use client";
 import "./portfolio.css";
 import Link from "next/link";
-import { useUIStore } from "../store/ui-store";
+import { UIState, useUIStore } from "../store/ui-store";
 
 export default function Porfolio() {
-  const openContactDrawer = useUIStore((state) => state.openContactDrawer);
+  const openContactDrawer = useUIStore((state: UIState) => state.openContactDrawer);
   return (
     <div className="inset-0">
       <div className="mb-5 flex justify-center shadow-lg md:pl-10">
