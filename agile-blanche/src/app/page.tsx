@@ -29,13 +29,14 @@ export default function Home() {
           <span className="block pl-2 text-3xl tracking-wider sm:inline sm:pl-2 sm:text-4xl md:text-5xl lg:text-6xl lg:tracking-widest">
             Services
           </span>
+            <FadeUpWrapper>
           <div className="flex items-center justify-center sm:pt-10">
             <p className="invisible font-[myFirstFontBold] text-xs sm:visible sm:text-sm md:text-base lg:text-lg lg:text-[#171717]">
               Redefining app development with modern, nimble and results-driven
               solutions.
             </p>
           </div>
-          <FadeUpWrapper>
+        
             <div className="flex items-center justify-center pt-6 pb-10 sm:pt-5 md:pt-8 lg:pt-10">
               <BlobButton
                 isHome

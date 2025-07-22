@@ -263,7 +263,7 @@ const ContactDrawerContent = ({
                     {/* Content Area */}
                     <div
                       
-                      className={`landscape-mobile-height iphone-se-fix overflow-y-auto px-4 pb-10 transition-opacity duration-900 ease-in-out md:h-auto ${showContent && !showThankYou ? "opacity-100" : "opacity-0"}`}
+                      className={`landscape-mobile-height iphone-se-fix overflow-y-auto px-4 pb-10 transition-opacity ease-in-out md:h-auto ${showContent && !showThankYou ? "opacity-100 duration-900" : "opacity-0 duration-600"}`}
                     >
                       <div className="flex justify-evenly md:flex-row">
                         {/* Contact Info */}

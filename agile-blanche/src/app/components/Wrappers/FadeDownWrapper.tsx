@@ -2,18 +2,18 @@
 import { motion, Variants, Transition, easeInOut } from "framer-motion";
 import { ReactNode } from "react";
 
-const fadeInUpVariants: Variants = {
-  hidden: { opacity: 0, y: -15 },
+const fadeDownVariants: Variants = {
+  hidden: { opacity: 0, y: -10 },
   visible: { opacity: 1, y: 0 },
 };
 
-interface FadeInUpProps {
+interface FadeDownProps {
   children: ReactNode;
   delay?: number;
   className?: string;
 }
 
-const FadeInWrapper = ({ children, delay = 0, className = "" }: FadeInUpProps) => {
+const FadeDownWrapper = ({ children, delay = 0, className = "" }: FadeDownProps) => {
   const transition: Transition = {
     duration: 0.8,
     ease: easeInOut,
@@ -24,7 +24,7 @@ const FadeInWrapper = ({ children, delay = 0, className = "" }: FadeInUpProps) =
     <motion.div
       initial="hidden"
       animate="visible"
-      variants={fadeInUpVariants}
+      variants={fadeDownVariants}
       transition={transition}
       className={className}
     >
@@ -33,4 +33,4 @@ const FadeInWrapper = ({ children, delay = 0, className = "" }: FadeInUpProps) =
   );
 };
 
-export default FadeInWrapper;
+export default FadeDownWrapper;

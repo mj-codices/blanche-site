@@ -10,9 +10,9 @@ interface HeaderWrapperProps {
 }
 
 const headerVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
-  exit: { opacity: 0 },
+  initial: { opacity: 0, y: -10 },   
+  animate: { opacity: 1, y: 0 },    
+  exit: { opacity: 0, y: -10 },      
 };
 
 export default function HeaderWrapper({
@@ -27,7 +27,7 @@ export default function HeaderWrapper({
       exit="exit"
       variants={headerVariants}
       transition={{
-        duration: .5,
+        duration: .8,
         ease: "easeInOut",
       }}
     >
