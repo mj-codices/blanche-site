@@ -285,7 +285,7 @@ const ContactDrawerContent = ({
                     <div
                       className={`landscape-mobile-height iphone-se-fix overflow-y-auto px-4 pb-10 md:h-auto`}
                     >
-                      <div className="flex justify-evenly md:flex-row">
+                      <div className="flex justify-center md:justify-evenly md:flex-row">
                         <FadeInDirectionalWrapper direction="left">
                           {/* Contact Info */}
                           <div className="mt-7 ml-18 hidden md:block">
