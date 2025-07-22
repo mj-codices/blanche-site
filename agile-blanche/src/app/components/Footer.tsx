@@ -39,7 +39,7 @@ export default function Footer() {
             duration: 0.6,
             delay: isDrawerOpen ? 0 : 1.7, // wait for drawer to close before fading in
           }}
-          className="pointer-events-none select-none"
+          className={`${isDrawerOpen ? "pointer-events-none" : "pointer-events-auto"} select-none`}
         >
           <div className="z-100 flex justify-center space-x-8">
             <a href="#" target="_blank" rel="noopener noreferrer">
@@ -56,15 +56,15 @@ export default function Footer() {
             </a>
           </div>
           <div className="pt-4">
-            <a href="#" className="px-1 text-xs">
+            <a href="#" className="pr-1 text-xs transition duration-600 hover:text-[#e9905a]">
               Terms of Use
             </a>
             <span className="text-xs text-[#808080]">•</span>
-            <a href="#" className="text-xs">
+            <a href="#" className="pl-1 text-xs transition duration-600 hover:text-[#e9905a]">
               Privacy Policy
             </a>
           </div>
-          <p className="pt-2 text-xs text-[#808080]">
+          <p className="pt-2 text-xs text-[#808080] ">
             &copy; {new Date().getFullYear()} AGILE-BLANCHE
           </p>
         </motion.div>
