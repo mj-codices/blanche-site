@@ -1,13 +1,18 @@
 "use client";
 import "./globals.css";
-import Navbar from "./Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer";
+import { ContactDrawer } from "./components/ContactDrawer/ContactDrawer";
+import  ViewportHeightFixer  from "./components/ViewportHeightFixer";
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+
+{
   return (
     <html lang="en" className="overflow-x-hidden">
       <head>
@@ -23,10 +28,15 @@ export default function RootLayout({
         />
       </head>
       <body className="overflow-x-hidden">
+        <ViewportHeightFixer />
         <Navbar />
         <div className="flex min-h-[calc(100dvh-170px)] flex-col">
+          
           <main className="flex-grow">{children}</main>
-          <Footer />
+          <Footer 
+          
+          />
+          <ContactDrawer/>
         </div>
         <svg style={{ position: "absolute", width: 0, height: 0, visibility: "hidden" }}>
         <defs>

@@ -11,6 +11,18 @@
   --foreground: var(--black);
 }
 
+/* globals.css */
+:root {
+  --vh: 100vh;
+}
+
+@media (orientation: landscape) and (max-width: 1024px) {
+  :root {
+    --vh: 100%;
+  }
+}
+
+
 @font-face {
   font-family: myFirstFont;
   src: url(../../public/fonts/URWGothic-Book.otf);
@@ -84,3 +96,84 @@ body {
   }
 }
 
+
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+.star-glow {
+  filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    overflow: visible;
+}
+
+@keyframes glowAndGrowPulse {
+  0% {
+    filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 2px 18px rgba(233, 150, 90, 0.9));
+    transform: scale(1.01);
+  }
+  100% {
+    filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+    transform: scale(1);
+  }
+}
+
+.plane-glow {
+  filter: drop-shadow(0 2px 10px rgba(233, 150, 90, 0.6));
+  overflow: visible;
+  transform-origin: center;
+  animation: glowAndGrowPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.star {
+  transform-origin: center;
+  transform-box: fill-box; /* Important for SVGs */
+}
+
+/* Group A stars pulse in sync */
+.star.twinkle-a {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* Group B star (the odd one out) pulses out of phase */
+.star.twinkle-b {
+  animation: twinkle 2s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Landscape media queries fix */
+@media (max-width: 1024px) and (min-width: 667px) and (max-height:768px)
+        {
+  .landscape-mobile-height {
+    height: calc(var(--vh, 1vh) * 50);
+  }
+}
+/* iPad Mini media query fix */
+@media screen and (max-width: 375px) and (max-height: 667px) and (orientation: portrait) {
+  .iphone-se-fix {
+    height: calc(var(--vh, 1vh) * 50); /* Experiment with 200–300 depending on your layout */
+  }
+}

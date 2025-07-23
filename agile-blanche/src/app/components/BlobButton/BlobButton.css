@@ -2,6 +2,11 @@
   text-align: center;
   border-radius: 30px;
 }
+/* Creates my button click */
+.buttons:not(.disable-hover):active {
+  transform: scale(0.95);
+  transition: transform 0.2s ease-in-out;
+}
 
 .blob-btn {
   z-index: 1;
@@ -20,9 +25,17 @@
   color: var(--black);
 }
 
-.blob-btn-text:hover {
+.blob-btn-text-active {
+  box-shadow: 0 11px 17px 0 rgba(0,0,0,0.2), 0 8px 22px 0 rgba(0,0,0,0.19);
+  transition: box-shadow 0.2s;
+  color: var(--accent) !important;
+}
+
+
+.blob-btn-text:not(.disable-hover):hover {
   color: var(--white) !important;
 }
+
 
 .blob-btn-text-white {
   color: var(--black);

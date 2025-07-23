@@ -2,18 +2,13 @@
 import Image from "next/image";
 import { BlobButton } from "../components/BlobButton/BlobButton";
 import { useRouter } from "next/navigation";
+import { UIState, useUIStore } from "../store/ui-store";
 
 export default function AboutPage() {
   const router = useRouter();
-
+  const openContactDrawer = useUIStore((state: UIState) => state.openContactDrawer);
   function renderContactBtn() {
-    return (
-      <BlobButton
-        isBlack
-        text="Contact Us"
-        onClick={() => console.log("Contact button clicked!")}
-      />
-    );
+    return <BlobButton isBlack text="Contact Us" onClick={openContactDrawer} />;
   }
 
   function renderPortfolioBtn() {
@@ -64,7 +59,7 @@ export default function AboutPage() {
           </h1>
           <Image
             className="mx-auto max-w-80 rounded-lg shadow-lg sm:max-w-120 md:max-w-80 md:min-w-60 lg:max-w-96"
-            src="/placeholder.png"
+            src="/assets/placeholder.png"
             alt=""
             width={1200}
             height={500}
@@ -77,7 +72,7 @@ export default function AboutPage() {
               JULIAN WHITE - Software Developer
             </p>
           </div>
-          <div className="flex hidden flex-row md:block md:pt-4 md:pl-10 lg:hidden">
+          <div className="my-4 hidden flex-row justify-center gap-4 md:flex lg:hidden">
             {renderContactBtn()}
             {renderPortfolioBtn()}
           </div>
