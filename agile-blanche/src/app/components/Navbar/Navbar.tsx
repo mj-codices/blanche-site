@@ -8,6 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
+import FadeUpWrapper from "../Wrappers/FadeUpWrapper";
 import "./Navbar.css";
 import { useUIStore } from "@/app/store/ui-store";
 import { useRef } from "react";
@@ -157,35 +158,43 @@ export default function Navbar() {
                   return (
                     <div key={item.name}>
                       {isContact ? (
-                        <DisclosureButton
-                          as="button"
-                          onClick={() => {
-                            openContactDrawer();
-                            // Close the Disclosure dropdown
-                          }}
-                          className={classNames(
-                            "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-                            "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                            "font-[myFirstFontBold]",
-                          )}
-                        >
-                          {item.name}
-                        </DisclosureButton>
+                        <FadeUpWrapper delay={0.3}>
+                          <DisclosureButton
+                            as="button"
+                            onClick={() => {
+                              openContactDrawer();
+                              // Close the Disclosure dropdown
+                            }}
+                            className={classNames(
+                              "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+                              "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                              "font-[myFirstFontBold]",
+                            )}
+                          >
+                    
+                            {item.name}
+                          
+                          </DisclosureButton>
+                        </FadeUpWrapper>
                       ) : (
-                        <DisclosureButton
-                          as="a"
-                          href={item.href}
-                          aria-current={isActive ? "page" : undefined}
-                          className={classNames(
-                            "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-                            isActive
-                              ? "text-[#e9905a]"
-                              : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                            "font-[myFirstFont]",
-                          )}
-                        >
-                          {item.name}
-                        </DisclosureButton>
+                        <FadeUpWrapper delay={0.3}>
+                          <DisclosureButton
+                            as="a"
+                            href={item.href}
+                            aria-current={isActive ? "page" : undefined}
+                            className={classNames(
+                              "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+                              isActive
+                                ? "text-[#e9905a]"
+                                : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                              "font-[myFirstFont]",
+                            )}
+                          >
+
+                            {item.name}
+
+                          </DisclosureButton>
+                        </FadeUpWrapper>
                       )}
 
                       {!isLast && (
