@@ -27,7 +27,7 @@ export default function HeaderWrapper({
       exit="exit"
       variants={headerVariants}
       transition={{
-        duration: .8,
+        duration: 1,
         ease: "easeInOut",
       }}
     >
