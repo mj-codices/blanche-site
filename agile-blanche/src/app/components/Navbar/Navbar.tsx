@@ -8,7 +8,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BlobButton } from "../BlobButton/BlobButton";
-import FadeUpWrapper from "../Wrappers/FadeUpWrapper";
+import FadeInDirectionalWrapper from "../Wrappers/FadeInDirectionalWrapper";
 import "./Navbar.css";
 import { UIState, useUIStore } from "@/app/store/ui-store";
 import { useRef } from "react";
@@ -32,9 +32,15 @@ function classNames(...classes: any[]) {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const openContactDrawer = useUIStore((state: UIState) => state.openContactDrawer);
-  const isDrawerOpen = useUIStore((state: UIState) => state.isContactDrawerOpen);
-  const closeContactDrawer = useUIStore((state: UIState) => state.closeContactDrawer);
+  const openContactDrawer = useUIStore(
+    (state: UIState) => state.openContactDrawer,
+  );
+  const isDrawerOpen = useUIStore(
+    (state: UIState) => state.isContactDrawerOpen,
+  );
+  const closeContactDrawer = useUIStore(
+    (state: UIState) => state.closeContactDrawer,
+  );
   const disclosureButtonRef = useRef<HTMLButtonElement>(null);
   const handleContactClick = (e?: MouseEvent) => {
     e?.stopPropagation(); // Prevent parent from catching the click
@@ -158,43 +164,40 @@ export default function Navbar() {
                   return (
                     <div key={item.name}>
                       {isContact ? (
-                        <FadeUpWrapper delay={0.3}>
-                          <DisclosureButton
-                            as="button"
-                            onClick={() => {
-                              openContactDrawer();
-                              // Close the Disclosure dropdown
-                            }}
-                            className={classNames(
-                              "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-                              "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                              "font-[myFirstFontBold]",
-                            )}
-                          >
-                    
+                        <DisclosureButton
+                          as="button"
+                          onClick={() => {
+                            openContactDrawer();
+                            // Close the Disclosure dropdown
+                          }}
+                          className={classNames(
+                            "font-lg block w-full rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+                            "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                            "font-[myFirstFontBold]",
+                          )}
+                        >
+                       <FadeInDirectionalWrapper direction="down" delay={.6}>
                             {item.name}
-                          
-                          </DisclosureButton>
-                        </FadeUpWrapper>
+                       </FadeInDirectionalWrapper>
+                        
+                        </DisclosureButton>
                       ) : (
-                        <FadeUpWrapper delay={0.3}>
-                          <DisclosureButton
-                            as="a"
-                            href={item.href}
-                            aria-current={isActive ? "page" : undefined}
-                            className={classNames(
-                              "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
-                              isActive
-                                ? "text-[#e9905a]"
-                                : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
-                              "font-[myFirstFont]",
-                            )}
-                          >
-
+                        <DisclosureButton
+                          as="a"
+                          href={item.href}
+                          aria-current={isActive ? "page" : undefined}
+                          className={classNames(
+                            "font-lg block rounded-md pt-3 pb-2 text-center text-base tracking-[1rem] uppercase",
+                            isActive
+                              ? "text-[#e9905a]"
+                              : "text-white transition duration-600 ease-in-out hover:text-[#e9905a]",
+                            "font-[myFirstFont]",
+                          )}
+                        >
+                              <FadeInDirectionalWrapper direction="down" delay={.6}>
                             {item.name}
-
-                          </DisclosureButton>
-                        </FadeUpWrapper>
+                       </FadeInDirectionalWrapper>
+                        </DisclosureButton>
                       )}
 
                       {!isLast && (

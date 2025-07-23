@@ -9,6 +9,7 @@ type Direction = "left" | "right" | "up" | "down";
 interface FadeInDirectionalProps {
   children: ReactNode;
   direction?: Direction;
+  duration?: number;
   delay?: number;
   className?: string;
 }
@@ -32,6 +33,7 @@ const getVariants = (direction: Direction = "up"): Variants => {
 export default function FadeInDirectionalWrapper({
   children,
   direction = "up",
+  duration = 1,
   delay = 0,
   className,
 }: FadeInDirectionalProps) {
@@ -43,9 +45,9 @@ export default function FadeInDirectionalWrapper({
       exit="exit"
       variants={getVariants(direction)}
       transition={{
-        duration: 1,
+        duration,
         ease: "easeOut",
-        delay: .3,
+        delay,
       }}
     >
       {children}
