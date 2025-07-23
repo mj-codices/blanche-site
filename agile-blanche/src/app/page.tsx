@@ -47,7 +47,7 @@ export default function Home() {
         </FadeInDirectionalWrapper>
       </section>
         <section>
-      <FadeInDirectionalWrapper direction="down" delay={1.2}>
+      <FadeInDirectionalWrapper direction="down" delay={1.1}>
           <div className="flex items-center justify-center pt-6 pb-10 sm:pt-5 md:pt-8 lg:pt-10">
             <BlobButton isHome text="Contact Us" onClick={openContactDrawer} />
           </div>
