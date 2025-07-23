@@ -286,7 +286,7 @@ const ContactDrawerContent = ({
                       className={`landscape-mobile-height iphone-se-fix overflow-y-auto px-4 pb-10 md:h-auto`}
                     >
                       <div className="flex justify-center md:justify-evenly md:flex-row">
-                        <FadeInDirectionalWrapper direction="left" delay={.3}>
+                        <FadeInDirectionalWrapper duration={.8} direction="left" delay={.3}>
                           {/* Contact Info */}
                           <div className="mt-7 ml-18 hidden md:block">
                             <h1 className="fredoka mb-4 tracking-wider text-[#FDFDFB] md:text-7xl lg:text-8xl">
@@ -312,7 +312,7 @@ const ContactDrawerContent = ({
                         </FadeInDirectionalWrapper>
                         {/* Contact Form */}
 
-                        <FadeInDirectionalWrapper direction="right" delay={.3}>
+                        <FadeInDirectionalWrapper duration={.8} direction="right" delay={.3}>
                           <div className="landscape-mobile-height mt-1 w-90 sm:w-100 md:mt-7 md:w-80 lg:mr-10 lg:h-auto lg:w-110">
                             <h1 className="fredoka mb-4 block text-center text-2xl tracking-wider text-[#FDFDFB] sm:text-4xl md:hidden">
                               Contact Us
