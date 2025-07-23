@@ -1,7 +1,7 @@
 // store/ui-store.ts
 import { create } from 'zustand';
 
-interface UIState {
+export interface UIState {
   isContactDrawerOpen: boolean;
   openContactDrawer: () => void;
   closeContactDrawer: () => void;

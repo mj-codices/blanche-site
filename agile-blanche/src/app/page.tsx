@@ -1,11 +1,11 @@
 "use client";
 import { BlobButton } from "./components/BlobButton/BlobButton";
-import { useUIStore } from "./store/ui-store";
+import { UIState, useUIStore } from "./store/ui-store";
 import FadeDownWrapper from "./components/Wrappers/FadeDownWrapper";
 import FadeUpWrapper from "./components/Wrappers/FadeUpWrapper";
 
 export default function Home() {
-  const openContactDrawer = useUIStore((state) => state.openContactDrawer);
+    const openContactDrawer = useUIStore((state: UIState) => state.openContactDrawer);
   return (
     <FadeDownWrapper>
       <section className="flex items-center justify-center">

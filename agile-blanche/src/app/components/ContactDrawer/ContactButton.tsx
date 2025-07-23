@@ -1,12 +1,12 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { Dispatch, RefObject, SetStateAction } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./ContactButton.css";
 
 interface ContactButtonProps {
   status: "idle" | "loading" | "sent";
-  setStatus: React.Dispatch<React.SetStateAction<"idle" | "loading" | "sent">>;
-  buttonRef: React.RefObject<HTMLButtonElement | null >;
+  setStatus: Dispatch<SetStateAction<"idle" | "loading" | "sent">>;
+  buttonRef: RefObject<HTMLButtonElement | null >;
 }
 
 export const ContactButton = ({ status, setStatus, buttonRef }: ContactButtonProps) => {
