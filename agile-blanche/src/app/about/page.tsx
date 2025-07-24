@@ -34,7 +34,7 @@ export default function AboutPage() {
       </div>
       <ContentWrapper>
         <div className="relative z-10 flex flex-grow flex-col md:flex-row">
-          <section className="relative sm:pt-3 md:pt-18 md:pr-20 md:pl-20 lg:pt-20 lg:pr-20 lg:pl-25">
+          <section className="relative pt-3 sm:pt-5 md:pt-18 md:pr-20 md:pl-20 lg:pt-20 lg:pr-20 lg:pl-25">
             <h1 className="px-1 text-center font-[myFirstFont] text-xl text-[#88807B] sm:text-2xl md:pb-5 md:text-left md:leading-10 lg:pb-7 lg:text-3xl lg:leading-12 lg:tracking-wider">
               Where <span className="text-[#e9905a]">pragmatism</span> meets the
               human <span className="text-[#e9905a]">spirit</span>
