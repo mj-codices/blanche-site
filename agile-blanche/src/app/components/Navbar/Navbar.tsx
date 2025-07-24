@@ -194,7 +194,7 @@ export default function Navbar() {
                             "font-[myFirstFont]",
                           )}
                         >
-                              <FadeInDirectionalWrapper direction="down" delay={.6}>
+                      <FadeInDirectionalWrapper direction="down" delay={.6}>
                             {item.name}
                        </FadeInDirectionalWrapper>
                         </DisclosureButton>

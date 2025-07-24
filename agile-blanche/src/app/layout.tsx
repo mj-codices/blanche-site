@@ -6,7 +6,6 @@ import { ContactDrawer } from "./components/ContactDrawer/ContactDrawer";
 import ViewportHeightFixer from "./components/ViewportHeightFixer";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import NavWrapper from "./components/Wrappers/NavWrapper";
 
 export default function RootLayout({
   children,
@@ -32,14 +31,19 @@ export default function RootLayout({
         <AnimatePresence mode="wait" initial={true}>
           <>
             <ViewportHeightFixer />
-            <NavWrapper>
+            <motion.div
+              initial={{ opacity: 0, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <Navbar />
-            </NavWrapper>
+            </motion.div>
+
             <div className="flex min-h-[calc(100dvh-170px)] flex-col">
               <main className="flex-grow">{children}</main>
-             
-                <Footer />
-              
+
+              <Footer />
+
               <ContactDrawer />
             </div>
             <svg
