@@ -138,7 +138,7 @@ export default function Navbar() {
                   disableHover={isDrawerOpen}
                   isNav
                   text="Contact"
-                  onClick={(e) => handleContactClick(e)}
+                  onClick={handleContactClick}
                 />
               </div>
             </div>
