@@ -6,11 +6,13 @@ import { Resend } from "resend";
 export const runtime = "nodejs"; 
 
 export async function POST(req: Request) {
-  const corsHeaders = {
-    "Access-Control-Allow-Origin": "*", // or specify your deployment URL instead of '*'
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  };
+const allowedOrigin = req.headers.get("origin") ?? "*";
+
+const corsHeaders = {
+  "Access-Control-Allow-Origin": allowedOrigin,
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
    console.log("📩 Backend route hit");
   try {
     const { name, email, message, token } = await req.json();
