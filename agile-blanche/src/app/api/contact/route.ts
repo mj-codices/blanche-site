@@ -1,6 +1,4 @@
 // app/api/contact/route.ts
-
-// app/api/contact/route.ts
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
@@ -8,6 +6,11 @@ import { Resend } from "resend";
 export const runtime = "nodejs"; 
 
 export async function POST(req: Request) {
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": "*", // or specify your deployment URL instead of '*'
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
    console.log("📩 Backend route hit");
   try {
     const { name, email, message, token } = await req.json();
@@ -79,14 +82,25 @@ export async function POST(req: Request) {
 
     console.log("Email sent via Resend:", data);
 
-    return NextResponse.json({ success: true, data });
+    return NextResponse.json({ success: true, data }, { status: 200, headers: corsHeaders });
   } catch (error) {
     console.error("Error in /api/contact:", {
       message: (error as Error).message,
       stack: (error as Error).stack,
     });
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json({ error: "Server error" }, { status: 500, headers: corsHeaders });
   }
+}
+
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // Or a specific domain
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
 }
 
 
