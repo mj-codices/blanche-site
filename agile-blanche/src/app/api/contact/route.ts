@@ -8,6 +8,7 @@ import { Resend } from "resend";
 export const runtime = "nodejs"; 
 
 export async function POST(req: Request) {
+   console.log("📩 Backend route hit");
   try {
     const { name, email, message, token } = await req.json();
     console.log("Token received on backend:", token);
