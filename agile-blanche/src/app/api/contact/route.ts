@@ -1,7 +1,7 @@
 // app/api/contact/route.ts
 
-import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -10,11 +10,23 @@ export async function POST(req: Request) {
     const { name, email, message, token } = await req.json();
 
     if (!token) {
-      return NextResponse.json({ error: "Missing reCAPTCHA token" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Missing reCAPTCHA token" },
+        { status: 400 },
+      );
     }
 
     const verifyURL = `https://www.google.com/recaptcha/api/siteverify`;
     const params = new URLSearchParams();
+    const secret = process.env.RECAPTCHA_SECRET_KEY;
+    if (!secret) {
+      return NextResponse.json(
+        { error: "Missing reCAPTCHA secret" },
+        { status: 500 },
+      );
+    }
+    params.append("secret", secret);
+
     params.append("secret", process.env.RECAPTCHA_SECRET_KEY!);
     params.append("response", token);
 
@@ -27,23 +39,25 @@ export async function POST(req: Request) {
     const verifyData = await verifyRes.json();
 
     if (!verifyData.success || verifyData.score < 0.5) {
-      return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 400 });
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed" },
+        { status: 400 },
+      );
     }
 
     // ✅ reCAPTCHA passed, send email
     const data = await resend.emails.send({
-      from: 'onboarding@resend.dev',
-      to: 'mjwhite.dev@gmail.com',
+      from: "onboarding@resend.dev",
+      to: "mjwhite.dev@gmail.com",
       subject: `New message from ${name}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong><br/>${message}</p>
-      `
+      `,
     });
 
     return NextResponse.json({ success: true, data });
-
   } catch (error) {
     console.error("Error in /api/contact:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
