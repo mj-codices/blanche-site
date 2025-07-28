@@ -1,7 +1,7 @@
 // eslint.config.js
 import js from '@eslint/js';
 import next from 'eslint-config-next';
-import tseslint from 'typescript-eslint';
+import * as tseslint from 'typescript-eslint/eslint.config';
 
 export default [
   js.configs.recommended,
