@@ -22,7 +22,7 @@ const corsHeaders = {
     if (!token) {
       return NextResponse.json(
         { error: "Missing reCAPTCHA token" },
-        { status: 400 }
+        { status: 400,  headers: corsHeaders }
       );
     }
 
@@ -34,7 +34,7 @@ const corsHeaders = {
       console.error("Missing RECAPTCHA_SECRET_KEY");
       return NextResponse.json(
         { error: "Missing reCAPTCHA secret" },
-        { status: 500 }
+        { status: 500,  headers: corsHeaders }
       );
     }
 
@@ -42,7 +42,7 @@ const corsHeaders = {
       console.error("Missing VERCEL_PRODUCTION_KEY");
       return NextResponse.json(
         { error: "Missing Resend API key" },
-        { status: 500 }
+        { status: 500,  headers: corsHeaders }
       );
     }
 
@@ -64,7 +64,7 @@ const corsHeaders = {
     if (!verifyData.success || verifyData.score < 0.5) {
       return NextResponse.json(
         { error: "reCAPTCHA verification failed" },
-        { status: 400 }
+        { status: 400,  headers: corsHeaders }
       );
     }
 
