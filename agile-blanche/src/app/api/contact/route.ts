@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     // 🛡 Check environment variables
     const secret = process.env.RECAPTCHA_SECRET_KEY;
-    const resendKey = process.env.RESEND_API_KEY;
+    const resendKey = process.env.VERCEL_PRODUCTION_KEY;
 
     if (!secret) {
       console.error("Missing RECAPTCHA_SECRET_KEY");
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
     }
 
     if (!resendKey) {
-      console.error("Missing RESEND_API_KEY");
+      console.error("Missing VERCEL_PRODUCTION_KEY");
       return NextResponse.json(
         { error: "Missing Resend API key" },
         { status: 500 }
