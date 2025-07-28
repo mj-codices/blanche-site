@@ -10,6 +10,7 @@ export const runtime = "nodejs";
 export async function POST(req: Request) {
   try {
     const { name, email, message, token } = await req.json();
+    console.log("Token received on backend:", token);
 
     // 🛡 Check reCAPTCHA token
     if (!token) {
