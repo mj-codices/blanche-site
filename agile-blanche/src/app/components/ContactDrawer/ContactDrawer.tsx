@@ -205,8 +205,8 @@ const ContactDrawerContent = ({
 
     try {
       const token = await executeRecaptcha("contact_form");
-      console.log("reCAPTCHA token:", token);
-
+      // console.log("reCAPTCHA token:", token);
+      console.log("📨 Sending form data...", data);
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
