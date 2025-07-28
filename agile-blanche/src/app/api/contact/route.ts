@@ -61,7 +61,7 @@ const corsHeaders = {
     const verifyData = await verifyRes.json();
     console.log("reCAPTCHA result:", verifyData); // ✅ helpful for debugging
 
-    if (!verifyData.success || verifyData.score < 0.5) {
+    if (!verifyData.success || verifyData.score < 0.2) {
       return NextResponse.json(
         { error: "reCAPTCHA verification failed" },
         { status: 400,  headers: corsHeaders }
