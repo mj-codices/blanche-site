@@ -267,18 +267,18 @@ const ContactDrawerContent = ({
             >
               <div className="absolute top-2 left-0 w-screen">
                 <svg
-                  className="wave block w-screen"
+                  className="wave block w-[300%]"
                   viewBox="0 0 1200 100"
                   preserveAspectRatio="none"
                 >
-                  <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
+                   <path d="M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z" fill="#171717" />
                 </svg>
                 <svg
-                  className="wave left-[100%] block w-screen"
+                  className="wave left-[100%] block w-[300%]"
                   viewBox="0 0 1200 100"
                   preserveAspectRatio="none"
                 >
-                  <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
+                   <path d="M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z" fill="#171717" />
                 </svg>
               </div>
               <AnimatePresence mode="wait">
