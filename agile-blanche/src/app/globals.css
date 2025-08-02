@@ -66,21 +66,15 @@ body {
 }
 
 .wave {
-  @apply absolute bottom-0 h-16 w-[200%];
+  @apply absolute bottom-0 h-16;
   animation: waveMove 12s linear infinite;
 }
 
 
 @media (max-width: 100vw) {
   .wave {
-    @apply h-20 w-[300%];
+    @apply h-20;
     animation: waveMove 10s linear infinite;
-  }
-
-  .wave path {
-    d: path(
-      "M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z"
-    );
   }
 }
 

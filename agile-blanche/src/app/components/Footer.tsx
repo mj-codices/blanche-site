@@ -11,22 +11,22 @@ export default function Footer() {
       {/* SVG Waves */}
       <div className="absolute top-2 left-0 w-full">
         <svg
-          className="wave relative block w-full"
+          className="wave relative block w-[300%]"
           viewBox="0 0 1200 100"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
+          <path d="M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z" fill="#171717" />
         </svg>
       </div>
       <div className="absolute top-2 left-0 w-full">
         <svg
-          className="wave relative left-[100%] block w-full"
+          className="wave relative left-[100%] block w-[300%]"
           viewBox="0 0 1200 100"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0,50 L1200,50 V100 H0 Z" fill="#171717" />
+          <path d="M0,50 C150,80 300,20 450,50 C600,80 750,20 900,50 C1050,80 1200,20 1350,50 C1500,80 1650,20 1800,50 V100 H0 Z" fill="#171717" />
         </svg>
       </div>
 
