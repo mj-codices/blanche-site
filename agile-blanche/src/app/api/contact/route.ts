@@ -27,8 +27,7 @@ export async function POST(req: Request) {
     }
 
     // 🛡 Check environment variables
-    // const secret = process.env.RECAPTCHA_SECRET_KEY;
-    const secret = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    const secret = process.env.RECAPTCHA_SECRET_KEY;
     const resendKey = process.env.VERCEL_PRODUCTION_KEY;
 
     if (!secret) {
