@@ -207,10 +207,13 @@ const ContactDrawerContent = ({
       const token = await executeRecaptcha("contact_form");
       // console.log("reCAPTCHA token:", token);
       console.log("📨 Sending form data...", data);
-     const res = await fetch(
-  process.env.NODE_ENV === "development"
-    ? "/api/contact"
-    : "https://blanche-site.vercel.app/api/contact", {
+      const url = "https://agile-blanche.com/api/contact";
+      // const url = process.env.NODE_ENV === "development"
+      //   ? "/api/contact"
+      //   : "https://blanche-site.vercel.app/api/contact";
+
+      const res = await fetch(
+        url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...data, token }),
