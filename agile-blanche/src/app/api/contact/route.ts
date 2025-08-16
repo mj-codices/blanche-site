@@ -3,17 +3,17 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 // Optional: set runtime to Node.js to avoid edge issues
-export const runtime = "nodejs"; 
+export const runtime = "nodejs";
 
 export async function POST(req: Request) {
-const allowedOrigin = req.headers.get("origin") ?? "*";
+  const allowedOrigin = req.headers.get("origin") ?? "*";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": allowedOrigin,
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
-   console.log("📩 Backend route hit");
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": allowedOrigin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+  console.log("📩 Backend route hit");
   try {
     const { name, email, message, token } = await req.json();
     console.log("Token received on backend:", token);
@@ -22,19 +22,20 @@ const corsHeaders = {
     if (!token) {
       return NextResponse.json(
         { error: "Missing reCAPTCHA token" },
-        { status: 400,  headers: corsHeaders }
+        { status: 400, headers: corsHeaders }
       );
     }
 
     // 🛡 Check environment variables
-    const secret = process.env.RECAPTCHA_SECRET_KEY;
+    // const secret = process.env.RECAPTCHA_SECRET_KEY;
+    const secret = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
     const resendKey = process.env.VERCEL_PRODUCTION_KEY;
 
     if (!secret) {
       console.error("Missing RECAPTCHA_SECRET_KEY");
       return NextResponse.json(
         { error: "Missing reCAPTCHA secret" },
-        { status: 500,  headers: corsHeaders }
+        { status: 500, headers: corsHeaders }
       );
     }
 
@@ -42,7 +43,7 @@ const corsHeaders = {
       console.error("Missing VERCEL_PRODUCTION_KEY");
       return NextResponse.json(
         { error: "Missing Resend API key" },
-        { status: 500,  headers: corsHeaders }
+        { status: 500, headers: corsHeaders }
       );
     }
 
@@ -64,7 +65,7 @@ const corsHeaders = {
     if (!verifyData.success || verifyData.score < 0.2) {
       return NextResponse.json(
         { error: "reCAPTCHA verification failed" },
-        { status: 400,  headers: corsHeaders }
+        { status: 400, headers: corsHeaders }
       );
     }
 
